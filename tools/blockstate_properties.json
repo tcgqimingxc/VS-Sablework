@@ -1365,7 +1365,7 @@
   }
  },
  "bootstrapError": "",
- "classFingerprint": "2220eca72a4d5ef3b406b34880a494c9",
+ "classFingerprint": "28b3697d2dab2858285386c8be2b92c4",
  "failCount": 0,
  "generator": "tools/probe_blockstates.py",
  "mcVersion": "1.21.1",
