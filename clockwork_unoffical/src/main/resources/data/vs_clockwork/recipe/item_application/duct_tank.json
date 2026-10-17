@@ -1,0 +1,16 @@
+{
+    "type":  "create:item_application",
+    "ingredients":  [
+                        {
+                            "item":  "create:fluid_tank"
+                        },
+                        {
+                            "item":  "create:industrial_iron_block"
+                        }
+                    ],
+    "results":  [
+                    {
+                        "id":  "vs_clockwork:duct_tank"
+                    }
+                ]
+}

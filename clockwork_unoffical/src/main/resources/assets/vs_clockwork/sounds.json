@@ -1,0 +1,525 @@
+{
+  "physics_infuser_initialize": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:physics_infuser_initialize",
+        "type": "file",
+        "attenuation_distance": 64
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.physinitialize"
+  },
+  "physics_infuser_windup": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:physics_infuser_windup",
+        "type": "file",
+        "attenuation_distance": 32
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.physwindup"
+  },
+  "physics_infuser_lightning": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:physics_infuser_lightning",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.zap"
+  },
+  "physics_infuser_finish": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:physics_infuser_finish",
+        "type": "file",
+        "attenuation_distance": 64
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.physfinish"
+  },
+  "thick_fluid_swim": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:thick_fluid_swim",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.thick_fluid_swim"
+  },
+  "thick_fluid_fill": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:thick_fluid_fill",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.thick_fluid_fill"
+  },
+  "thick_fluid_empty": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:thick_fluid_empty",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.thick_fluid_empty"
+  },
+  "wand_weld": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:wand_weld",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.wand_weld"
+  },
+  "wand_start": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:wand_start",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.wand_whirr"
+  },
+  "wand_equip": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:wand_equip",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.wand_equip"
+  },
+  "wand_idle": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:wand_idle",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.wand_idle"
+  },
+  "wand_finish": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:wand_finish",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.wand_finish"
+  },
+  "boing": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:boing",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.boing"
+  },
+  "doink": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:doink",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.doink"
+  },
+  "tick": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:tick",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "tock": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:tock",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ]
+  },
+  "clock_song": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:clock_song",
+        "type": "file",
+        "attenuation_distance": 128
+      }
+    ]
+  },
+  "thwoom": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:thwoom",
+        "type": "file",
+        "attenuation_distance": 32
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.thwoom"
+  },
+  "junk_propeller": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:junk_propeller",
+        "type": "file",
+        "stream": true,
+        "attenuation_distance": 32
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.junk_propeller"
+  },
+  "propeller": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:propeller",
+        "type": "file",
+        "stream": true,
+        "attenuation_distance": 32
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.propeller"
+  },
+  "junk_rattle": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:metal_creak_1",
+        "type": "file",
+        "stream": true,
+        "attenuation_distance": 16
+      },
+      {
+        "name": "vs_clockwork:metal_creak_2",
+        "type": "file",
+        "stream": true,
+        "attenuation_distance": 16
+      },
+      {
+        "name": "vs_clockwork:metal_creak_3",
+        "type": "file",
+        "stream": true,
+        "attenuation_distance": 16
+      },
+      {
+        "name": "vs_clockwork:metal_creak_4",
+        "type": "file",
+        "stream": true,
+        "attenuation_distance": 16
+      },
+      {
+        "name": "vs_clockwork:metal_creak_5",
+        "type": "file",
+        "stream": true,
+        "attenuation_distance": 16
+      },
+      {
+        "name": "vs_clockwork:metal_creak_6",
+        "type": "file",
+        "stream": true,
+        "attenuation_distance": 16
+      },
+      {
+        "name": "vs_clockwork:metal_creak_7",
+        "type": "file",
+        "stream": true,
+        "attenuation_distance": 16
+      },
+      {
+        "name": "vs_clockwork:metal_creak_8",
+        "type": "file",
+        "stream": true,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.junk_rattle"
+  },
+  "propeller_start": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:junk_prop_start",
+        "type": "file",
+        "attenuation_distance": 32
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.propeller_start"
+  },
+  "propeller_stop": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:junk_prop_stop",
+        "type": "file",
+        "attenuation_distance": 32
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.propeller_stop"
+  },
+  "thruster": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:thruster",
+        "type": "file",
+        "attenuation_distance": 32
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.thruster"
+  },
+  "gas_hiss": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:gas_hiss",
+        "type": "file",
+        "attenuation_distance": 32
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.gas_hiss"
+  },
+  "wanderlust": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:wanderlust",
+        "stream": true
+      }
+    ]
+  },
+  "flightsuit_equip": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:flightsuit_equip",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.flightsuit_equip"
+  },
+  "flightsuit_unequip": {
+      "sounds": [
+      {
+          "name": "vs_clockwork:flightsuit_unequip",
+          "type": "file",
+          "attenuation_distance": 16
+      }
+      ],
+      "subtitle": "vs_clockwork.subtitle.flightsuit_unequip"
+  },
+  "goggles_equip": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:goggles_equip",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.goggles_equip"
+  },
+  "goggles_unequip": {
+      "sounds": [
+      {
+          "name": "vs_clockwork:goggles_unequip",
+          "type": "file",
+          "attenuation_distance": 16
+      }
+      ],
+      "subtitle": "vs_clockwork.subtitle.goggles_unequip"
+  },
+  "gear_whirr": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:gear_whirr",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.spinoff_click"
+  },
+  "hose_attach": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:hose_attach",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.hose_attach"
+  },
+  "hose_release": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:hose_release",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.hose_release"
+  },
+  "joint_break": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:joint_break",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.joint_break"
+  },
+  "gravitron_start": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:gravitron_start",
+        "type": "file",
+        "attenuation_distance": 32
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.gravitron_start"
+  },
+  "gravitron_grab": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:gravitron_grab",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.gravitron_grab"
+  },
+  "gravitron_release": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:gravitron_release",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.gravitron_release"
+  },
+  "gravitron_fling": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:gravitron_fling",
+        "type": "file",
+        "attenuation_distance": 32
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.gravitron_fling"
+  },
+  "gravitron_freeze": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:gravitron_freeze",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.gravitron_freeze"
+  },
+  "gravitron_shutdown": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:gravitron_shutdown",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.gravitron_shutdown"
+  },
+  "gravitron_lock": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:gravitron_freeze",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.gravitron_lock"
+  },
+  "gravitron_unlock": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:gravitron_fling",
+        "type": "file",
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.gravitron_unlock"
+  },
+  "gas_nozzle_start": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:gas_nozzle_start",
+        "type": "file",
+        "attenuation_distance": 32
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.gas_nozzle_start"
+  },
+  "gas_nozzle_loop": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:gas_nozzle_loop",
+        "type": "file",
+        "stream": true,
+        "attenuation_distance": 16
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.gas_nozzle_loop"
+  },
+  "balloon_rupture": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:balloon_rupturing_1",
+        "type": "file",
+        "attenuation_distance": 64
+      },
+      {
+        "name": "vs_clockwork:balloon_rupturing_2",
+        "type": "file",
+        "attenuation_distance": 64
+      },
+      {
+        "name": "vs_clockwork:balloon_rupturing_3",
+        "type": "file",
+        "attenuation_distance": 64
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.balloon_rupture"
+  },
+  "balloon_leaking_light": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:balloon_leaking_light_loop",
+        "type": "file",
+        "stream": true,
+        "attenuation_distance": 64
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.balloon_leaking_light"
+  },
+  "balloon_leaking_heavy": {
+    "sounds": [
+      {
+        "name": "vs_clockwork:balloon_leaking_heavy_loop",
+        "type": "file",
+        "stream": true,
+        "attenuation_distance": 64
+      }
+    ],
+    "subtitle": "vs_clockwork.subtitle.balloon_leaking_heavy"
+  }
+}

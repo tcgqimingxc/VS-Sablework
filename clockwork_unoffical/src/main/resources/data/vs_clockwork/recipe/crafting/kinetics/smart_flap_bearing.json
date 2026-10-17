@@ -1,0 +1,21 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "pattern":  [
+                    "LAL",
+                    " B "
+                ],
+    "key":  {
+                "L":  {
+                          "item":  "create:transmitter"
+                      },
+                "A":  {
+                          "item":  "vs_clockwork:andesite_flap_bearing"
+                      },
+                "B":  {
+                          "item":  "create:brass_sheet"
+                      }
+            },
+    "result":  {
+                   "id":  "vs_clockwork:smart_flap_bearing"
+               }
+}

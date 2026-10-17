@@ -1,0 +1,38 @@
+{
+    "type":  "vs_clockwork:gas_crafting",
+    "ingredients":  [
+                        {
+                            "tag":  "minecraft:coals"
+                        }
+                    ],
+    "input_gasses":  {
+                         "vs_clockwork:steam":  {
+                                                    "amount":  50,
+                                                    "unit":  "g"
+                                                }
+                     },
+    "result_gasses":  {
+                          "vs_clockwork:bog":  {
+                                                   "amount":  30,
+                                                   "unit":  "g"
+                                               },
+                          "vs_clockwork:exhaust":  {
+                                                       "amount":  50,
+                                                       "unit":  "g"
+                                                   },
+                          "vs_clockwork:stellane":  {
+                                                        "amount":  1,
+                                                        "unit":  "g"
+                                                    }
+                      },
+    "results":  [
+
+                ],
+    "requirements":  {
+                         "kelvin:min_temperature":  700.0,
+                         "kelvin:inhibited_by":  {
+                                                     "gas":  "kelvin:air",
+                                                     "ratio":  0.1
+                                                 }
+                     }
+}

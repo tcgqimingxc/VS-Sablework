@@ -1,0 +1,22 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "pattern":  [
+                    "W",
+                    "A",
+                    "E"
+                ],
+    "key":  {
+                "W":  {
+                          "tag":  "minecraft:wooden_slabs"
+                      },
+                "A":  {
+                          "item":  "create:cogwheel"
+                      },
+                "E":  {
+                          "item":  "create:mechanical_bearing"
+                      }
+            },
+    "result":  {
+                   "id":  "vs_clockwork:juryrigged_propeller_bearing"
+               }
+}

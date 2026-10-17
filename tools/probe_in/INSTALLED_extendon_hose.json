@@ -1,0 +1,105 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "vs_clockwork:duct"
+  },
+  "loops": 5,
+  "results": [
+    {
+      "chance": 120.0,
+      "id": "vs_clockwork:extendon_hose"
+    },
+    {
+      "chance": 10.0,
+      "id": "minecraft:dried_kelp_block"
+    },
+    {
+      "chance": 8.0,
+      "id": "vs_clockwork:duct"
+    },
+    {
+      "chance": 5.0,
+      "id": "create:iron_sheet"
+    },
+    {
+      "chance": 3.0,
+      "id": "minecraft:iron_block"
+    },
+    {
+      "chance": 2.0,
+      "id": "create:chute"
+    },
+    {
+      "id": "minecraft:iron_ingot"
+    },
+    {
+      "id": "create:industrial_iron_block"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "vs_clockwork:incomplete_hose_spool"
+        },
+        {
+          "item": "minecraft:dried_kelp"
+        }
+      ],
+      "results": [
+        {
+          "id": "vs_clockwork:incomplete_hose_spool"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "vs_clockwork:incomplete_hose_spool"
+        },
+        {
+          "item": "minecraft:dried_kelp"
+        }
+      ],
+      "results": [
+        {
+          "id": "vs_clockwork:incomplete_hose_spool"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "vs_clockwork:incomplete_hose_spool"
+        },
+        {
+          "item": "create:iron_sheet"
+        }
+      ],
+      "results": [
+        {
+          "id": "vs_clockwork:incomplete_hose_spool"
+        }
+      ]
+    },
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "vs_clockwork:incomplete_hose_spool"
+        }
+      ],
+      "results": [
+        {
+          "id": "vs_clockwork:incomplete_hose_spool"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "vs_clockwork:incomplete_hose_spool"
+  }
+}

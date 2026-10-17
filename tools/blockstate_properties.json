@@ -1,0 +1,1374 @@
+{
+ "blockCount": 68,
+ "blocks": {
+  "air_compressor": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.compressor.AirCompressorBlock",
+   "properties": [],
+   "stateCount": 1
+  },
+  "alt_meter": {
+   "class": "org.valkyrienskies.clockwork.content.curiosities.altmeter.AltMeterBlock",
+   "properties": [
+    {
+     "name": "power",
+     "type": "IntegerProperty",
+     "values": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
+     ]
+    }
+   ],
+   "stateCount": 16
+  },
+  "andesite_flap_bearing": {
+   "class": "org.valkyrienskies.clockwork.content.contraptions.flap.AndesiteFlapBearingBlock",
+   "properties": [
+    {
+     "name": "axis_along_first",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 12
+  },
+  "asteroid_block": {
+   "class": "org.valkyrienskies.clockwork.content.curiosities.meteor.MeteorTestBlock",
+   "properties": [],
+   "stateCount": 1
+  },
+  "balloon_casing": {
+   "class": "net.minecraft.world.level.block.Block",
+   "properties": [],
+   "stateCount": 1
+  },
+  "ballooner": {
+   "class": "org.valkyrienskies.clockwork.content.contraptions.phys.ballooner.BalloonerBlock",
+   "properties": [],
+   "stateCount": 1
+  },
+  "blade_controller": {
+   "class": "org.valkyrienskies.clockwork.content.contraptions.propeller.blades.BladeControllerBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "brass_propeller_bearing": {
+   "class": "org.valkyrienskies.clockwork.content.contraptions.propeller.PropellerBearingBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "charged_nyx": {
+   "class": "net.minecraft.world.level.block.Block",
+   "properties": [],
+   "stateCount": 1
+  },
+  "chiseled_wanderlite": {
+   "class": "net.minecraft.world.level.block.Block",
+   "properties": [],
+   "stateCount": 1
+  },
+  "clock": {
+   "class": "org.valkyrienskies.clockwork.content.curiosities.clock.ClockBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "south",
+      "west",
+      "east"
+     ]
+    }
+   ],
+   "stateCount": 4
+  },
+  "coal_burner": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.generator.CoalBurnerBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "south",
+      "west",
+      "east"
+     ]
+    },
+    {
+     "name": "lit",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    }
+   ],
+   "stateCount": 8
+  },
+  "cobbled_nyx": {
+   "class": "net.minecraft.world.level.block.Block",
+   "properties": [],
+   "stateCount": 1
+  },
+  "command_seat": {
+   "class": "org.valkyrienskies.clockwork.content.kinetics.sequenced_seat.CommandSeatBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "south",
+      "west",
+      "east"
+     ]
+    }
+   ],
+   "stateCount": 4
+  },
+  "copter_bearing": {
+   "class": "org.valkyrienskies.clockwork.content.contraptions.propeller.copter.CopterBearingBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "creative_gas_generator": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.generator.CreativeGasGeneratorBlock",
+   "properties": [],
+   "stateCount": 1
+  },
+  "delivery_cannon": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.solid.delivery.cannon.DeliveryCannonBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "south",
+      "west",
+      "east"
+     ]
+    }
+   ],
+   "stateCount": 4
+  },
+  "delivery_chute": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.solid.delivery.chute.DeliveryChuteBlock",
+   "properties": [],
+   "stateCount": 1
+  },
+  "distance_sensor": {
+   "class": "org.valkyrienskies.clockwork.content.curiosities.sensor.distance.DistanceSensorBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    },
+    {
+     "name": "max_distance",
+     "type": "IntegerProperty",
+     "values": [
+      "1",
+      "2",
+      "3",
+      "4"
+     ]
+    },
+    {
+     "name": "power",
+     "type": "IntegerProperty",
+     "values": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
+     ]
+    }
+   ],
+   "stateCount": 384
+  },
+  "duct": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.duct.GasDuctBlock",
+   "properties": [
+    {
+     "name": "down",
+     "type": "EnumProperty",
+     "values": [
+      "true",
+      "forced",
+      "false",
+      "leak"
+     ]
+    },
+    {
+     "name": "east",
+     "type": "EnumProperty",
+     "values": [
+      "true",
+      "forced",
+      "false",
+      "leak"
+     ]
+    },
+    {
+     "name": "north",
+     "type": "EnumProperty",
+     "values": [
+      "true",
+      "forced",
+      "false",
+      "leak"
+     ]
+    },
+    {
+     "name": "south",
+     "type": "EnumProperty",
+     "values": [
+      "true",
+      "forced",
+      "false",
+      "leak"
+     ]
+    },
+    {
+     "name": "up",
+     "type": "EnumProperty",
+     "values": [
+      "true",
+      "forced",
+      "false",
+      "leak"
+     ]
+    },
+    {
+     "name": "waterlogged",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "west",
+     "type": "EnumProperty",
+     "values": [
+      "true",
+      "forced",
+      "false",
+      "leak"
+     ]
+    }
+   ],
+   "stateCount": 8192
+  },
+  "duct_tank": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.tank.DuctTankBlock",
+   "properties": [
+    {
+     "name": "bottom",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "top",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    }
+   ],
+   "stateCount": 4
+  },
+  "exhaust": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.exhaust.ExhaustBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "extendon": {
+   "class": "org.valkyrienskies.clockwork.content.physicalities.extendon.ExtendonBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "filter_duct": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.filter.FilterDuctBlock",
+   "properties": [
+    {
+     "name": "axis",
+     "type": "EnumProperty",
+     "values": [
+      "x",
+      "y",
+      "z"
+     ]
+    }
+   ],
+   "stateCount": 3
+  },
+  "flap": {
+   "class": "org.valkyrienskies.clockwork.content.physicalities.wing.FlapBlock",
+   "properties": [
+    {
+     "name": "down",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "east",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    },
+    {
+     "name": "north",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "south",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "up",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "west",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    }
+   ],
+   "stateCount": 384
+  },
+  "gas_backtank": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.backtank.GasBacktankBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "south",
+      "west",
+      "east"
+     ]
+    }
+   ],
+   "stateCount": 4
+  },
+  "gas_crafter": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.crafter.GasCrafterBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "gas_engine": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.engine.GasEngineBlock",
+   "properties": [
+    {
+     "name": "axis",
+     "type": "EnumProperty",
+     "values": [
+      "x",
+      "y",
+      "z"
+     ]
+    }
+   ],
+   "stateCount": 3
+  },
+  "gas_heater": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.heater.GasHeaterBlock",
+   "properties": [
+    {
+     "name": "blaze",
+     "type": "EnumProperty",
+     "values": [
+      "none",
+      "smouldering",
+      "fading",
+      "kindled",
+      "seething"
+     ]
+    },
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "south",
+      "west",
+      "east"
+     ]
+    }
+   ],
+   "stateCount": 20
+  },
+  "gas_nozzle": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.nozzle.GasNozzleBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "south",
+      "west",
+      "east"
+     ]
+    }
+   ],
+   "stateCount": 4
+  },
+  "gas_thruster": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.thruster.GasThrusterBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "gimbal_bearing": {
+   "class": "org.valkyrienskies.clockwork.content.contraptions.phys.gimbal.GimbalBearingBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "goo_block": {
+   "class": "org.valkyrienskies.clockwork.content.physicalities.goo.GooBlock",
+   "properties": [],
+   "stateCount": 1
+  },
+  "gyro": {
+   "class": "org.valkyrienskies.clockwork.content.contraptions.gyro.GyroBlock",
+   "properties": [],
+   "stateCount": 1
+  },
+  "gyroscopic_sensor": {
+   "class": "org.valkyrienskies.clockwork.content.curiosities.sensor.rotation.GyroscopicSensorBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    },
+    {
+     "name": "negative",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "power",
+     "type": "IntegerProperty",
+     "values": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
+     ]
+    },
+    {
+     "name": "reference_axis",
+     "type": "EnumProperty",
+     "values": [
+      "x",
+      "y",
+      "z"
+     ]
+    }
+   ],
+   "stateCount": 576
+  },
+  "heat_pipe": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.heatpipe.HeatPipeBlock",
+   "properties": [
+    {
+     "name": "down",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "east",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "heat",
+     "type": "EnumProperty",
+     "values": [
+      "cool",
+      "warm",
+      "hot",
+      "very_hot",
+      "molten",
+      "super_hot"
+     ]
+    },
+    {
+     "name": "north",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "south",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "up",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "west",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    }
+   ],
+   "stateCount": 384
+  },
+  "hose_port": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.hoseport.HosePortBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "impact_sensor": {
+   "class": "org.valkyrienskies.clockwork.content.curiosities.sensor.impact.ImpactSensorBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    },
+    {
+     "name": "power",
+     "type": "IntegerProperty",
+     "values": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
+     ]
+    },
+    {
+     "name": "predictiveness",
+     "type": "IntegerProperty",
+     "values": [
+      "0",
+      "1",
+      "2",
+      "3"
+     ]
+    }
+   ],
+   "stateCount": 384
+  },
+  "intake": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.intake.IntakeBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "juryrigged_propeller_bearing": {
+   "class": "org.valkyrienskies.clockwork.content.contraptions.propeller.PropellerBearingBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "lodefocus": {
+   "class": "org.valkyrienskies.clockwork.content.curiosities.sensor.rotation.LodefocusBlock",
+   "properties": [],
+   "stateCount": 1
+  },
+  "nyx": {
+   "class": "net.minecraft.world.level.block.Block",
+   "properties": [],
+   "stateCount": 1
+  },
+  "phys_bearing": {
+   "class": "org.valkyrienskies.clockwork.content.contraptions.phys.bearing.PhysBearingBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "physics_infuser": {
+   "class": "org.valkyrienskies.clockwork.content.contraptions.phys.infuser.PhysicsInfuserBlock",
+   "properties": [],
+   "stateCount": 1
+  },
+  "pump_duct": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.pump.PumpDuctBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    },
+    {
+     "name": "waterlogged",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    }
+   ],
+   "stateCount": 12
+  },
+  "reactionwheel": {
+   "class": "org.valkyrienskies.clockwork.content.contraptions.reactionwheel.ReactionWheelBlock",
+   "properties": [
+    {
+     "name": "axis",
+     "type": "EnumProperty",
+     "values": [
+      "x",
+      "y",
+      "z"
+     ]
+    }
+   ],
+   "stateCount": 3
+  },
+  "redstone_duct": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.redstone.RedstoneDuctBlock",
+   "properties": [
+    {
+     "name": "axis",
+     "type": "EnumProperty",
+     "values": [
+      "x",
+      "y",
+      "z"
+     ]
+    },
+    {
+     "name": "power",
+     "type": "IntegerProperty",
+     "values": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
+     ]
+    }
+   ],
+   "stateCount": 48
+  },
+  "redstone_resistor": {
+   "class": "org.valkyrienskies.clockwork.content.kinetics.resistor.RedstoneResistorBlock",
+   "properties": [
+    {
+     "name": "axis",
+     "type": "EnumProperty",
+     "values": [
+      "x",
+      "y",
+      "z"
+     ]
+    }
+   ],
+   "stateCount": 3
+  },
+  "slicker": {
+   "class": "org.valkyrienskies.clockwork.content.physicalities.slicker.SlickerBlock",
+   "properties": [
+    {
+     "name": "extended",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    },
+    {
+     "name": "powered",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    }
+   ],
+   "stateCount": 24
+  },
+  "smart_flap_bearing": {
+   "class": "org.valkyrienskies.clockwork.content.contraptions.flap.SmartFlapBearingBlock",
+   "properties": [
+    {
+     "name": "axis_along_first",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 12
+  },
+  "smooth_wanderlite": {
+   "class": "net.minecraft.world.level.block.Block",
+   "properties": [],
+   "stateCount": 1
+  },
+  "smooth_wanderlite_slab": {
+   "class": "net.minecraft.world.level.block.SlabBlock",
+   "properties": [
+    {
+     "name": "type",
+     "type": "EnumProperty",
+     "values": [
+      "top",
+      "bottom",
+      "double"
+     ]
+    },
+    {
+     "name": "waterlogged",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "smooth_wanderlite_stairs": {
+   "class": "net.minecraft.world.level.block.StairBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "south",
+      "west",
+      "east"
+     ]
+    },
+    {
+     "name": "half",
+     "type": "EnumProperty",
+     "values": [
+      "top",
+      "bottom"
+     ]
+    },
+    {
+     "name": "shape",
+     "type": "EnumProperty",
+     "values": [
+      "straight",
+      "inner_left",
+      "inner_right",
+      "outer_left",
+      "outer_right"
+     ]
+    },
+    {
+     "name": "waterlogged",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    }
+   ],
+   "stateCount": 80
+  },
+  "solver": {
+   "class": "org.valkyrienskies.clockwork.content.curiosities.solver.SolverBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "spinoff_bearing": {
+   "class": "org.valkyrienskies.clockwork.content.physicalities.spinoff_bearing.SpinoffBearingBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "steam_generator": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.generator.SteamGeneratorBlock",
+   "properties": [
+    {
+     "name": "face",
+     "type": "EnumProperty",
+     "values": [
+      "floor",
+      "wall",
+      "ceiling"
+     ]
+    },
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "south",
+      "west",
+      "east"
+     ]
+    }
+   ],
+   "stateCount": 12
+  },
+  "sterling_engine": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.engine.SterlingEngineBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "straight_duct": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.duct.StraightDuctBlock",
+   "properties": [
+    {
+     "name": "axis",
+     "type": "EnumProperty",
+     "values": [
+      "x",
+      "y",
+      "z"
+     ]
+    }
+   ],
+   "stateCount": 3
+  },
+  "sugar_rocket": {
+   "class": "org.valkyrienskies.clockwork.content.contraptions.sugar_rocket.SugarRocketBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "universal_shaft": {
+   "class": "org.valkyrienskies.clockwork.content.kinetics.universal_shaft.UniversalShaftBlock",
+   "properties": [
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 6
+  },
+  "valve_duct": {
+   "class": "org.valkyrienskies.clockwork.content.logistics.gas.valve.ValveDuctBlock",
+   "properties": [
+    {
+     "name": "axis_along_first",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    }
+   ],
+   "stateCount": 12
+  },
+  "wanderglass": {
+   "class": "net.minecraft.world.level.block.Block",
+   "properties": [],
+   "stateCount": 1
+  },
+  "wanderlite_block": {
+   "class": "net.minecraft.world.level.block.Block",
+   "properties": [],
+   "stateCount": 1
+  },
+  "wanderlite_bricks": {
+   "class": "net.minecraft.world.level.block.Block",
+   "properties": [],
+   "stateCount": 1
+  },
+  "wanderlite_deepslate_ore": {
+   "class": "org.valkyrienskies.clockwork.content.curiosities.WanderliteOreBlock",
+   "properties": [],
+   "stateCount": 1
+  },
+  "wanderlite_end_ore": {
+   "class": "org.valkyrienskies.clockwork.content.curiosities.WanderliteOreBlock",
+   "properties": [],
+   "stateCount": 1
+  },
+  "wanderlite_nyx_ore": {
+   "class": "org.valkyrienskies.clockwork.content.curiosities.WanderliteOreBlock",
+   "properties": [],
+   "stateCount": 1
+  },
+  "wing": {
+   "class": "org.valkyrienskies.clockwork.content.physicalities.wing.WingBlock",
+   "properties": [
+    {
+     "name": "down",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "east",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "facing",
+     "type": "DirectionProperty",
+     "values": [
+      "north",
+      "east",
+      "south",
+      "west",
+      "up",
+      "down"
+     ]
+    },
+    {
+     "name": "north",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "south",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "up",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    },
+    {
+     "name": "west",
+     "type": "BooleanProperty",
+     "values": [
+      "true",
+      "false"
+     ]
+    }
+   ],
+   "stateCount": 384
+  }
+ },
+ "bootstrapError": "",
+ "classFingerprint": "2220eca72a4d5ef3b406b34880a494c9",
+ "failCount": 0,
+ "generator": "tools/probe_blockstates.py",
+ "mcVersion": "1.21.1",
+ "neoForge": "21.1.251",
+ "unresolved": []
+}

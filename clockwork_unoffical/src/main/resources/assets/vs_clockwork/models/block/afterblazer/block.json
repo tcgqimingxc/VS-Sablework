@@ -1,0 +1,36 @@
+{
+  "credit": "生成：旧版 afterblazer 的 block.json 在旧仓库中缺失（datagen 产物），这里按贴图补一个可用的机壳模型",
+  "texture_size": [16, 16],
+  "textures": {
+    "0": "vs_clockwork:block/afterblazer",
+    "particle": "vs_clockwork:block/afterblazer"
+  },
+  "elements": [
+    {
+      "name": "shell",
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+        "east": {"uv": [0, 0, 16, 16], "texture": "#0"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#0"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#0"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#0"},
+        "down": {"uv": [0, 0, 16, 16], "texture": "#0"}
+      }
+    },
+    {
+      "name": "nozzle",
+      "from": [4, 14, 4],
+      "to": [12, 16.5, 12],
+      "faces": {
+        "north": {"uv": [4, 4, 12, 6], "texture": "#0"},
+        "east": {"uv": [4, 4, 12, 6], "texture": "#0"},
+        "south": {"uv": [4, 4, 12, 6], "texture": "#0"},
+        "west": {"uv": [4, 4, 12, 6], "texture": "#0"},
+        "up": {"uv": [4, 4, 12, 12], "texture": "#0"},
+        "down": {"uv": [4, 4, 12, 12], "texture": "#0"}
+      }
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+// =============================================================================
+// Clockwork 1.21.1 (NeoForge) —— 非官方移植构建脚本
+//
+// 依赖策略（重要，便于维护者理解）：
+//   1.   本机无法访问 maven.neoforged.net，所以 Minecraft / NeoForge 依赖
+//         本机 Gradle 缓存（neo_version 固定为缓存里已有的 21.1.249）。
+//   2. Create 及其生态（Ponder/Catnip、Flywheel、Registrate）以及 Sable、
+//      Create: Aeronautics(Simulated)、Veil、CC:Tweaked 全部以 libs/ 下的
+//      本地 jar 形式参与编译 —— 这样离线也能编译，且版本与游戏实例一致。
+//   3. 若你的网络正常，可把这些 jar 换成 Maven 坐标（见下方注释），
+//      但请保持版本与 gradle.properties 中的前置版本一致。
+// =============================================================================
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.141'
+    id 'idea'
+}
+
+version = mod_version
+group = mod_group_id
+base { archivesName = mod_id }
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    version = project.neo_version
+
+    // 开发环境运行配置（移植期间用于验证）
+    runs {
+        client {
+            client()
+        }
+        server {
+            server()
+            programArgument '--nogui'
+        }
+        configureEach {
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            logLevel = org.slf4j.event.Level.INFO
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+    exclude '**/*.bbmodel'
+}
+
+// 本机离线缓存里没有 netty 的 Linux 原生 epoll（io.netty:netty-transport-native-epoll:*-linux-*），
+// 而 ModDevGradle 的 serverLegacyClasspath 会把它列进去导致 runServer 在离线模式下无法解析。
+// Windows 开发运行用不到它（走 NIO 回退），因此在本地排除；联网环境可以删掉这段。
+configurations.matching { it.name in ['serverLegacyClasspath', 'clientLegacyClasspath', 'gameTestServerLegacyClasspath'] }
+        .configureEach {
+            exclude group: 'io.netty', module: 'netty-transport-native-epoll'
+        }
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // ---- 必备前置（编译 + 运行）----
+    // Create 6.0.10 本体 + 其内嵌的 Ponder(含 Catnip) / Flywheel / Registrate
+    implementation files(
+            'libs/create-1.21.1-6.0.10.jar',
+            'libs/ponder-neoforge-1.0.82+mc1.21.1.jar',
+            'libs/flywheel-neoforge-1.21.1-1.0.6.jar',
+            'libs/flywheel-neoforge-api-1.21.1-1.0.6-44.jar',
+            'libs/Registrate-MC1.21-1.3.0+67.jar'
+    )
+    // Sable：1.21.1 的 sub-level 物理库（Clockwork 的物理基座）
+    implementation files(
+            'libs/sable-neoforge-1.21.1-2.0.5.jar',
+            'libs/sable-companion-common-1.21.1-1.6.0.jar',
+            'libs/veil-neoforge-1.21.1-4.4.1.jar'
+    )
+    // Create: Aeronautics（Simulated / Aeronautics / Offroad）—— 用户指定的前置
+    implementation files(
+            'libs/dev.simulated_team.simulated.simulated-neoforge-1.21.1-1.3.2.jar',
+            'libs/dev.eriksonn.aeronautics.aeronautics-neoforge-1.21.1-1.3.2.jar',
+            'libs/dev.ryanhcode.offroad.offroad-neoforge-1.21.1-1.3.2.jar'
+    )
+
+    // ---- 可选集成（仅编译期，运行期由玩家自行安装）----
+    compileOnly files('libs/jei-1.21.1-neoforge-api-19.27.0.340.jar', 'libs/jei-1.21.1-common-api-19.27.0.340.jar')
+    compileOnly files('libs/cc-tweaked-1.21.1-forge-1.120.2.jar')
+}
+
+// 把 src/main/templates 下的 mods.toml 里 ${} 占位符替换为真实值
+var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description,
+            create_version         : create_version,
+            sable_version          : sable_version,
+            aeronautics_version    : aeronautics_version,
+    ]
+    inputs.properties replaceProperties
+    expand replaceProperties
+    from 'src/main/templates'
+    into 'build/generated/sources/modMetadata'
+}
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

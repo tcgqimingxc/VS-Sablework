@@ -1,0 +1,21 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "key":  {
+                "N":  {
+                          "item":  "create:zinc_nugget"
+                      },
+                "S":  {
+                          "item":  "minecraft:stick"
+                      }
+            },
+    "pattern":  [
+                    "  N",
+                    " N ",
+                    "S  "
+                ],
+    "result":  {
+                   "id":  "vs_clockwork:screwdriver"
+               },
+    "show_notification":  true
+}

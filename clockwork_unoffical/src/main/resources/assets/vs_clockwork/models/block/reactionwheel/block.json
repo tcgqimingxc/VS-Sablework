@@ -1,0 +1,6 @@
+{
+  "parent": "vs_clockwork:block/reactionwheel/reactionwheel",
+  "loader": "neoforge:obj",
+  "flip_v": true,
+  "model": "vs_clockwork:models/block/reactionwheel/reactionwheel_shaftless.obj"
+}

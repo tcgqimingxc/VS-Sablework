@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "vs_clockwork:block/nyx_wanderlite_ore_top",
+    "bottom": "vs_clockwork:block/nyx_wanderlite_ore",
+    "side": "vs_clockwork:block/nyx_wanderlite_ore",
+    "particle": "vs_clockwork:block/nyx_wanderlite_ore"
+  }
+}

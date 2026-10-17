@@ -1,0 +1,4324 @@
+{
+ "items": [
+  {
+   "model": "vs_clockwork:item/aeronaut_boots",
+   "file": "models/item/aeronaut_boots.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/aeronaut_goggles",
+   "file": "models/item/aeronaut_goggles.json",
+   "elements_at": "vs_clockwork:item/aeronaut_goggles/item",
+   "elements": 16,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/aeronaut_goggles/base",
+   "file": "models/item/aeronaut_goggles/base.json",
+   "elements_at": "vs_clockwork:item/aeronaut_goggles/base",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/aeronaut_goggles/flap_left",
+   "file": "models/item/aeronaut_goggles/flap_left.json",
+   "elements_at": "vs_clockwork:item/aeronaut_goggles/flap_left",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/aeronaut_goggles/flap_right",
+   "file": "models/item/aeronaut_goggles/flap_right.json",
+   "elements_at": "vs_clockwork:item/aeronaut_goggles/flap_right",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/aeronaut_goggles/goggles",
+   "file": "models/item/aeronaut_goggles/goggles.json",
+   "elements_at": "vs_clockwork:item/aeronaut_goggles/goggles",
+   "elements": 7,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/aeronaut_goggles/item",
+   "file": "models/item/aeronaut_goggles/item.json",
+   "elements_at": "vs_clockwork:item/aeronaut_goggles/item",
+   "elements": 16,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/aeronaut_jacket",
+   "file": "models/item/aeronaut_jacket.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/aeronaut_jumpers",
+   "file": "models/item/aeronaut_jumpers.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/air_compressor",
+   "file": "models/item/air_compressor.json",
+   "elements_at": "vs_clockwork:block/compressor/item",
+   "elements": 19,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/alt_meter",
+   "file": "models/item/alt_meter.json",
+   "elements_at": "vs_clockwork:block/alt_meter/item",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/andesite_flap_bearing",
+   "file": "models/item/andesite_flap_bearing.json",
+   "elements_at": "vs_clockwork:block/andesite_flap_bearing/item",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/asteroid_block",
+   "file": "models/item/asteroid_block.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/balloon_casing",
+   "file": "models/item/balloon_casing.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/balloon_encased_shaft",
+   "file": "models/item/balloon_encased_shaft.json",
+   "elements_at": "create:block/encased_shaft/item",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/ballooner",
+   "file": "models/item/ballooner.json",
+   "elements_at": "vs_clockwork:block/ballooner/item",
+   "elements": 27,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/blade_controller",
+   "file": "models/item/blade_controller.json",
+   "elements_at": "vs_clockwork:block/blade_controller/item",
+   "elements": 10,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/bluperglue",
+   "file": "models/item/bluperglue.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/bluuguu",
+   "file": "models/item/bluuguu.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/brass_propeller_bearing",
+   "file": "models/item/brass_propeller_bearing.json",
+   "elements_at": "vs_clockwork:block/brass_propeller_bearing/item",
+   "elements": 7,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/brass_redstone_resistor",
+   "file": "models/item/brass_redstone_resistor.json",
+   "elements_at": "vs_clockwork:block/redstone_resistor/item_brass",
+   "elements": 11,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/charged_nyx",
+   "file": "models/item/charged_nyx.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/chiseled_wanderlite",
+   "file": "models/item/chiseled_wanderlite.json",
+   "elements_at": "vs_clockwork:block/wanderlite/chiselled_wanderlite",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/chocolate_frosting_bucket",
+   "file": "models/item/chocolate_frosting_bucket.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/clock",
+   "file": "models/item/clock.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/coal_burner",
+   "file": "models/item/coal_burner.json",
+   "elements_at": "vs_clockwork:block/coal_burner/block",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/cobbled_nyx",
+   "file": "models/item/cobbled_nyx.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/combustion_engine",
+   "file": "models/item/combustion_engine.json",
+   "elements_at": "vs_clockwork:block/combustion_engine/item",
+   "elements": 23,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/command_seat",
+   "file": "models/item/command_seat.json",
+   "elements_at": "vs_clockwork:block/command_seat/item",
+   "elements": 15,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/copter_bearing",
+   "file": "models/item/copter_bearing.json",
+   "elements_at": "vs_clockwork:block/copter_bearing/item",
+   "elements": 24,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/creative_gas_generator",
+   "file": "models/item/creative_gas_generator.json",
+   "elements_at": "vs_clockwork:block/creative_gas_generator/block",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/creative_gravitron",
+   "file": "models/item/creative_gravitron.json",
+   "elements_at": "vs_clockwork:item/gravitron/gravitronbase",
+   "elements": 29,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/delivery_cannon",
+   "file": "models/item/delivery_cannon.json",
+   "elements_at": "vs_clockwork:block/delivery_cannon/item",
+   "elements": 14,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/delivery_chute",
+   "file": "models/item/delivery_chute.json",
+   "elements_at": "vs_clockwork:block/delivery_chute/block",
+   "elements": 14,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/distance_sensor",
+   "file": "models/item/distance_sensor.json",
+   "elements_at": "vs_clockwork:block/distance_sensor/item",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/duct",
+   "file": "models/item/duct.json",
+   "elements_at": "vs_clockwork:block/duct/item",
+   "elements": 13,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/duct_tank",
+   "file": "models/item/duct_tank.json",
+   "elements_at": "vs_clockwork:block/duct_tank/block_single",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/exhaust",
+   "file": "models/item/exhaust.json",
+   "elements_at": "vs_clockwork:block/exhaust/block",
+   "elements": 18,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/extendon",
+   "file": "models/item/extendon.json",
+   "elements_at": "vs_clockwork:block/extendon/item",
+   "elements": 13,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/extendon_hose",
+   "file": "models/item/extendon_hose.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/filter_duct",
+   "file": "models/item/filter_duct.json",
+   "elements_at": "vs_clockwork:block/filter/block",
+   "elements": 11,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/flap",
+   "file": "models/item/flap.json",
+   "elements_at": "vs_clockwork:block/wing/item",
+   "elements": 9,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/flap_bearing",
+   "file": "models/item/flap_bearing.json",
+   "elements_at": "vs_clockwork:block/flap_bearing/item",
+   "elements": 9,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gas_backtank",
+   "file": "models/item/gas_backtank.json",
+   "elements_at": "vs_clockwork:block/gas_backtank/block",
+   "elements": 10,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gas_crafter",
+   "file": "models/item/gas_crafter.json",
+   "elements_at": "vs_clockwork:block/gas_crafter/item",
+   "elements": 13,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gas_engine",
+   "file": "models/item/gas_engine.json",
+   "elements_at": "vs_clockwork:block/gas_engine/block",
+   "elements": 7,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gas_heater",
+   "file": "models/item/gas_heater.json",
+   "elements_at": "vs_clockwork:block/gas_heater/block",
+   "elements": 14,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gas_nozzle",
+   "file": "models/item/gas_nozzle.json",
+   "elements_at": "vs_clockwork:block/gas_nozzle/item",
+   "elements": 40,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gas_thruster",
+   "file": "models/item/gas_thruster.json",
+   "elements_at": "vs_clockwork:block/gas_thruster/block",
+   "elements": 22,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gimbal_bearing",
+   "file": "models/item/gimbal_bearing.json",
+   "elements_at": "vs_clockwork:block/gimbal_bearing/item",
+   "elements": 13,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/goo_block",
+   "file": "models/item/goo_block.json",
+   "elements_at": "vs_clockwork:block/goo_block",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gravitron",
+   "file": "models/item/gravitron.json",
+   "elements_at": "vs_clockwork:item/gravitron/gravitronbase",
+   "elements": 29,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gravitron/dialhand",
+   "file": "models/item/gravitron/dialhand.json",
+   "elements_at": "vs_clockwork:item/gravitron/dialhand",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gravitron/gravitronbase",
+   "file": "models/item/gravitron/gravitronbase.json",
+   "elements_at": "vs_clockwork:item/gravitron/gravitronbase",
+   "elements": 29,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gravitron/gravitroncompiled",
+   "file": "models/item/gravitron/gravitroncompiled.json",
+   "elements_at": "vs_clockwork:item/gravitron/gravitroncompiled",
+   "elements": 43,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gravitron/overload_fx",
+   "file": "models/item/gravitron/overload_fx.json",
+   "elements_at": "vs_clockwork:item/gravitron/overload_fx",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gravitron/prongleftone",
+   "file": "models/item/gravitron/prongleftone.json",
+   "elements_at": "vs_clockwork:item/gravitron/prongleftone",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gravitron/prongleftthree",
+   "file": "models/item/gravitron/prongleftthree.json",
+   "elements_at": "vs_clockwork:item/gravitron/prongleftthree",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gravitron/pronglefttwo",
+   "file": "models/item/gravitron/pronglefttwo.json",
+   "elements_at": "vs_clockwork:item/gravitron/pronglefttwo",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gravitron/prongrightone",
+   "file": "models/item/gravitron/prongrightone.json",
+   "elements_at": "vs_clockwork:item/gravitron/prongrightone",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gravitron/prongrightthree",
+   "file": "models/item/gravitron/prongrightthree.json",
+   "elements_at": "vs_clockwork:item/gravitron/prongrightthree",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gravitron/prongrighttwo",
+   "file": "models/item/gravitron/prongrighttwo.json",
+   "elements_at": "vs_clockwork:item/gravitron/prongrighttwo",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gravitron/prongtopone",
+   "file": "models/item/gravitron/prongtopone.json",
+   "elements_at": "vs_clockwork:item/gravitron/prongtopone",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gravitron/prongtopthree",
+   "file": "models/item/gravitron/prongtopthree.json",
+   "elements_at": "vs_clockwork:item/gravitron/prongtopthree",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gravitron/prongtoptwo",
+   "file": "models/item/gravitron/prongtoptwo.json",
+   "elements_at": "vs_clockwork:item/gravitron/prongtoptwo",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gyro",
+   "file": "models/item/gyro.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/gyroscopic_sensor",
+   "file": "models/item/gyroscopic_sensor.json",
+   "elements_at": "vs_clockwork:block/gyroscopic_sensor/item",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/handheld_drill",
+   "file": "models/item/handheld_drill.json",
+   "elements_at": "vs_clockwork:item/handheld_drill/item",
+   "elements": 12,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/handheld_drill/cog",
+   "file": "models/item/handheld_drill/cog.json",
+   "elements_at": "vs_clockwork:item/handheld_drill/cog",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/handheld_drill/full",
+   "file": "models/item/handheld_drill/full.json",
+   "elements_at": "vs_clockwork:item/handheld_drill/full",
+   "elements": 26,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/handheld_drill/head",
+   "file": "models/item/handheld_drill/head.json",
+   "elements_at": "vs_clockwork:item/handheld_drill/head",
+   "elements": 9,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/handheld_drill/item",
+   "file": "models/item/handheld_drill/item.json",
+   "elements_at": "vs_clockwork:item/handheld_drill/item",
+   "elements": 12,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/handheld_saw",
+   "file": "models/item/handheld_saw.json",
+   "elements_at": "vs_clockwork:item/handheld_saw/item",
+   "elements": 15,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/handheld_saw/cog",
+   "file": "models/item/handheld_saw/cog.json",
+   "elements_at": "vs_clockwork:item/handheld_saw/cog",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/handheld_saw/full",
+   "file": "models/item/handheld_saw/full.json",
+   "elements_at": "vs_clockwork:item/handheld_saw/full",
+   "elements": 21,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/handheld_saw/item",
+   "file": "models/item/handheld_saw/item.json",
+   "elements_at": "vs_clockwork:item/handheld_saw/item",
+   "elements": 15,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/handheld_saw/saw",
+   "file": "models/item/handheld_saw/saw.json",
+   "elements_at": "vs_clockwork:item/handheld_saw/saw",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/heat_pipe",
+   "file": "models/item/heat_pipe.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/item_straight",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/hose_port",
+   "file": "models/item/hose_port.json",
+   "elements_at": "vs_clockwork:block/extendon/item",
+   "elements": 13,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/impact_sensor",
+   "file": "models/item/impact_sensor.json",
+   "elements_at": "vs_clockwork:block/impact_sensor/item",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/incomplete_hose_spool",
+   "file": "models/item/incomplete_hose_spool.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/incomplete_telescoping_mechanism",
+   "file": "models/item/incomplete_telescoping_mechanism.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/incomplete_wanderwand",
+   "file": "models/item/incomplete_wanderwand.json",
+   "elements_at": "vs_clockwork:item/wanderwand/item",
+   "elements": 8,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/intake",
+   "file": "models/item/intake.json",
+   "elements_at": "vs_clockwork:block/intake/item",
+   "elements": 9,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/juryrigged_propeller_bearing",
+   "file": "models/item/juryrigged_propeller_bearing.json",
+   "elements_at": "vs_clockwork:block/juryrigged_propeller_bearing/item",
+   "elements": 14,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/lodefocus",
+   "file": "models/item/lodefocus.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/music_disc_wanderlust",
+   "file": "models/item/music_disc_wanderlust.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/nyx",
+   "file": "models/item/nyx.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/pastrymaker",
+   "file": "models/item/pastrymaker.json",
+   "elements_at": "vs_clockwork:item/pastrymaker/pastrymaker",
+   "elements": 19,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/pastrymaker/leftcannon",
+   "file": "models/item/pastrymaker/leftcannon.json",
+   "elements_at": "vs_clockwork:item/pastrymaker/leftcannon",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/pastrymaker/pastrymaker",
+   "file": "models/item/pastrymaker/pastrymaker.json",
+   "elements_at": "vs_clockwork:item/pastrymaker/pastrymaker",
+   "elements": 19,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/pastrymaker/pressuretank",
+   "file": "models/item/pastrymaker/pressuretank.json",
+   "elements_at": "vs_clockwork:item/pastrymaker/pressuretank",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/pastrymaker/rightcannon",
+   "file": "models/item/pastrymaker/rightcannon.json",
+   "elements_at": "vs_clockwork:item/pastrymaker/rightcannon",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/phys_bearing",
+   "file": "models/item/phys_bearing.json",
+   "elements_at": "vs_clockwork:block/phys_bearing/item",
+   "elements": 33,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/physics_infuser",
+   "file": "models/item/physics_infuser.json",
+   "elements_at": "vs_clockwork:block/physics_infuser/item",
+   "elements": 80,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/propeller_bearing",
+   "file": "models/item/propeller_bearing.json",
+   "elements_at": "vs_clockwork:block/propeller_bearing/item",
+   "elements": 40,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/propeller_blade",
+   "file": "models/item/propeller_blade.json",
+   "elements_at": "vs_clockwork:block/blade_controller/blade/item",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/pump_duct",
+   "file": "models/item/pump_duct.json",
+   "elements_at": "vs_clockwork:block/pump/item",
+   "elements": 13,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/reactionwheel",
+   "file": "models/item/reactionwheel.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/redstone_duct",
+   "file": "models/item/redstone_duct.json",
+   "elements_at": "vs_clockwork:block/redstone_duct/block",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/redstone_resistor",
+   "file": "models/item/redstone_resistor.json",
+   "elements_at": "vs_clockwork:block/redstone_resistor/item",
+   "elements": 11,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/screwdriver",
+   "file": "models/item/screwdriver.json",
+   "elements_at": "vs_clockwork:item/screwdriver",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/slicker",
+   "file": "models/item/slicker.json",
+   "elements_at": "vs_clockwork:block/slicker/item",
+   "elements": 7,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/smart_flap_bearing",
+   "file": "models/item/smart_flap_bearing.json",
+   "elements_at": "vs_clockwork:block/smart_flap_bearing/item",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/smooth_wanderlite",
+   "file": "models/item/smooth_wanderlite.json",
+   "elements_at": "vs_clockwork:block/wanderlite/smooth_wanderlite",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/smooth_wanderlite_slab",
+   "file": "models/item/smooth_wanderlite_slab.json",
+   "elements_at": "vs_clockwork:block/wanderlite/smooth_wanderlite_slab",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/smooth_wanderlite_stairs",
+   "file": "models/item/smooth_wanderlite_stairs.json",
+   "elements_at": "vs_clockwork:block/wanderlite/smooth_wanderlite_stairs",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/solver",
+   "file": "models/item/solver.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/spinoff_bearing",
+   "file": "models/item/spinoff_bearing.json",
+   "elements_at": "vs_clockwork:block/spinoff_bearing",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/steam_generator",
+   "file": "models/item/steam_generator.json",
+   "elements_at": "vs_clockwork:block/steam_generator/block",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/sterling_engine",
+   "file": "models/item/sterling_engine.json",
+   "elements_at": "vs_clockwork:block/sterling_engine/block",
+   "elements": 13,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/straight_duct",
+   "file": "models/item/straight_duct.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/item_straight",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/stratodonut",
+   "file": "models/item/stratodonut.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/strawberry_frosting_bucket",
+   "file": "models/item/strawberry_frosting_bucket.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/sugar_rocket",
+   "file": "models/item/sugar_rocket.json",
+   "elements_at": "vs_clockwork:block/sugar_rocket/block",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/universal_shaft",
+   "file": "models/item/universal_shaft.json",
+   "elements_at": "vs_clockwork:block/universal_shaft",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/universal_shaft_item",
+   "file": "models/item/universal_shaft_item.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/valve_duct",
+   "file": "models/item/valve_duct.json",
+   "elements_at": "vs_clockwork:block/valve_duct/item",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/vanilla_frosting_bucket",
+   "file": "models/item/vanilla_frosting_bucket.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderglass",
+   "file": "models/item/wanderglass.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderlite_block",
+   "file": "models/item/wanderlite_block.json",
+   "elements_at": "vs_clockwork:block/wanderlite/wanderlite_block",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderlite_bricks",
+   "file": "models/item/wanderlite_bricks.json",
+   "elements_at": "vs_clockwork:block/wanderlite/wanderlite_bricks",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderlite_crystal",
+   "file": "models/item/wanderlite_crystal.json",
+   "elements_at": "builtin/generated",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderlite_cube",
+   "file": "models/item/wanderlite_cube.json",
+   "elements_at": "vs_clockwork:item/wanderlite_cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderlite_deepslate_ore",
+   "file": "models/item/wanderlite_deepslate_ore.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderlite_end_ore",
+   "file": "models/item/wanderlite_end_ore.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderlite_matrix",
+   "file": "models/item/wanderlite_matrix.json",
+   "elements_at": "vs_clockwork:item/wanderlite_matrix",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderlite_nyx_ore",
+   "file": "models/item/wanderlite_nyx_ore.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderwand",
+   "file": "models/item/wanderwand.json",
+   "elements_at": "vs_clockwork:item/wanderwand/item",
+   "elements": 8,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderwand/crystal",
+   "file": "models/item/wanderwand/crystal.json",
+   "elements_at": "vs_clockwork:item/wanderwand/crystal",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderwand/crystal_inner",
+   "file": "models/item/wanderwand/crystal_inner.json",
+   "elements_at": "vs_clockwork:item/wanderwand/crystal_inner",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderwand/crystal_outer",
+   "file": "models/item/wanderwand/crystal_outer.json",
+   "elements_at": "vs_clockwork:item/wanderwand/crystal_outer",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderwand/item",
+   "file": "models/item/wanderwand/item.json",
+   "elements_at": "vs_clockwork:item/wanderwand/item",
+   "elements": 8,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderwand/item_alsoold",
+   "file": "models/item/wanderwand/item_alsoold.json",
+   "elements_at": "vs_clockwork:item/wanderwand/item_alsoold",
+   "elements": 10,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderwand/item_old",
+   "file": "models/item/wanderwand/item_old.json",
+   "elements_at": "vs_clockwork:item/wanderwand/item_old",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderwand/pole",
+   "file": "models/item/wanderwand/pole.json",
+   "elements_at": "vs_clockwork:item/wanderwand/pole",
+   "elements": 8,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderwand/ring",
+   "file": "models/item/wanderwand/ring.json",
+   "elements_at": "vs_clockwork:item/wanderwand/ring",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wanderwand/wave",
+   "file": "models/item/wanderwand/wave.json",
+   "elements_at": "vs_clockwork:item/wanderwand/wave",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wide_propeller_blade",
+   "file": "models/item/wide_propeller_blade.json",
+   "elements_at": "vs_clockwork:block/blade_controller/blade/wideblade_item",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wing",
+   "file": "models/item/wing.json",
+   "elements_at": "vs_clockwork:block/wing/item",
+   "elements": 9,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:item/wing/wing_sail",
+   "file": "models/item/wing/wing_sail.json",
+   "elements_at": "vs_clockwork:item/wing/wing_sail",
+   "elements": 1,
+   "error": null
+  }
+ ],
+ "blocks": [
+  {
+   "model": "vs_clockwork:block/afterblazer/block",
+   "file": "models/block/afterblazer/block.json",
+   "elements_at": "vs_clockwork:block/afterblazer/block",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/alt_meter/block",
+   "file": "models/block/alt_meter/block.json",
+   "elements_at": "vs_clockwork:block/alt_meter/block",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/alt_meter/item",
+   "file": "models/block/alt_meter/item.json",
+   "elements_at": "vs_clockwork:block/alt_meter/item",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/alt_meter/redstone",
+   "file": "models/block/alt_meter/redstone.json",
+   "elements_at": "vs_clockwork:block/alt_meter/redstone",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/andesite_flap_bearing/block",
+   "file": "models/block/andesite_flap_bearing/block.json",
+   "elements_at": "vs_clockwork:block/andesite_flap_bearing/block",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/andesite_flap_bearing/item",
+   "file": "models/block/andesite_flap_bearing/item.json",
+   "elements_at": "vs_clockwork:block/andesite_flap_bearing/item",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/asteroid_block",
+   "file": "models/block/asteroid_block.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/balloon_casing",
+   "file": "models/block/balloon_casing.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/ballooner/block",
+   "file": "models/block/ballooner/block.json",
+   "elements_at": "vs_clockwork:block/ballooner/block",
+   "elements": 27,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/ballooner/item",
+   "file": "models/block/ballooner/item.json",
+   "elements_at": "vs_clockwork:block/ballooner/item",
+   "elements": 27,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/blade_controller/blade/blade",
+   "file": "models/block/blade_controller/blade/blade.json",
+   "elements_at": "vs_clockwork:block/blade_controller/blade/blade",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/blade_controller/blade/blade_base",
+   "file": "models/block/blade_controller/blade/blade_base.json",
+   "elements_at": "vs_clockwork:block/blade_controller/blade/blade_base",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/blade_controller/blade/blade_extension",
+   "file": "models/block/blade_controller/blade/blade_extension.json",
+   "elements_at": "vs_clockwork:block/blade_controller/blade/blade_extension",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/blade_controller/blade/blade_tip",
+   "file": "models/block/blade_controller/blade/blade_tip.json",
+   "elements_at": "vs_clockwork:block/blade_controller/blade/blade_tip",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/blade_controller/blade/item",
+   "file": "models/block/blade_controller/blade/item.json",
+   "elements_at": "vs_clockwork:block/blade_controller/blade/item",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/blade_controller/blade/wideblade",
+   "file": "models/block/blade_controller/blade/wideblade.json",
+   "elements_at": "vs_clockwork:block/blade_controller/blade/wideblade",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/blade_controller/blade/wideblade_base",
+   "file": "models/block/blade_controller/blade/wideblade_base.json",
+   "elements_at": "vs_clockwork:block/blade_controller/blade/wideblade_base",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/blade_controller/blade/wideblade_extension",
+   "file": "models/block/blade_controller/blade/wideblade_extension.json",
+   "elements_at": "vs_clockwork:block/blade_controller/blade/wideblade_extension",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/blade_controller/blade/wideblade_item",
+   "file": "models/block/blade_controller/blade/wideblade_item.json",
+   "elements_at": "vs_clockwork:block/blade_controller/blade/wideblade_item",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/blade_controller/blade/wideblade_tip",
+   "file": "models/block/blade_controller/blade/wideblade_tip.json",
+   "elements_at": "vs_clockwork:block/blade_controller/blade/wideblade_tip",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/blade_controller/blade_controller",
+   "file": "models/block/blade_controller/blade_controller.json",
+   "elements_at": "vs_clockwork:block/blade_controller/blade_controller",
+   "elements": 10,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/blade_controller/block",
+   "file": "models/block/blade_controller/block.json",
+   "elements_at": "vs_clockwork:block/blade_controller/block",
+   "elements": 10,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/blade_controller/item",
+   "file": "models/block/blade_controller/item.json",
+   "elements_at": "vs_clockwork:block/blade_controller/item",
+   "elements": 10,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/brass_propeller_bearing/block",
+   "file": "models/block/brass_propeller_bearing/block.json",
+   "elements_at": "vs_clockwork:block/brass_propeller_bearing/block",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/brass_propeller_bearing/item",
+   "file": "models/block/brass_propeller_bearing/item.json",
+   "elements_at": "vs_clockwork:block/brass_propeller_bearing/item",
+   "elements": 7,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/chocolate_frosting",
+   "file": "models/block/chocolate_frosting.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/clock/clock_ring",
+   "file": "models/block/clock/clock_ring.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/clock/clockback",
+   "file": "models/block/clock/clockback.json",
+   "elements_at": "vs_clockwork:block/clock/clockback",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/clock/hand_hour",
+   "file": "models/block/clock/hand_hour.json",
+   "elements_at": "vs_clockwork:block/clock/hand_hour",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/clock/hand_minute",
+   "file": "models/block/clock/hand_minute.json",
+   "elements_at": "vs_clockwork:block/clock/hand_minute",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/clock/hand_second",
+   "file": "models/block/clock/hand_second.json",
+   "elements_at": "vs_clockwork:block/clock/hand_second",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/clock/item",
+   "file": "models/block/clock/item.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/coal_burner/block",
+   "file": "models/block/coal_burner/block.json",
+   "elements_at": "vs_clockwork:block/coal_burner/block",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/coal_burner/flame",
+   "file": "models/block/coal_burner/flame.json",
+   "elements_at": "vs_clockwork:block/coal_burner/flame",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/combustion_engine/block",
+   "file": "models/block/combustion_engine/block.json",
+   "elements_at": "vs_clockwork:block/combustion_engine/block",
+   "elements": 7,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/combustion_engine/item",
+   "file": "models/block/combustion_engine/item.json",
+   "elements_at": "vs_clockwork:block/combustion_engine/item",
+   "elements": 23,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/combustion_engine/main",
+   "file": "models/block/combustion_engine/main.json",
+   "elements_at": "vs_clockwork:block/combustion_engine/main",
+   "elements": 9,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/combustion_engine/single_piston",
+   "file": "models/block/combustion_engine/single_piston.json",
+   "elements_at": "vs_clockwork:block/combustion_engine/single_piston",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/command_seat/block",
+   "file": "models/block/command_seat/block.json",
+   "elements_at": "vs_clockwork:block/command_seat/block",
+   "elements": 15,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/command_seat/buttonone",
+   "file": "models/block/command_seat/buttonone.json",
+   "elements_at": "vs_clockwork:block/command_seat/buttonone",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/command_seat/buttontwo",
+   "file": "models/block/command_seat/buttontwo.json",
+   "elements_at": "vs_clockwork:block/command_seat/buttontwo",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/command_seat/item",
+   "file": "models/block/command_seat/item.json",
+   "elements_at": "vs_clockwork:block/command_seat/item",
+   "elements": 15,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/command_seat/joystick",
+   "file": "models/block/command_seat/joystick.json",
+   "elements_at": "vs_clockwork:block/command_seat/joystick",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/compressor/axis",
+   "file": "models/block/compressor/axis.json",
+   "elements_at": "vs_clockwork:block/compressor/axis",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/compressor/block",
+   "file": "models/block/compressor/block.json",
+   "elements_at": "vs_clockwork:block/compressor/block",
+   "elements": 11,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/compressor/compressor",
+   "file": "models/block/compressor/compressor.json",
+   "elements_at": "vs_clockwork:block/compressor/compressor",
+   "elements": 19,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/compressor/fabric",
+   "file": "models/block/compressor/fabric.json",
+   "elements_at": "vs_clockwork:block/compressor/fabric",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/compressor/item",
+   "file": "models/block/compressor/item.json",
+   "elements_at": "vs_clockwork:block/compressor/item",
+   "elements": 19,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/compressor/top",
+   "file": "models/block/compressor/top.json",
+   "elements_at": "vs_clockwork:block/compressor/top",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/copter_bearing/base",
+   "file": "models/block/copter_bearing/base.json",
+   "elements_at": "vs_clockwork:block/copter_bearing/base",
+   "elements": 9,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/copter_bearing/item",
+   "file": "models/block/copter_bearing/item.json",
+   "elements_at": "vs_clockwork:block/copter_bearing/item",
+   "elements": 24,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/copter_bearing/piston_ne",
+   "file": "models/block/copter_bearing/piston_ne.json",
+   "elements_at": "vs_clockwork:block/copter_bearing/piston_ne",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/copter_bearing/piston_nw",
+   "file": "models/block/copter_bearing/piston_nw.json",
+   "elements_at": "vs_clockwork:block/copter_bearing/piston_nw",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/copter_bearing/piston_se",
+   "file": "models/block/copter_bearing/piston_se.json",
+   "elements_at": "vs_clockwork:block/copter_bearing/piston_se",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/copter_bearing/piston_sw",
+   "file": "models/block/copter_bearing/piston_sw.json",
+   "elements_at": "vs_clockwork:block/copter_bearing/piston_sw",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/copter_bearing/top",
+   "file": "models/block/copter_bearing/top.json",
+   "elements_at": "vs_clockwork:block/copter_bearing/top",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/copter_bearing/wafer",
+   "file": "models/block/copter_bearing/wafer.json",
+   "elements_at": "vs_clockwork:block/copter_bearing/wafer",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/creative_gas_generator/block",
+   "file": "models/block/creative_gas_generator/block.json",
+   "elements_at": "vs_clockwork:block/creative_gas_generator/block",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/creative_gas_generator/item",
+   "file": "models/block/creative_gas_generator/item.json",
+   "elements_at": "vs_clockwork:block/creative_gas_generator/item",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/delivery_cannon/antenna",
+   "file": "models/block/delivery_cannon/antenna.json",
+   "elements_at": "vs_clockwork:block/delivery_cannon/antenna",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/delivery_cannon/block",
+   "file": "models/block/delivery_cannon/block.json",
+   "elements_at": "vs_clockwork:block/delivery_cannon/block",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/delivery_cannon/cannon_barrel",
+   "file": "models/block/delivery_cannon/cannon_barrel.json",
+   "elements_at": "vs_clockwork:block/delivery_cannon/cannon_barrel",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/delivery_cannon/cannon_base",
+   "file": "models/block/delivery_cannon/cannon_base.json",
+   "elements_at": "vs_clockwork:block/delivery_cannon/cannon_base",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/delivery_cannon/item",
+   "file": "models/block/delivery_cannon/item.json",
+   "elements_at": "vs_clockwork:block/delivery_cannon/item",
+   "elements": 14,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/delivery_cannon/mount",
+   "file": "models/block/delivery_cannon/mount.json",
+   "elements_at": "vs_clockwork:block/delivery_cannon/mount",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/delivery_chute/block",
+   "file": "models/block/delivery_chute/block.json",
+   "elements_at": "vs_clockwork:block/delivery_chute/block",
+   "elements": 14,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/distance_sensor/block",
+   "file": "models/block/distance_sensor/block.json",
+   "elements_at": "vs_clockwork:block/distance_sensor/block",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/distance_sensor/block2",
+   "file": "models/block/distance_sensor/block2.json",
+   "elements_at": "vs_clockwork:block/distance_sensor/block2",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/distance_sensor/block3",
+   "file": "models/block/distance_sensor/block3.json",
+   "elements_at": "vs_clockwork:block/distance_sensor/block3",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/distance_sensor/block4",
+   "file": "models/block/distance_sensor/block4.json",
+   "elements_at": "vs_clockwork:block/distance_sensor/block4",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/distance_sensor/item",
+   "file": "models/block/distance_sensor/item.json",
+   "elements_at": "vs_clockwork:block/distance_sensor/item",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/block",
+   "file": "models/block/duct/block.json",
+   "elements_at": "vs_clockwork:block/duct/block",
+   "elements": 13,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/block_old",
+   "file": "models/block/duct/block_old.json",
+   "elements_at": "vs_clockwork:block/duct/block_old",
+   "elements": 19,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/connection",
+   "file": "models/block/duct/connection.json",
+   "elements_at": "vs_clockwork:block/duct/connection",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/connection_old/cool",
+   "file": "models/block/duct/connection_old/cool.json",
+   "elements_at": "vs_clockwork:block/duct/connection_old/cool",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/connection_old/hot",
+   "file": "models/block/duct/connection_old/hot.json",
+   "elements_at": "vs_clockwork:block/duct/connection_old/hot",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/connection_old/molten",
+   "file": "models/block/duct/connection_old/molten.json",
+   "elements_at": "vs_clockwork:block/duct/connection_old/molten",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/connection_old/super_hot",
+   "file": "models/block/duct/connection_old/super_hot.json",
+   "elements_at": "vs_clockwork:block/duct/connection_old/super_hot",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/connection_old/very_hot",
+   "file": "models/block/duct/connection_old/very_hot.json",
+   "elements_at": "vs_clockwork:block/duct/connection_old/very_hot",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/connection_old/warm",
+   "file": "models/block/duct/connection_old/warm.json",
+   "elements_at": "vs_clockwork:block/duct/connection_old/warm",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/core",
+   "file": "models/block/duct/core.json",
+   "elements_at": "vs_clockwork:block/duct/core",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/core_old",
+   "file": "models/block/duct/core_old.json",
+   "elements_at": "vs_clockwork:block/duct/core_old",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/core_old/cool",
+   "file": "models/block/duct/core_old/cool.json",
+   "elements_at": "vs_clockwork:block/duct/core",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/core_old/hot",
+   "file": "models/block/duct/core_old/hot.json",
+   "elements_at": "vs_clockwork:block/duct/core",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/core_old/molten",
+   "file": "models/block/duct/core_old/molten.json",
+   "elements_at": "vs_clockwork:block/duct/core",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/core_old/super_hot",
+   "file": "models/block/duct/core_old/super_hot.json",
+   "elements_at": "vs_clockwork:block/duct/core",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/core_old/very_hot",
+   "file": "models/block/duct/core_old/very_hot.json",
+   "elements_at": "vs_clockwork:block/duct/core",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/core_old/warm",
+   "file": "models/block/duct/core_old/warm.json",
+   "elements_at": "vs_clockwork:block/duct/core",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/core_straight",
+   "file": "models/block/duct/core_straight.json",
+   "elements_at": "vs_clockwork:block/duct/core_straight",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/custom/copper",
+   "file": "models/block/duct/custom/copper.json",
+   "elements_at": "vs_clockwork:block/duct/custom/copper",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/custom/oneway_backward",
+   "file": "models/block/duct/custom/oneway_backward.json",
+   "elements_at": "vs_clockwork:block/duct/custom/oneway_backward",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/custom/oneway_forward",
+   "file": "models/block/duct/custom/oneway_forward.json",
+   "elements_at": "vs_clockwork:block/duct/custom/oneway_forward",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/custom/smart",
+   "file": "models/block/duct/custom/smart.json",
+   "elements_at": "vs_clockwork:block/duct/custom/smart",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/item",
+   "file": "models/block/duct/item.json",
+   "elements_at": "vs_clockwork:block/duct/item",
+   "elements": 13,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/item_old",
+   "file": "models/block/duct/item_old.json",
+   "elements_at": "vs_clockwork:block/duct/item_old",
+   "elements": 19,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/item_straight_old",
+   "file": "models/block/duct/item_straight_old.json",
+   "elements_at": "vs_clockwork:block/duct/item_straight_old",
+   "elements": 7,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/leak",
+   "file": "models/block/duct/leak.json",
+   "elements_at": "vs_clockwork:block/duct/leak",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/rim",
+   "file": "models/block/duct/rim.json",
+   "elements_at": "vs_clockwork:block/duct/rim",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/rim_old/cool",
+   "file": "models/block/duct/rim_old/cool.json",
+   "elements_at": "vs_clockwork:block/duct/rim_old/cool",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/rim_old/hot",
+   "file": "models/block/duct/rim_old/hot.json",
+   "elements_at": "vs_clockwork:block/duct/rim_old/hot",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/rim_old/molten",
+   "file": "models/block/duct/rim_old/molten.json",
+   "elements_at": "vs_clockwork:block/duct/rim_old/molten",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/rim_old/super_hot",
+   "file": "models/block/duct/rim_old/super_hot.json",
+   "elements_at": "vs_clockwork:block/duct/rim_old/super_hot",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/rim_old/very_hot",
+   "file": "models/block/duct/rim_old/very_hot.json",
+   "elements_at": "vs_clockwork:block/duct/rim_old/very_hot",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/rim_old/warm",
+   "file": "models/block/duct/rim_old/warm.json",
+   "elements_at": "vs_clockwork:block/duct/rim_old/warm",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct/straight_old",
+   "file": "models/block/duct/straight_old.json",
+   "elements_at": "vs_clockwork:block/duct/straight_old",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct_tank/block_bottom",
+   "file": "models/block/duct_tank/block_bottom.json",
+   "elements_at": "vs_clockwork:block/duct_tank/block_bottom",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct_tank/block_middle",
+   "file": "models/block/duct_tank/block_middle.json",
+   "elements_at": "vs_clockwork:block/duct_tank/block_middle",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct_tank/block_single",
+   "file": "models/block/duct_tank/block_single.json",
+   "elements_at": "vs_clockwork:block/duct_tank/block_single",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct_tank/block_top",
+   "file": "models/block/duct_tank/block_top.json",
+   "elements_at": "vs_clockwork:block/duct_tank/block_top",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/duct_tank/placeholder",
+   "file": "models/block/duct_tank/placeholder.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/encased_shaft/block_balloon",
+   "file": "models/block/encased_shaft/block_balloon.json",
+   "elements_at": "create:block/encased_shaft/block",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/encased_shaft/item_balloon",
+   "file": "models/block/encased_shaft/item_balloon.json",
+   "elements_at": "create:block/encased_shaft/item",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/exhaust/block",
+   "file": "models/block/exhaust/block.json",
+   "elements_at": "vs_clockwork:block/exhaust/block",
+   "elements": 18,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/extendon/axis0",
+   "file": "models/block/extendon/axis0.json",
+   "elements_at": "vs_clockwork:block/extendon/axis0",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/extendon/axis1",
+   "file": "models/block/extendon/axis1.json",
+   "elements_at": "vs_clockwork:block/extendon/axis1",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/extendon/block",
+   "file": "models/block/extendon/block.json",
+   "elements_at": "vs_clockwork:block/extendon/block",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/extendon/hose",
+   "file": "models/block/extendon/hose.json",
+   "elements_at": "vs_clockwork:block/extendon/hose",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/extendon/item",
+   "file": "models/block/extendon/item.json",
+   "elements_at": "vs_clockwork:block/extendon/item",
+   "elements": 13,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/filter/block",
+   "file": "models/block/filter/block.json",
+   "elements_at": "vs_clockwork:block/filter/block",
+   "elements": 11,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/flap/flap",
+   "file": "models/block/flap/flap.json",
+   "elements_at": "vs_clockwork:block/flap/flap",
+   "elements": 10,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/flap_bearing/block",
+   "file": "models/block/flap_bearing/block.json",
+   "elements_at": "vs_clockwork:block/flap_bearing/block",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/flap_bearing/block_horizontal",
+   "file": "models/block/flap_bearing/block_horizontal.json",
+   "elements_at": "vs_clockwork:block/flap_bearing/block_horizontal",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/flap_bearing/block_vertical",
+   "file": "models/block/flap_bearing/block_vertical.json",
+   "elements_at": "vs_clockwork:block/flap_bearing/block_vertical",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/flap_bearing/item",
+   "file": "models/block/flap_bearing/item.json",
+   "elements_at": "vs_clockwork:block/flap_bearing/item",
+   "elements": 9,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/flap_bearing/top",
+   "file": "models/block/flap_bearing/top.json",
+   "elements_at": "vs_clockwork:block/flap_bearing/top",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/flap_bearing_top",
+   "file": "models/block/flap_bearing_top.json",
+   "elements_at": "vs_clockwork:block/flap_bearing_top",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_backtank/block",
+   "file": "models/block/gas_backtank/block.json",
+   "elements_at": "vs_clockwork:block/gas_backtank/block",
+   "elements": 10,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_crafter/block",
+   "file": "models/block/gas_crafter/block.json",
+   "elements_at": "vs_clockwork:block/gas_crafter/block",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_crafter/frame",
+   "file": "models/block/gas_crafter/frame.json",
+   "elements_at": "vs_clockwork:block/gas_crafter/frame",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_crafter/glow",
+   "file": "models/block/gas_crafter/glow.json",
+   "elements_at": "vs_clockwork:block/gas_crafter/glow",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_crafter/item",
+   "file": "models/block/gas_crafter/item.json",
+   "elements_at": "vs_clockwork:block/gas_crafter/item",
+   "elements": 13,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_crafter/mesh",
+   "file": "models/block/gas_crafter/mesh.json",
+   "elements_at": "vs_clockwork:block/gas_crafter/mesh",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_crafter/tube",
+   "file": "models/block/gas_crafter/tube.json",
+   "elements_at": "vs_clockwork:block/gas_crafter/tube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_engine/block",
+   "file": "models/block/gas_engine/block.json",
+   "elements_at": "vs_clockwork:block/gas_engine/block",
+   "elements": 7,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_engine/glow",
+   "file": "models/block/gas_engine/glow.json",
+   "elements_at": "vs_clockwork:block/gas_engine/glow",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_heater/block",
+   "file": "models/block/gas_heater/block.json",
+   "elements_at": "vs_clockwork:block/gas_heater/block",
+   "elements": 14,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_nozzle/axis",
+   "file": "models/block/gas_nozzle/axis.json",
+   "elements_at": "vs_clockwork:block/gas_nozzle/axis",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_nozzle/block",
+   "file": "models/block/gas_nozzle/block.json",
+   "elements_at": "vs_clockwork:block/gas_nozzle/block",
+   "elements": 37,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_nozzle/dial",
+   "file": "models/block/gas_nozzle/dial.json",
+   "elements_at": "vs_clockwork:block/gas_nozzle/dial",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_nozzle/item",
+   "file": "models/block/gas_nozzle/item.json",
+   "elements_at": "vs_clockwork:block/gas_nozzle/item",
+   "elements": 40,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gas_thruster/block",
+   "file": "models/block/gas_thruster/block.json",
+   "elements_at": "vs_clockwork:block/gas_thruster/block",
+   "elements": 22,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gimbal_bearing/arm",
+   "file": "models/block/gimbal_bearing/arm.json",
+   "elements_at": "vs_clockwork:block/gimbal_bearing/arm",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gimbal_bearing/block",
+   "file": "models/block/gimbal_bearing/block.json",
+   "elements_at": "vs_clockwork:block/gimbal_bearing/block",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gimbal_bearing/item",
+   "file": "models/block/gimbal_bearing/item.json",
+   "elements_at": "vs_clockwork:block/gimbal_bearing/item",
+   "elements": 13,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gimbal_bearing/plate",
+   "file": "models/block/gimbal_bearing/plate.json",
+   "elements_at": "vs_clockwork:block/gimbal_bearing/plate",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/goo_block",
+   "file": "models/block/goo_block.json",
+   "elements_at": "vs_clockwork:block/goo_block",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gyro/base",
+   "file": "models/block/gyro/base.json",
+   "elements_at": "vs_clockwork:block/gyro/base",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gyro/block",
+   "file": "models/block/gyro/block.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gyro/gyro",
+   "file": "models/block/gyro/gyro.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gyro/item",
+   "file": "models/block/gyro/item.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gyroscopic_sensor/block",
+   "file": "models/block/gyroscopic_sensor/block.json",
+   "elements_at": "vs_clockwork:block/gyroscopic_sensor/block",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gyroscopic_sensor/block2",
+   "file": "models/block/gyroscopic_sensor/block2.json",
+   "elements_at": "vs_clockwork:block/gyroscopic_sensor/block2",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gyroscopic_sensor/block3",
+   "file": "models/block/gyroscopic_sensor/block3.json",
+   "elements_at": "vs_clockwork:block/gyroscopic_sensor/block3",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/gyroscopic_sensor/item",
+   "file": "models/block/gyroscopic_sensor/item.json",
+   "elements_at": "vs_clockwork:block/gyroscopic_sensor/item",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_x",
+   "file": "models/block/heat_pipe/d_x.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_x",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_x_hot",
+   "file": "models/block/heat_pipe/d_x_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_x_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_x_molten",
+   "file": "models/block/heat_pipe/d_x_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_x_molten",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_x_super_hot",
+   "file": "models/block/heat_pipe/d_x_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_x_super_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_x_very_hot",
+   "file": "models/block/heat_pipe/d_x_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_x_very_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_x_warm",
+   "file": "models/block/heat_pipe/d_x_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_x_warm",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_y",
+   "file": "models/block/heat_pipe/d_y.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_y",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_y_hot",
+   "file": "models/block/heat_pipe/d_y_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_y_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_y_molten",
+   "file": "models/block/heat_pipe/d_y_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_y_molten",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_y_super_hot",
+   "file": "models/block/heat_pipe/d_y_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_y_super_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_y_very_hot",
+   "file": "models/block/heat_pipe/d_y_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_y_very_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_y_warm",
+   "file": "models/block/heat_pipe/d_y_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_y_warm",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_z",
+   "file": "models/block/heat_pipe/d_z.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_z",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_z_hot",
+   "file": "models/block/heat_pipe/d_z_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_z_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_z_molten",
+   "file": "models/block/heat_pipe/d_z_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_z_molten",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_z_super_hot",
+   "file": "models/block/heat_pipe/d_z_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_z_super_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_z_very_hot",
+   "file": "models/block/heat_pipe/d_z_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_z_very_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/d_z_warm",
+   "file": "models/block/heat_pipe/d_z_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/d_z_warm",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/item_straight",
+   "file": "models/block/heat_pipe/item_straight.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/item_straight",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/item_straight_hot",
+   "file": "models/block/heat_pipe/item_straight_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/item_straight_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/item_straight_molten",
+   "file": "models/block/heat_pipe/item_straight_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/item_straight_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/item_straight_super_hot",
+   "file": "models/block/heat_pipe/item_straight_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/item_straight_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/item_straight_very_hot",
+   "file": "models/block/heat_pipe/item_straight_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/item_straight_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/item_straight_warm",
+   "file": "models/block/heat_pipe/item_straight_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/item_straight_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_x",
+   "file": "models/block/heat_pipe/l_x.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_x",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_x_hot",
+   "file": "models/block/heat_pipe/l_x_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_x_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_x_molten",
+   "file": "models/block/heat_pipe/l_x_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_x_molten",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_x_super_hot",
+   "file": "models/block/heat_pipe/l_x_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_x_super_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_x_very_hot",
+   "file": "models/block/heat_pipe/l_x_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_x_very_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_x_warm",
+   "file": "models/block/heat_pipe/l_x_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_x_warm",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_y",
+   "file": "models/block/heat_pipe/l_y.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_y",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_y_hot",
+   "file": "models/block/heat_pipe/l_y_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_y_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_y_molten",
+   "file": "models/block/heat_pipe/l_y_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_y_molten",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_y_super_hot",
+   "file": "models/block/heat_pipe/l_y_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_y_super_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_y_very_hot",
+   "file": "models/block/heat_pipe/l_y_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_y_very_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_y_warm",
+   "file": "models/block/heat_pipe/l_y_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_y_warm",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_z",
+   "file": "models/block/heat_pipe/l_z.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_z",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_z_hot",
+   "file": "models/block/heat_pipe/l_z_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_z_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_z_molten",
+   "file": "models/block/heat_pipe/l_z_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_z_molten",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_z_super_hot",
+   "file": "models/block/heat_pipe/l_z_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_z_super_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_z_very_hot",
+   "file": "models/block/heat_pipe/l_z_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_z_very_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/l_z_warm",
+   "file": "models/block/heat_pipe/l_z_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/l_z_warm",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_x",
+   "file": "models/block/heat_pipe/ld_x.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_x",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_x_hot",
+   "file": "models/block/heat_pipe/ld_x_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_x_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_x_molten",
+   "file": "models/block/heat_pipe/ld_x_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_x_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_x_super_hot",
+   "file": "models/block/heat_pipe/ld_x_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_x_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_x_very_hot",
+   "file": "models/block/heat_pipe/ld_x_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_x_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_x_warm",
+   "file": "models/block/heat_pipe/ld_x_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_x_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_y",
+   "file": "models/block/heat_pipe/ld_y.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_y",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_y_hot",
+   "file": "models/block/heat_pipe/ld_y_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_y_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_y_molten",
+   "file": "models/block/heat_pipe/ld_y_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_y_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_y_super_hot",
+   "file": "models/block/heat_pipe/ld_y_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_y_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_y_very_hot",
+   "file": "models/block/heat_pipe/ld_y_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_y_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_y_warm",
+   "file": "models/block/heat_pipe/ld_y_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_y_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_z",
+   "file": "models/block/heat_pipe/ld_z.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_z",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_z_hot",
+   "file": "models/block/heat_pipe/ld_z_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_z_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_z_molten",
+   "file": "models/block/heat_pipe/ld_z_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_z_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_z_super_hot",
+   "file": "models/block/heat_pipe/ld_z_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_z_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_z_very_hot",
+   "file": "models/block/heat_pipe/ld_z_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_z_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ld_z_warm",
+   "file": "models/block/heat_pipe/ld_z_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ld_z_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_x",
+   "file": "models/block/heat_pipe/lr_x.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_x",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_x_hot",
+   "file": "models/block/heat_pipe/lr_x_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_x_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_x_molten",
+   "file": "models/block/heat_pipe/lr_x_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_x_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_x_super_hot",
+   "file": "models/block/heat_pipe/lr_x_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_x_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_x_very_hot",
+   "file": "models/block/heat_pipe/lr_x_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_x_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_x_warm",
+   "file": "models/block/heat_pipe/lr_x_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_x_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_y",
+   "file": "models/block/heat_pipe/lr_y.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_y",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_y_hot",
+   "file": "models/block/heat_pipe/lr_y_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_y_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_y_molten",
+   "file": "models/block/heat_pipe/lr_y_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_y_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_y_super_hot",
+   "file": "models/block/heat_pipe/lr_y_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_y_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_y_very_hot",
+   "file": "models/block/heat_pipe/lr_y_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_y_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_y_warm",
+   "file": "models/block/heat_pipe/lr_y_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_y_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_z",
+   "file": "models/block/heat_pipe/lr_z.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_z",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_z_hot",
+   "file": "models/block/heat_pipe/lr_z_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_z_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_z_molten",
+   "file": "models/block/heat_pipe/lr_z_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_z_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_z_super_hot",
+   "file": "models/block/heat_pipe/lr_z_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_z_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_z_very_hot",
+   "file": "models/block/heat_pipe/lr_z_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_z_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lr_z_warm",
+   "file": "models/block/heat_pipe/lr_z_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lr_z_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_x",
+   "file": "models/block/heat_pipe/lu_x.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_x",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_x_hot",
+   "file": "models/block/heat_pipe/lu_x_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_x_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_x_molten",
+   "file": "models/block/heat_pipe/lu_x_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_x_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_x_super_hot",
+   "file": "models/block/heat_pipe/lu_x_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_x_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_x_very_hot",
+   "file": "models/block/heat_pipe/lu_x_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_x_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_x_warm",
+   "file": "models/block/heat_pipe/lu_x_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_x_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_y",
+   "file": "models/block/heat_pipe/lu_y.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_y",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_y_hot",
+   "file": "models/block/heat_pipe/lu_y_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_y_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_y_molten",
+   "file": "models/block/heat_pipe/lu_y_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_y_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_y_super_hot",
+   "file": "models/block/heat_pipe/lu_y_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_y_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_y_very_hot",
+   "file": "models/block/heat_pipe/lu_y_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_y_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_y_warm",
+   "file": "models/block/heat_pipe/lu_y_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_y_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_z",
+   "file": "models/block/heat_pipe/lu_z.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_z",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_z_hot",
+   "file": "models/block/heat_pipe/lu_z_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_z_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_z_molten",
+   "file": "models/block/heat_pipe/lu_z_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_z_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_z_super_hot",
+   "file": "models/block/heat_pipe/lu_z_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_z_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_z_very_hot",
+   "file": "models/block/heat_pipe/lu_z_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_z_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/lu_z_warm",
+   "file": "models/block/heat_pipe/lu_z_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/lu_z_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_x",
+   "file": "models/block/heat_pipe/r_x.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_x",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_x_hot",
+   "file": "models/block/heat_pipe/r_x_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_x_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_x_molten",
+   "file": "models/block/heat_pipe/r_x_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_x_molten",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_x_super_hot",
+   "file": "models/block/heat_pipe/r_x_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_x_super_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_x_very_hot",
+   "file": "models/block/heat_pipe/r_x_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_x_very_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_x_warm",
+   "file": "models/block/heat_pipe/r_x_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_x_warm",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_y",
+   "file": "models/block/heat_pipe/r_y.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_y",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_y_hot",
+   "file": "models/block/heat_pipe/r_y_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_y_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_y_molten",
+   "file": "models/block/heat_pipe/r_y_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_y_molten",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_y_super_hot",
+   "file": "models/block/heat_pipe/r_y_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_y_super_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_y_very_hot",
+   "file": "models/block/heat_pipe/r_y_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_y_very_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_y_warm",
+   "file": "models/block/heat_pipe/r_y_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_y_warm",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_z",
+   "file": "models/block/heat_pipe/r_z.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_z",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_z_hot",
+   "file": "models/block/heat_pipe/r_z_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_z_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_z_molten",
+   "file": "models/block/heat_pipe/r_z_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_z_molten",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_z_super_hot",
+   "file": "models/block/heat_pipe/r_z_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_z_super_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_z_very_hot",
+   "file": "models/block/heat_pipe/r_z_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_z_very_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/r_z_warm",
+   "file": "models/block/heat_pipe/r_z_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/r_z_warm",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_x",
+   "file": "models/block/heat_pipe/rd_x.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_x",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_x_hot",
+   "file": "models/block/heat_pipe/rd_x_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_x_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_x_molten",
+   "file": "models/block/heat_pipe/rd_x_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_x_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_x_super_hot",
+   "file": "models/block/heat_pipe/rd_x_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_x_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_x_very_hot",
+   "file": "models/block/heat_pipe/rd_x_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_x_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_x_warm",
+   "file": "models/block/heat_pipe/rd_x_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_x_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_y",
+   "file": "models/block/heat_pipe/rd_y.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_y",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_y_hot",
+   "file": "models/block/heat_pipe/rd_y_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_y_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_y_molten",
+   "file": "models/block/heat_pipe/rd_y_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_y_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_y_super_hot",
+   "file": "models/block/heat_pipe/rd_y_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_y_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_y_very_hot",
+   "file": "models/block/heat_pipe/rd_y_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_y_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_y_warm",
+   "file": "models/block/heat_pipe/rd_y_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_y_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_z",
+   "file": "models/block/heat_pipe/rd_z.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_z",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_z_hot",
+   "file": "models/block/heat_pipe/rd_z_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_z_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_z_molten",
+   "file": "models/block/heat_pipe/rd_z_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_z_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_z_super_hot",
+   "file": "models/block/heat_pipe/rd_z_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_z_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_z_very_hot",
+   "file": "models/block/heat_pipe/rd_z_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_z_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/rd_z_warm",
+   "file": "models/block/heat_pipe/rd_z_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/rd_z_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_x",
+   "file": "models/block/heat_pipe/ru_x.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_x",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_x_hot",
+   "file": "models/block/heat_pipe/ru_x_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_x_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_x_molten",
+   "file": "models/block/heat_pipe/ru_x_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_x_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_x_super_hot",
+   "file": "models/block/heat_pipe/ru_x_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_x_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_x_very_hot",
+   "file": "models/block/heat_pipe/ru_x_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_x_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_x_warm",
+   "file": "models/block/heat_pipe/ru_x_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_x_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_y",
+   "file": "models/block/heat_pipe/ru_y.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_y",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_y_hot",
+   "file": "models/block/heat_pipe/ru_y_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_y_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_y_molten",
+   "file": "models/block/heat_pipe/ru_y_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_y_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_y_super_hot",
+   "file": "models/block/heat_pipe/ru_y_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_y_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_y_very_hot",
+   "file": "models/block/heat_pipe/ru_y_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_y_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_y_warm",
+   "file": "models/block/heat_pipe/ru_y_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_y_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_z",
+   "file": "models/block/heat_pipe/ru_z.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_z",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_z_hot",
+   "file": "models/block/heat_pipe/ru_z_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_z_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_z_molten",
+   "file": "models/block/heat_pipe/ru_z_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_z_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_z_super_hot",
+   "file": "models/block/heat_pipe/ru_z_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_z_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_z_very_hot",
+   "file": "models/block/heat_pipe/ru_z_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_z_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ru_z_warm",
+   "file": "models/block/heat_pipe/ru_z_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ru_z_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/straight",
+   "file": "models/block/heat_pipe/straight.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/straight",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/straight_hot",
+   "file": "models/block/heat_pipe/straight_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/straight_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/straight_molten",
+   "file": "models/block/heat_pipe/straight_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/straight_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/straight_super_hot",
+   "file": "models/block/heat_pipe/straight_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/straight_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/straight_very_hot",
+   "file": "models/block/heat_pipe/straight_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/straight_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/straight_warm",
+   "file": "models/block/heat_pipe/straight_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/straight_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_x",
+   "file": "models/block/heat_pipe/u_x.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_x",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_x_hot",
+   "file": "models/block/heat_pipe/u_x_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_x_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_x_molten",
+   "file": "models/block/heat_pipe/u_x_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_x_molten",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_x_super_hot",
+   "file": "models/block/heat_pipe/u_x_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_x_super_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_x_very_hot",
+   "file": "models/block/heat_pipe/u_x_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_x_very_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_x_warm",
+   "file": "models/block/heat_pipe/u_x_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_x_warm",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_y",
+   "file": "models/block/heat_pipe/u_y.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_y",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_y_hot",
+   "file": "models/block/heat_pipe/u_y_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_y_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_y_molten",
+   "file": "models/block/heat_pipe/u_y_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_y_molten",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_y_super_hot",
+   "file": "models/block/heat_pipe/u_y_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_y_super_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_y_very_hot",
+   "file": "models/block/heat_pipe/u_y_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_y_very_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_y_warm",
+   "file": "models/block/heat_pipe/u_y_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_y_warm",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_z",
+   "file": "models/block/heat_pipe/u_z.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_z",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_z_hot",
+   "file": "models/block/heat_pipe/u_z_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_z_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_z_molten",
+   "file": "models/block/heat_pipe/u_z_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_z_molten",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_z_super_hot",
+   "file": "models/block/heat_pipe/u_z_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_z_super_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_z_very_hot",
+   "file": "models/block/heat_pipe/u_z_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_z_very_hot",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/u_z_warm",
+   "file": "models/block/heat_pipe/u_z_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/u_z_warm",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_x",
+   "file": "models/block/heat_pipe/ud_x.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_x",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_x_hot",
+   "file": "models/block/heat_pipe/ud_x_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_x_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_x_molten",
+   "file": "models/block/heat_pipe/ud_x_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_x_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_x_super_hot",
+   "file": "models/block/heat_pipe/ud_x_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_x_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_x_very_hot",
+   "file": "models/block/heat_pipe/ud_x_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_x_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_x_warm",
+   "file": "models/block/heat_pipe/ud_x_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_x_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_y",
+   "file": "models/block/heat_pipe/ud_y.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_y",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_y_hot",
+   "file": "models/block/heat_pipe/ud_y_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_y_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_y_molten",
+   "file": "models/block/heat_pipe/ud_y_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_y_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_y_super_hot",
+   "file": "models/block/heat_pipe/ud_y_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_y_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_y_very_hot",
+   "file": "models/block/heat_pipe/ud_y_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_y_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_y_warm",
+   "file": "models/block/heat_pipe/ud_y_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_y_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_z",
+   "file": "models/block/heat_pipe/ud_z.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_z",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_z_hot",
+   "file": "models/block/heat_pipe/ud_z_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_z_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_z_molten",
+   "file": "models/block/heat_pipe/ud_z_molten.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_z_molten",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_z_super_hot",
+   "file": "models/block/heat_pipe/ud_z_super_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_z_super_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_z_very_hot",
+   "file": "models/block/heat_pipe/ud_z_very_hot.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_z_very_hot",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/heat_pipe/ud_z_warm",
+   "file": "models/block/heat_pipe/ud_z_warm.json",
+   "elements_at": "vs_clockwork:block/heat_pipe/ud_z_warm",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/impact_sensor/block",
+   "file": "models/block/impact_sensor/block.json",
+   "elements_at": "vs_clockwork:block/impact_sensor/block",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/impact_sensor/block2",
+   "file": "models/block/impact_sensor/block2.json",
+   "elements_at": "vs_clockwork:block/impact_sensor/block2",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/impact_sensor/block3",
+   "file": "models/block/impact_sensor/block3.json",
+   "elements_at": "vs_clockwork:block/impact_sensor/block3",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/impact_sensor/block4",
+   "file": "models/block/impact_sensor/block4.json",
+   "elements_at": "vs_clockwork:block/impact_sensor/block4",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/impact_sensor/item",
+   "file": "models/block/impact_sensor/item.json",
+   "elements_at": "vs_clockwork:block/impact_sensor/item",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/intake/block",
+   "file": "models/block/intake/block.json",
+   "elements_at": "vs_clockwork:block/intake/block",
+   "elements": 9,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/intake/item",
+   "file": "models/block/intake/item.json",
+   "elements_at": "vs_clockwork:block/intake/item",
+   "elements": 9,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/juryrigged_infuser/item",
+   "file": "models/block/juryrigged_infuser/item.json",
+   "elements_at": "vs_clockwork:block/juryrigged_infuser/item",
+   "elements": 53,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/juryrigged_propeller_bearing/block",
+   "file": "models/block/juryrigged_propeller_bearing/block.json",
+   "elements_at": "vs_clockwork:block/juryrigged_propeller_bearing/block",
+   "elements": 12,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/juryrigged_propeller_bearing/item",
+   "file": "models/block/juryrigged_propeller_bearing/item.json",
+   "elements_at": "vs_clockwork:block/juryrigged_propeller_bearing/item",
+   "elements": 14,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/lodefocus",
+   "file": "models/block/lodefocus.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/nyx/charged_nyx",
+   "file": "models/block/nyx/charged_nyx.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/nyx/cobbled_nyx",
+   "file": "models/block/nyx/cobbled_nyx.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/nyx/nyx",
+   "file": "models/block/nyx/nyx.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/peepotron",
+   "file": "models/block/peepotron.json",
+   "elements_at": "vs_clockwork:block/peepotron",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing/attacher",
+   "file": "models/block/phys_bearing/attacher.json",
+   "elements_at": "vs_clockwork:block/phys_bearing/attacher",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing/block",
+   "file": "models/block/phys_bearing/block.json",
+   "elements_at": "vs_clockwork:block/phys_bearing/block",
+   "elements": 12,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing/item",
+   "file": "models/block/phys_bearing/item.json",
+   "elements_at": "vs_clockwork:block/phys_bearing/item",
+   "elements": 33,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing/shaft",
+   "file": "models/block/phys_bearing/shaft.json",
+   "elements_at": "vs_clockwork:block/phys_bearing/shaft",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing/wing_east",
+   "file": "models/block/phys_bearing/wing_east.json",
+   "elements_at": "vs_clockwork:block/phys_bearing/wing_east",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing/wing_north",
+   "file": "models/block/phys_bearing/wing_north.json",
+   "elements_at": "vs_clockwork:block/phys_bearing/wing_north",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing/wing_south",
+   "file": "models/block/phys_bearing/wing_south.json",
+   "elements_at": "vs_clockwork:block/phys_bearing/wing_south",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing/wing_west",
+   "file": "models/block/phys_bearing/wing_west.json",
+   "elements_at": "vs_clockwork:block/phys_bearing/wing_west",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing_old/block",
+   "file": "models/block/phys_bearing_old/block.json",
+   "elements_at": "vs_clockwork:block/phys_bearing_old/block",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing_old/cornerne",
+   "file": "models/block/phys_bearing_old/cornerne.json",
+   "elements_at": "vs_clockwork:block/phys_bearing_old/cornerne",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing_old/cornernw",
+   "file": "models/block/phys_bearing_old/cornernw.json",
+   "elements_at": "vs_clockwork:block/phys_bearing_old/cornernw",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing_old/cornerse",
+   "file": "models/block/phys_bearing_old/cornerse.json",
+   "elements_at": "vs_clockwork:block/phys_bearing_old/cornerse",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing_old/cornersw",
+   "file": "models/block/phys_bearing_old/cornersw.json",
+   "elements_at": "vs_clockwork:block/phys_bearing_old/cornersw",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing_old/flapeast",
+   "file": "models/block/phys_bearing_old/flapeast.json",
+   "elements_at": "vs_clockwork:block/phys_bearing_old/flapeast",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing_old/flapnorth",
+   "file": "models/block/phys_bearing_old/flapnorth.json",
+   "elements_at": "vs_clockwork:block/phys_bearing_old/flapnorth",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing_old/flapsouth",
+   "file": "models/block/phys_bearing_old/flapsouth.json",
+   "elements_at": "vs_clockwork:block/phys_bearing_old/flapsouth",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing_old/flapwest",
+   "file": "models/block/phys_bearing_old/flapwest.json",
+   "elements_at": "vs_clockwork:block/phys_bearing_old/flapwest",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/phys_bearing_old/item",
+   "file": "models/block/phys_bearing_old/item.json",
+   "elements_at": "vs_clockwork:block/phys_bearing_old/item",
+   "elements": 21,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/physics_infuser/block",
+   "file": "models/block/physics_infuser/block.json",
+   "elements_at": "vs_clockwork:block/physics_infuser/block",
+   "elements": 75,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/physics_infuser/core",
+   "file": "models/block/physics_infuser/core.json",
+   "elements_at": "vs_clockwork:block/physics_infuser/core",
+   "elements": 4,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/physics_infuser/item",
+   "file": "models/block/physics_infuser/item.json",
+   "elements_at": "vs_clockwork:block/physics_infuser/item",
+   "elements": 80,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/physics_infuser/liquid",
+   "file": "models/block/physics_infuser/liquid.json",
+   "elements_at": "vs_clockwork:block/physics_infuser/liquid",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/physics_infuser/vortex",
+   "file": "models/block/physics_infuser/vortex.json",
+   "elements_at": "vs_clockwork:block/physics_infuser/vortex",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/physics_infuser/zap",
+   "file": "models/block/physics_infuser/zap.json",
+   "elements_at": "vs_clockwork:block/physics_infuser/zap",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/propeller_bearing/block",
+   "file": "models/block/propeller_bearing/block.json",
+   "elements_at": "vs_clockwork:block/propeller_bearing/block",
+   "elements": 27,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/propeller_bearing/item",
+   "file": "models/block/propeller_bearing/item.json",
+   "elements_at": "vs_clockwork:block/propeller_bearing/item",
+   "elements": 40,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/propeller_bearing/pistonbotl",
+   "file": "models/block/propeller_bearing/pistonbotl.json",
+   "elements_at": "vs_clockwork:block/propeller_bearing/pistonbotl",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/propeller_bearing/pistonbotr",
+   "file": "models/block/propeller_bearing/pistonbotr.json",
+   "elements_at": "vs_clockwork:block/propeller_bearing/pistonbotr",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/propeller_bearing/pistontopl",
+   "file": "models/block/propeller_bearing/pistontopl.json",
+   "elements_at": "vs_clockwork:block/propeller_bearing/pistontopl",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/propeller_bearing/pistontopr",
+   "file": "models/block/propeller_bearing/pistontopr.json",
+   "elements_at": "vs_clockwork:block/propeller_bearing/pistontopr",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/propeller_bearing/top",
+   "file": "models/block/propeller_bearing/top.json",
+   "elements_at": "vs_clockwork:block/propeller_bearing/top",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/pump/block",
+   "file": "models/block/pump/block.json",
+   "elements_at": "vs_clockwork:block/pump/block",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/pump/cog",
+   "file": "models/block/pump/cog.json",
+   "elements_at": "vs_clockwork:block/pump/cog",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/pump/item",
+   "file": "models/block/pump/item.json",
+   "elements_at": "vs_clockwork:block/pump/item",
+   "elements": 13,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/reactionwheel/block",
+   "file": "models/block/reactionwheel/block.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/reactionwheel/item",
+   "file": "models/block/reactionwheel/item.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/reactionwheel/old/alsoold/wheelbottom",
+   "file": "models/block/reactionwheel/old/alsoold/wheelbottom.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/reactionwheel/old/alsoold/wheeltop",
+   "file": "models/block/reactionwheel/old/alsoold/wheeltop.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/reactionwheel/reactionwheel",
+   "file": "models/block/reactionwheel/reactionwheel.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/redstone_duct/block",
+   "file": "models/block/redstone_duct/block.json",
+   "elements_at": "vs_clockwork:block/redstone_duct/block",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/redstone_resistor/block",
+   "file": "models/block/redstone_resistor/block.json",
+   "elements_at": "vs_clockwork:block/redstone_resistor/block",
+   "elements": 10,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/redstone_resistor/block_brass",
+   "file": "models/block/redstone_resistor/block_brass.json",
+   "elements_at": "vs_clockwork:block/redstone_resistor/block_brass",
+   "elements": 10,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/redstone_resistor/item",
+   "file": "models/block/redstone_resistor/item.json",
+   "elements_at": "vs_clockwork:block/redstone_resistor/item",
+   "elements": 11,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/redstone_resistor/item_brass",
+   "file": "models/block/redstone_resistor/item_brass.json",
+   "elements_at": "vs_clockwork:block/redstone_resistor/item_brass",
+   "elements": 11,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/redstone_resistor/resistorindicator",
+   "file": "models/block/redstone_resistor/resistorindicator.json",
+   "elements_at": "vs_clockwork:block/redstone_resistor/resistorindicator",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/redstone_resistor/resistorindicator_brass",
+   "file": "models/block/redstone_resistor/resistorindicator_brass.json",
+   "elements_at": "vs_clockwork:block/redstone_resistor/resistorindicator_brass",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/slicker/block",
+   "file": "models/block/slicker/block.json",
+   "elements_at": "vs_clockwork:block/slicker/block",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/slicker/block_powered",
+   "file": "models/block/slicker/block_powered.json",
+   "elements_at": "vs_clockwork:block/slicker/block_powered",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/slicker/doink",
+   "file": "models/block/slicker/doink.json",
+   "elements_at": "vs_clockwork:block/slicker/doink",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/slicker/goo",
+   "file": "models/block/slicker/goo.json",
+   "elements_at": "vs_clockwork:block/slicker/goo",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/slicker/item",
+   "file": "models/block/slicker/item.json",
+   "elements_at": "vs_clockwork:block/slicker/item",
+   "elements": 7,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/smart_flap_bearing/block",
+   "file": "models/block/smart_flap_bearing/block.json",
+   "elements_at": "vs_clockwork:block/smart_flap_bearing/block",
+   "elements": 5,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/smart_flap_bearing/item",
+   "file": "models/block/smart_flap_bearing/item.json",
+   "elements_at": "vs_clockwork:block/smart_flap_bearing/item",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/solver",
+   "file": "models/block/solver.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/spinoff_bearing",
+   "file": "models/block/spinoff_bearing.json",
+   "elements_at": "vs_clockwork:block/spinoff_bearing",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/steam_generator/block",
+   "file": "models/block/steam_generator/block.json",
+   "elements_at": "vs_clockwork:block/steam_generator/block",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/sterling_engine/block",
+   "file": "models/block/sterling_engine/block.json",
+   "elements_at": "vs_clockwork:block/sterling_engine/block",
+   "elements": 13,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/sterling_engine/old",
+   "file": "models/block/sterling_engine/old.json",
+   "elements_at": "vs_clockwork:block/sterling_engine/old",
+   "elements": 26,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/strawberry_frosting",
+   "file": "models/block/strawberry_frosting.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/sugar_rocket/block",
+   "file": "models/block/sugar_rocket/block.json",
+   "elements_at": "vs_clockwork:block/sugar_rocket/block",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/universal_shaft",
+   "file": "models/block/universal_shaft.json",
+   "elements_at": "vs_clockwork:block/universal_shaft",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/valve_duct/block_horizontal",
+   "file": "models/block/valve_duct/block_horizontal.json",
+   "elements_at": "vs_clockwork:block/valve_duct/block_horizontal",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/valve_duct/block_vertical",
+   "file": "models/block/valve_duct/block_vertical.json",
+   "elements_at": "vs_clockwork:block/valve_duct/block_vertical",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/valve_duct/item",
+   "file": "models/block/valve_duct/item.json",
+   "elements_at": "vs_clockwork:block/valve_duct/item",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/valve_duct/pointer",
+   "file": "models/block/valve_duct/pointer.json",
+   "elements_at": "vs_clockwork:block/valve_duct/pointer",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/vanilla_frosting",
+   "file": "models/block/vanilla_frosting.json",
+   "elements_at": null,
+   "elements": 0,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/vstop",
+   "file": "models/block/vstop.json",
+   "elements_at": "vs_clockwork:block/vstop",
+   "elements": 6,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wanderglass",
+   "file": "models/block/wanderglass.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wanderlite/chiselled_wanderlite",
+   "file": "models/block/wanderlite/chiselled_wanderlite.json",
+   "elements_at": "vs_clockwork:block/wanderlite/chiselled_wanderlite",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wanderlite/deepslate_ore",
+   "file": "models/block/wanderlite/deepslate_ore.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wanderlite/end_ore",
+   "file": "models/block/wanderlite/end_ore.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wanderlite/nyx_ore",
+   "file": "models/block/wanderlite/nyx_ore.json",
+   "elements_at": "block/cube",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wanderlite/smooth_wanderlite",
+   "file": "models/block/wanderlite/smooth_wanderlite.json",
+   "elements_at": "vs_clockwork:block/wanderlite/smooth_wanderlite",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wanderlite/smooth_wanderlite_slab",
+   "file": "models/block/wanderlite/smooth_wanderlite_slab.json",
+   "elements_at": "vs_clockwork:block/wanderlite/smooth_wanderlite_slab",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wanderlite/smooth_wanderlite_slab_top",
+   "file": "models/block/wanderlite/smooth_wanderlite_slab_top.json",
+   "elements_at": "vs_clockwork:block/wanderlite/smooth_wanderlite_slab_top",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wanderlite/smooth_wanderlite_stairs",
+   "file": "models/block/wanderlite/smooth_wanderlite_stairs.json",
+   "elements_at": "vs_clockwork:block/wanderlite/smooth_wanderlite_stairs",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wanderlite/smooth_wanderlite_stairs_inner",
+   "file": "models/block/wanderlite/smooth_wanderlite_stairs_inner.json",
+   "elements_at": "vs_clockwork:block/wanderlite/smooth_wanderlite_stairs_inner",
+   "elements": 3,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wanderlite/smooth_wanderlite_stairs_outer",
+   "file": "models/block/wanderlite/smooth_wanderlite_stairs_outer.json",
+   "elements_at": "vs_clockwork:block/wanderlite/smooth_wanderlite_stairs_outer",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wanderlite/wanderlite_block",
+   "file": "models/block/wanderlite/wanderlite_block.json",
+   "elements_at": "vs_clockwork:block/wanderlite/wanderlite_block",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wanderlite/wanderlite_bricks",
+   "file": "models/block/wanderlite/wanderlite_bricks.json",
+   "elements_at": "vs_clockwork:block/wanderlite/wanderlite_bricks",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wing/flap_frame",
+   "file": "models/block/wing/flap_frame.json",
+   "elements_at": "vs_clockwork:block/wing/flap_frame",
+   "elements": 9,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wing/item",
+   "file": "models/block/wing/item.json",
+   "elements_at": "vs_clockwork:block/wing/item",
+   "elements": 9,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wing/wing",
+   "file": "models/block/wing/wing.json",
+   "elements_at": "vs_clockwork:block/wing/wing",
+   "elements": 10,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wing/wing_bottom",
+   "file": "models/block/wing/wing_bottom.json",
+   "elements_at": "vs_clockwork:block/wing/wing_bottom",
+   "elements": 2,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wing/wing_frame",
+   "file": "models/block/wing/wing_frame.json",
+   "elements_at": "vs_clockwork:block/wing/wing_frame",
+   "elements": 9,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wing/wing_middle",
+   "file": "models/block/wing/wing_middle.json",
+   "elements_at": "vs_clockwork:block/wing/wing_middle",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wing/wing_side",
+   "file": "models/block/wing/wing_side.json",
+   "elements_at": "vs_clockwork:block/wing/wing_side",
+   "elements": 1,
+   "error": null
+  },
+  {
+   "model": "vs_clockwork:block/wing/wing_side_vertical",
+   "file": "models/block/wing/wing_side_vertical.json",
+   "elements_at": "vs_clockwork:block/wing/wing_side_vertical",
+   "elements": 1,
+   "error": null
+  }
+ ],
+ "old_visuals": {
+  "lodefocus": [
+   "flywheel-visual",
+   "renderer"
+  ],
+  "duct": [
+   "flywheel-visual",
+   "renderer"
+  ],
+  "pump_duct": [
+   "flywheel-visual",
+   "renderer"
+  ],
+  "redstone_duct": [
+   "flywheel-visual",
+   "renderer"
+  ],
+  "valve_duct": [
+   "flywheel-visual",
+   "renderer"
+  ],
+  "coal_burner": [
+   "renderer"
+  ],
+  "creative_gas_generator": [
+   "renderer"
+  ],
+  "duct_tank": [
+   "renderer"
+  ],
+  "air_compressor": [
+   "renderer"
+  ],
+  "gas_nozzle": [
+   "flywheel-visual",
+   "renderer"
+  ],
+  "gas_thruster": [
+   "flywheel-visual",
+   "renderer"
+  ],
+  "steam_generator": [
+   "flywheel-visual",
+   "renderer"
+  ],
+  "gas_engine": [
+   "flywheel-visual",
+   "renderer"
+  ],
+  "sterling_engine": [
+   "flywheel-visual",
+   "renderer"
+  ],
+  "gas_crafter": [
+   "renderer"
+  ],
+  "exhaust": [
+   "renderer"
+  ],
+  "gas_heater": [
+   "renderer"
+  ],
+  "goo_block": [
+   "renderer"
+  ],
+  "slicker": [
+   "renderer"
+  ],
+  "clock": [
+   "renderer"
+  ],
+  "gas_backtank": [
+   "renderer"
+  ],
+  "spinoff_bearing": [
+   "flywheel-visual",
+   "renderer"
+  ],
+  "ext_encased_shaft": [
+   "flywheel-visual",
+   "renderer"
+  ],
+  "debug_lightning_arcer": [
+   "renderer"
+  ],
+  "solver": [
+   "renderer"
+  ]
+ },
+ "old_custom_items": {
+  "gravitron": [
+   "custom-renderer",
+   "partials"
+  ],
+  "creative_gravitron": [
+   "custom-renderer"
+  ],
+  "wanderlite_cube": [
+   "custom-renderer"
+  ],
+  "wanderlite_matrix": [
+   "custom-renderer"
+  ],
+  "incomplete_wanderwand": [
+   "custom-renderer",
+   "partials"
+  ],
+  "propeller_blade": [
+   "custom-renderer"
+  ],
+  "wide_propeller_blade": [
+   "custom-renderer"
+  ],
+  "wanderwand": [
+   "custom-renderer",
+   "partials"
+  ],
+  "aeronaut_goggles": [
+   "custom-renderer",
+   "partials"
+  ],
+  "handheld_drill": [
+   "custom-renderer",
+   "partials"
+  ],
+  "handheld_saw": [
+   "custom-renderer",
+   "partials"
+  ]
+ },
+ "new_be_renderers": {
+  "BladeControllerRenderer": "CWContraptionsIndex.java",
+  "ClockRenderer": "CWInstrumentsIndex.java",
+  "UniversalShaftRenderer": "CWKineticsIndex.java",
+  "RedstoneResistorRenderer": "CWKineticsIndex.java",
+  "WingColorRenderer": "CWKineticsIndex.java",
+  "SlickerRenderer": "CWKineticsIndex.java",
+  "Render": "CWKineticsIndex.java",
+  "GasEngineRenderer": "CWGasIndex.java",
+  "GasCrafterRenderer": "CWGasIndex.java",
+  "X": "CWClientSetup.java"
+ },
+ "new_item_renderers": {
+  "GRAVITRON": [
+   "new",
+   "GravitronClientSetup.java"
+  ],
+  "CREATIVE_GRAVITRON": [
+   "new",
+   "GravitronClientSetup.java"
+  ]
+ },
+ "missing_visual_blocks": [
+  "air_compressor",
+  "coal_burner",
+  "creative_gas_generator",
+  "debug_lightning_arcer",
+  "duct",
+  "duct_tank",
+  "exhaust",
+  "ext_encased_shaft",
+  "gas_backtank",
+  "gas_heater",
+  "gas_nozzle",
+  "gas_thruster",
+  "goo_block",
+  "lodefocus",
+  "pump_duct",
+  "redstone_duct",
+  "solver",
+  "spinoff_bearing",
+  "steam_generator",
+  "sterling_engine",
+  "valve_duct"
+ ],
+ "missing_item_renderers": [
+  "aeronaut_goggles",
+  "creative_gravitron",
+  "gravitron",
+  "handheld_drill",
+  "handheld_saw",
+  "incomplete_wanderwand",
+  "propeller_blade",
+  "wanderlite_cube",
+  "wanderlite_matrix",
+  "wanderwand",
+  "wide_propeller_blade"
+ ]
+}

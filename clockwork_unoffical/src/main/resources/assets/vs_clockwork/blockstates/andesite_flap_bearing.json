@@ -1,0 +1,38 @@
+{
+  "variants": {
+    "axis_along_first=false,facing=down": {
+      "model": "vs_clockwork:block/andesite_flap_bearing/block",
+      "x": 270
+    },
+    "axis_along_first=true,facing=down": {
+      "model": "vs_clockwork:block/andesite_flap_bearing/block",
+      "x": 270,
+      "y": 90
+    },
+    "axis_along_first=false,facing=up": {
+      "model": "vs_clockwork:block/andesite_flap_bearing/block",
+      "x": 90
+
+    },
+    "axis_along_first=true,facing=up": {
+      "model": "vs_clockwork:block/andesite_flap_bearing/block",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "vs_clockwork:block/andesite_flap_bearing/block",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "vs_clockwork:block/andesite_flap_bearing/block"
+    },
+    "facing=west": {
+      "model": "vs_clockwork:block/andesite_flap_bearing/block",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "vs_clockwork:block/andesite_flap_bearing/block",
+      "y": 270
+    }
+  }
+}

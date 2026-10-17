@@ -1,0 +1,90 @@
+# =============================================================================
+# VS-Sablework / Clockwork 1.21.1 非官方移植 —— 仓库忽略规则
+#
+# 原则：只提交「本移植的源码、资源、构建脚本与文档」。
+#       参考资料、第三方版权物、构建产物、本机缓存一律不入库。
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# 1. 参考资料 / 第三方源码树
+#    仅本机阅读，版权归各自作者，仓库不再分发
+# -----------------------------------------------------------------------------
+/Clockwork-1.20.1-main/
+/sable-main/
+/Simulated-Project-main/
+/Valkyrien-Skies-2-1.20.1-main/
+/Create-mc1.21.1-dev/
+
+# 从 GitHub / jsDelivr 拉取的参考快照、探针临时输出、旧 jar 备份
+/_refs/
+/_probe_tmp/
+/_cw_backups/
+
+# 官方发布包解包出的类/资源碎片与原始资源参考
+/com/
+/net/
+/logs/
+/assets/
+
+# 本机构建用的临时 classpath 清单
+/_cw_cp.txt
+
+# -----------------------------------------------------------------------------
+# 2. 构建产物 / 本机缓存
+# -----------------------------------------------------------------------------
+/clockwork_unoffical/build/
+/clockwork_unoffical/.gradle/
+/clockwork_unoffical/run/
+/clockwork_unoffical/local-maven/
+/clockwork_unoffical/out/
+/tools/out2/
+/tools/logs/
+/tools/__pycache__/
+
+# IDE / 编译缓存
+/.idea/
+/.vscode/
+*.iml
+*.iws
+*.ipr
+*.class
+*.pyc
+**/__pycache__/
+
+# 运行日志与临时文件
+*.log
+*.tmp
+*.tmp.*
+*.orig
+*.rej
+*.bak
+
+# 系统垃圾
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -----------------------------------------------------------------------------
+# 3. 第三方 jar（Create / Sable / Aeronautics / Flywheel / Registrate / JEI /
+#    CC:Tweaked 等，版权归各自作者，绝对不能提交）
+#    只放行 Gradle Wrapper 自带的 gradle-wrapper.jar；
+#    libs/ 目录用 README 说明如何自行获取，见 clockwork_unoffical/libs/README.md
+# -----------------------------------------------------------------------------
+*.jar
+/clockwork_unoffical/libs/*.jar
+!/clockwork_unoffical/gradle/wrapper/gradle-wrapper.jar
+
+# tools/simjar/ 下是从整合包抽出的第三方 jar（Simulated），同样不入库
+/tools/simjar/
+
+# -----------------------------------------------------------------------------
+# 4. 本机验证产物：把构建好的 jar 解包到工程根目录做内容核对时留下的临时树
+#    （assets / data / META-INF / org / resourcepacks / icon / mixins.json）
+# -----------------------------------------------------------------------------
+/clockwork_unoffical/assets/
+/clockwork_unoffical/data/
+/clockwork_unoffical/META-INF/
+/clockwork_unoffical/org/
+/clockwork_unoffical/resourcepacks/
+/clockwork_unoffical/icon.png
+/clockwork_unoffical/vs_clockwork.mixins.json

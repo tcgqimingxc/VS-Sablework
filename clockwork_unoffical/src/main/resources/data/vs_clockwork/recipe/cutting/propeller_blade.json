@@ -1,0 +1,15 @@
+{
+    "type":  "create:cutting",
+    "ingredients":  [
+                        {
+                            "tag":  "minecraft:planks"
+                        }
+                    ],
+    "processing_time":  100,
+    "results":  [
+                    {
+                        "count":  3,
+                        "id":  "vs_clockwork:propeller_blade"
+                    }
+                ]
+}

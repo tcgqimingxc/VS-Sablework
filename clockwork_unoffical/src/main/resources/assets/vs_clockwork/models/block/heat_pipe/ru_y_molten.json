@@ -1,0 +1,360 @@
+{
+  "credit": "生成自 tools/gen_heat_pipe_models.py（旧版缺失，按 blockstate 补齐）",
+  "texture_size": [
+    16,
+    16
+  ],
+  "textures": {
+    "core": "vs_clockwork:block/heatpipe_core_molten",
+    "connection": "vs_clockwork:block/heatpipe_connection_molten",
+    "rim": "vs_clockwork:block/heatpipe_rim_molten",
+    "particle": "vs_clockwork:block/heatpipe_core_molten"
+  },
+  "elements": [
+    {
+      "from": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "to": [
+        11.0,
+        11.0,
+        11.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.09,
+            0.09,
+            5.91,
+            5.91
+          ],
+          "texture": "#core"
+        },
+        "east": {
+          "uv": [
+            0.09,
+            0.09,
+            5.91,
+            5.91
+          ],
+          "texture": "#core"
+        },
+        "south": {
+          "uv": [
+            0.09,
+            0.09,
+            5.91,
+            5.91
+          ],
+          "texture": "#core"
+        },
+        "west": {
+          "uv": [
+            0.09,
+            0.09,
+            5.91,
+            5.91
+          ],
+          "texture": "#core"
+        },
+        "up": {
+          "uv": [
+            0.09,
+            0.09,
+            5.91,
+            5.91
+          ],
+          "texture": "#core"
+        },
+        "down": {
+          "uv": [
+            0.09,
+            0.09,
+            5.91,
+            5.91
+          ],
+          "texture": "#core"
+        }
+      },
+      "name": "core"
+    },
+    {
+      "from": [
+        0.0,
+        4.925,
+        4.925
+      ],
+      "to": [
+        5.0,
+        11.075,
+        11.075
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.575,
+            8.017,
+            7.425,
+            13.983
+          ],
+          "texture": "#connection"
+        },
+        "east": {
+          "uv": [
+            2.017,
+            8.017,
+            7.983,
+            13.983
+          ],
+          "texture": "#connection"
+        },
+        "south": {
+          "uv": [
+            2.575,
+            8.017,
+            7.425,
+            13.983
+          ],
+          "texture": "#connection"
+        },
+        "west": {
+          "uv": [
+            2.017,
+            8.017,
+            7.983,
+            13.983
+          ],
+          "texture": "#connection"
+        },
+        "up": {
+          "uv": [
+            2.575,
+            8.017,
+            7.425,
+            13.983
+          ],
+          "texture": "#connection"
+        },
+        "down": {
+          "uv": [
+            2.575,
+            8.017,
+            7.425,
+            13.983
+          ],
+          "texture": "#connection"
+        }
+      },
+      "name": "stub_west"
+    },
+    {
+      "from": [
+        4.925,
+        4.925,
+        11.0
+      ],
+      "to": [
+        11.075,
+        11.075,
+        16.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.017,
+            8.017,
+            7.983,
+            13.983
+          ],
+          "texture": "#connection"
+        },
+        "east": {
+          "uv": [
+            2.575,
+            8.017,
+            7.425,
+            13.983
+          ],
+          "texture": "#connection"
+        },
+        "south": {
+          "uv": [
+            2.017,
+            8.017,
+            7.983,
+            13.983
+          ],
+          "texture": "#connection"
+        },
+        "west": {
+          "uv": [
+            2.575,
+            8.017,
+            7.425,
+            13.983
+          ],
+          "texture": "#connection"
+        },
+        "up": {
+          "uv": [
+            2.017,
+            8.575,
+            7.983,
+            13.425
+          ],
+          "texture": "#connection"
+        },
+        "down": {
+          "uv": [
+            2.017,
+            8.575,
+            7.983,
+            13.425
+          ],
+          "texture": "#connection"
+        }
+      },
+      "name": "stub_south"
+    },
+    {
+      "from": [
+        -0.14999999999999858,
+        4.4,
+        4.4
+      ],
+      "to": [
+        2.0999999999999996,
+        11.6,
+        11.6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.409,
+            4.508,
+            4.591,
+            11.492
+          ],
+          "texture": "#rim"
+        },
+        "east": {
+          "uv": [
+            0.008,
+            4.508,
+            6.992,
+            11.492
+          ],
+          "texture": "#rim"
+        },
+        "south": {
+          "uv": [
+            2.409,
+            4.508,
+            4.591,
+            11.492
+          ],
+          "texture": "#rim"
+        },
+        "west": {
+          "uv": [
+            0.008,
+            4.508,
+            6.992,
+            11.492
+          ],
+          "texture": "#rim"
+        },
+        "up": {
+          "uv": [
+            2.409,
+            4.508,
+            4.591,
+            11.492
+          ],
+          "texture": "#rim"
+        },
+        "down": {
+          "uv": [
+            2.409,
+            4.508,
+            4.591,
+            11.492
+          ],
+          "texture": "#rim"
+        }
+      },
+      "name": "rim_west"
+    },
+    {
+      "from": [
+        4.4,
+        4.4,
+        13.9
+      ],
+      "to": [
+        11.6,
+        11.6,
+        16.15
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.008,
+            4.508,
+            6.992,
+            11.492
+          ],
+          "texture": "#rim"
+        },
+        "east": {
+          "uv": [
+            2.409,
+            4.508,
+            4.591,
+            11.492
+          ],
+          "texture": "#rim"
+        },
+        "south": {
+          "uv": [
+            0.008,
+            4.508,
+            6.992,
+            11.492
+          ],
+          "texture": "#rim"
+        },
+        "west": {
+          "uv": [
+            2.409,
+            4.508,
+            4.591,
+            11.492
+          ],
+          "texture": "#rim"
+        },
+        "up": {
+          "uv": [
+            0.008,
+            6.909,
+            6.992,
+            9.091
+          ],
+          "texture": "#rim"
+        },
+        "down": {
+          "uv": [
+            0.008,
+            6.909,
+            6.992,
+            9.091
+          ],
+          "texture": "#rim"
+        }
+      },
+      "name": "rim_south"
+    }
+  ]
+}

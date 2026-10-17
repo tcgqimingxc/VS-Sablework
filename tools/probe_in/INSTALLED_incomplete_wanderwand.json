@@ -1,0 +1,62 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:brass_ingot"
+  },
+  "loops": 3,
+  "results": [
+    {
+      "id": "vs_clockwork:incomplete_wanderwand"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "vs_clockwork:incomplete_wanderwand"
+        },
+        {
+          "tag": "c:nuggets/iron"
+        }
+      ],
+      "results": [
+        {
+          "id": "vs_clockwork:incomplete_wanderwand"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "vs_clockwork:incomplete_wanderwand"
+        },
+        {
+          "tag": "c:nuggets/iron"
+        }
+      ],
+      "results": [
+        {
+          "id": "vs_clockwork:incomplete_wanderwand"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "vs_clockwork:incomplete_wanderwand"
+        }
+      ],
+      "results": [
+        {
+          "id": "vs_clockwork:incomplete_wanderwand"
+        }
+      ]
+    }
+  ],
+  "transitional_item": {
+    "id": "vs_clockwork:incomplete_wanderwand"
+  }
+}
