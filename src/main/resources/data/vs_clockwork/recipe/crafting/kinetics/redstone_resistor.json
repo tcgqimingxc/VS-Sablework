@@ -1,0 +1,21 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "pattern":  [
+                    "SAS",
+                    " R "
+                ],
+    "key":  {
+                "S":  {
+                          "item":  "create:shaft"
+                      },
+                "A":  {
+                          "item":  "create:adjustable_chain_gearshift"
+                      },
+                "R":  {
+                          "item":  "minecraft:redstone"
+                      }
+            },
+    "result":  {
+                   "id":  "vs_clockwork:redstone_resistor"
+               }
+}

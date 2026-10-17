@@ -1,0 +1,12 @@
+# Disable autocrlf on generated files, they always generate with LF
+# Add any extra files or paths here to make git stop saying they
+# are changed when only line endings change.
+src/generated/**/.cache/* text eol=lf
+src/generated/**/*.json text eol=lf
+
+# 二进制资源：禁止 Git 做行尾转换
+*.png binary
+*.ogg binary
+*.nbt binary
+*.jar binary
+*.aseprite binary

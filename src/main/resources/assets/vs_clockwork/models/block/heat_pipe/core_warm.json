@@ -1,0 +1,84 @@
+{
+  "credit": "生成自 tools/gen_heat_pipe_models.py（旧版缺失，按 blockstate 补齐）",
+  "texture_size": [
+    16,
+    16
+  ],
+  "textures": {
+    "core": "vs_clockwork:block/heatpipe_core_warm",
+    "connection": "vs_clockwork:block/heatpipe_connection_warm",
+    "rim": "vs_clockwork:block/heatpipe_rim_warm",
+    "particle": "vs_clockwork:block/heatpipe_core_warm"
+  },
+  "elements": [
+    {
+      "from": [
+        5.0,
+        5.0,
+        5.0
+      ],
+      "to": [
+        11.0,
+        11.0,
+        11.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.09,
+            0.09,
+            5.91,
+            5.91
+          ],
+          "texture": "#core"
+        },
+        "east": {
+          "uv": [
+            0.09,
+            0.09,
+            5.91,
+            5.91
+          ],
+          "texture": "#core"
+        },
+        "south": {
+          "uv": [
+            0.09,
+            0.09,
+            5.91,
+            5.91
+          ],
+          "texture": "#core"
+        },
+        "west": {
+          "uv": [
+            0.09,
+            0.09,
+            5.91,
+            5.91
+          ],
+          "texture": "#core"
+        },
+        "up": {
+          "uv": [
+            0.09,
+            0.09,
+            5.91,
+            5.91
+          ],
+          "texture": "#core"
+        },
+        "down": {
+          "uv": [
+            0.09,
+            0.09,
+            5.91,
+            5.91
+          ],
+          "texture": "#core"
+        }
+      },
+      "name": "core"
+    }
+  ]
+}

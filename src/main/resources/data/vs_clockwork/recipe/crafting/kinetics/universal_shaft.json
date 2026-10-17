@@ -1,0 +1,20 @@
+{
+    "type":  "minecraft:crafting_shaped",
+    "category":  "misc",
+    "key":  {
+                "S":  {
+                          "item":  "create:shaft"
+                      },
+                "N":  {
+                          "item":  "create:zinc_nugget"
+                      }
+            },
+    "pattern":  [
+                    " N ",
+                    "NSN"
+                ],
+    "result":  {
+                   "id":  "vs_clockwork:universal_shaft"
+               },
+    "show_notification":  true
+}

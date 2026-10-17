@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "create:block/industrial_iron_block",
+    "bottom": "create:block/industrial_iron_block",
+    "top": "create:block/industrial_iron_block_top",
+    "particle": "create:block/industrial_iron_block"
+  }
+}

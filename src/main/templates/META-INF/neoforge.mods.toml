@@ -1,0 +1,72 @@
+# Clockwork（1.21.1 非官方移植）mod 元数据
+modLoader = "javafml"
+loaderVersion = "${loader_version_range}"
+license = "${mod_license}"
+# 本工程是 1.21.1 非官方移植，官方页面与问题反馈都指向本移植的发布页（不是上游 VS 的仓库）
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/sablework-clockworkvs-unofficial"
+issueTrackerURL = "https://www.curseforge.com/minecraft/mc-mods/sablework-clockworkvs-unofficial"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "${mod_name}"
+authors = "${mod_authors}"
+logoFile = "icon.png"
+description = '''
+${mod_description}
+'''
+
+# 气体切片（gas_engine）新增：需要 mixin 进 Create 的锅炉与蒸汽机
+[[mixins]]
+config = "vs_clockwork.mixins.json"
+
+# 前置依赖：Create 本体 + Sable 物理库 + Create: Aeronautics(Simulated)
+[[dependencies.${mod_id}]]
+modId = "neoforge"
+type = "required"
+versionRange = "[${neo_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "create"
+type = "required"
+versionRange = "[${create_version},)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "sable"
+type = "required"
+versionRange = "[${sable_version},)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "simulated"
+type = "required"
+versionRange = "[${aeronautics_version},)"
+ordering = "AFTER"
+side = "BOTH"
+
+# 可选集成
+[[dependencies.${mod_id}]]
+modId = "jei"
+type = "optional"
+versionRange = "[19,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "computercraft"
+type = "optional"
+versionRange = "[1.110,)"
+ordering = "AFTER"
+side = "BOTH"

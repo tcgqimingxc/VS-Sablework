@@ -1,0 +1,41 @@
+{
+	"credit": "Clockwork 移植补充：见 wanderlite_cube.json 的说明；基体比立方多一层外壳，对应旧版三层立方渲染",
+	"textures": {
+		"0": "vs_clockwork:item/wanderlite_crystal",
+		"particle": "vs_clockwork:item/wanderlite_crystal"
+	},
+	"elements": [
+		{
+			"from": [3, 3, 3],
+			"to": [13, 13, 13],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#0"}
+			}
+		},
+		{
+			"from": [5.5, 5.5, 5.5],
+			"to": [10.5, 10.5, 10.5],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"gui": {"rotation": [30, 225, 0], "scale": [1.0, 1.0, 1.0]},
+		"ground": {"translation": [0, 3, 0], "scale": [0.5, 0.5, 0.5]},
+		"fixed": {"scale": [0.75, 0.75, 0.75]},
+		"thirdperson_righthand": {"rotation": [75, 45, 0], "translation": [0, 2.5, 0], "scale": [0.5, 0.5, 0.5]},
+		"firstperson_righthand": {"rotation": [0, 45, 0], "scale": [0.6, 0.6, 0.6]},
+		"firstperson_lefthand": {"rotation": [0, 225, 0], "scale": [0.6, 0.6, 0.6]}
+	}
+}
