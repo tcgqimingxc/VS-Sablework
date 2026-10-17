@@ -14,7 +14,8 @@
 | 源码仓库 | <https://github.com/tcgqimingxc/VS-Sablework> |
 | 许可 | Apache-2.0（见 [LICENSE](LICENSE)） |
 
-仓库根目录就是模组工程本身（原 `clockwork_unoffical/`），clone 下来即可用 Gradle 构建，没有额外的子目录层级。
+仓库根目录就是模组工程本身（原 `clockwork_unoffical/`），没有额外的子目录层级；补齐 `libs/`
+前置 jar 后即可构建。
 
 ## 这个模组是什么
 
@@ -43,9 +44,9 @@ Clockwork 原本是 Valkyrien Skies 2 时代的「Create + 飞空艇」扩展：
 
 ### 0. 准备 `libs/`
 
-按 [`libs/README.md`](libs/README.md) 的表格准备 11 个必需 jar，文件名必须与 `build.gradle` 中
-`files('libs/...')` 的写法完全一致。JEI / CC:Tweaked 的 3 个 jar 只在需要编译对应集成时放入，
-不放也能构建（只是不编译那部分集成代码）。
+按 [`libs/README.md`](libs/README.md) 的表格准备 14 个 jar（11 个运行前置 + 3 个编译期集成），
+文件名必须与 `build.gradle` 中 `files('libs/...')` 的写法完全一致。JEI / CC:Tweaked 的 3 个
+jar 也参与编译（源码中有对应的集成类），首次构建需一并放入；运行期是否安装由玩家决定。
 
 ### 1. 标准构建（可访问 Maven 的环境）
 
@@ -174,9 +175,9 @@ affiliated with or endorsed by the Valkyrien Skies Team, Create, Sable or Create
 
 - **Requires:** Minecraft 1.21.1, NeoForge 21.1.x, Create 6.0.10, Sable 2.0.6 (compile baseline
   2.0.5, `mods.toml` requires `>= 2.0.5`), Create: Aeronautics 1.3.2, Java 21.
-- **Build:** put the 11 prerequisite jars listed in [`libs/README.md`](libs/README.md) into `libs/`,
-  then run `./gradlew build` (Windows: `.\gradlew.bat build`). Add `--offline` when Maven is
-  unreachable and the Gradle cache is already populated.
+- **Build:** put the 14 prerequisite jars listed in [`libs/README.md`](libs/README.md) into `libs/`
+  (11 runtime + 3 compile-only integrations), then run `./gradlew build` (Windows: `.\gradlew.bat build`).
+  Add `--offline` when Maven is unreachable and the Gradle cache is already populated.
 - **Output:** `build/libs/vs_clockwork-0.6.0-1.21.1.jar`.
 - **License:** Apache-2.0. Third-party mods are prerequisites only and are not distributed here.
 - **Release page:** <https://www.curseforge.com/minecraft/mc-mods/sablework-clockworkvs-unofficial>

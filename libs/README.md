@@ -28,7 +28,11 @@
 | `dev.eriksonn.aeronautics.aeronautics-neoforge-1.21.1-1.3.2.jar` | Create: Aeronautics | 同上 |
 | `dev.ryanhcode.offroad.offroad-neoforge-1.21.1-1.3.2.jar` | Create: Aeronautics — Offroad | 同上 |
 
-## 仅编译期（可选集成，运行期由玩家自行安装）
+## 编译期集成（同样需要放入，运行期可选）
+
+这 3 个 jar 只参与编译（`compileOnly`），但源码里存在对应的 JEI / CC 集成类，缺少时
+`compileJava` 会因找不到符号而失败；运行期是否安装由玩家决定。完整构建共需 14 个 jar
+（11 个运行前置 + 3 个编译期集成）。
 
 | 文件名 | 对应模组 |
 |---|---|
