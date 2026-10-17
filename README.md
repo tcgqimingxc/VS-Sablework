@@ -137,7 +137,7 @@ powershell -ExecutionPolicy Bypass -File tools\run_gates.ps1
 | [`DATA-CHECKS.md`](clockwork_unoffical/docs/DATA-CHECKS.md) | 数据包 / 世界生成 / 音效的校验依据 |
 | [`DUCT-TANK-LOOK.md`](clockwork_unoffical/docs/DUCT-TANK-LOOK.md) / [`DUCT-TANK-UV.md`](clockwork_unoffical/docs/DUCT-TANK-UV.md) | 储罐外观与 UV |
 | [`GRAVITRON-SOUNDS.md`](clockwork_unoffical/docs/GRAVITRON-SOUNDS.md) | 引力子音效 |
-| [`../docs/TEXTURE-MAP.md`](docs/TEXTURE-MAP.md) / [`../docs/GAS-TANK.md`](docs/GAS-TANK.md) / [`../docs/EXTENDON-ORIENTATION.md`](docs/EXTENDON-ORIENTATION.md) | 根目录专题长文 |
+| [`docs/TEXTURE-MAP.md`](docs/TEXTURE-MAP.md) / [`docs/GAS-TANK.md`](docs/GAS-TANK.md) / [`docs/EXTENDON-ORIENTATION.md`](docs/EXTENDON-ORIENTATION.md) | 根目录专题长文 |
 
 ## 许可与致谢
 
