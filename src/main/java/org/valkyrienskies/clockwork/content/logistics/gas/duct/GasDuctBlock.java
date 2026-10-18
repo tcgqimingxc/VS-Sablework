@@ -9,6 +9,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
@@ -24,34 +25,37 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.valkyrienskies.clockwork.content.curiosities.tools.screwdriver.IScrewdrivable;
 import org.valkyrienskies.clockwork.content.logistics.gas.IGasNodeBlock;
 
 import java.util.EnumMap;
 import java.util.Map;
 
 /**
- * 气体导管：气体网络的骨架。
+ * 气体导管：气体网络的骨架，也是"边类型"的宿主。
  *
  * <p>对应旧版 {@code DuctBlock}。行为一致的部分：6 个面的连接状态（扳手切换 / 自动重连 /
- * 爆炸变泄漏）、含水（waterlogged）、管道形状、泄漏粒子。
+ * 爆炸变泄漏）、含水（waterlogged）、管道形状、泄漏粒子，以及<b>螺丝刀按面循环边类型</b>
+ * （旧版 {@code DuctBlock.kt:405-439} + {@code DuctBlockEntity.kt:91-101}）。
  *
  * <p>与旧版的差异：
  * <ul>
  *   <li>旧版 {@code onWrenched} 会把连接切成 {@code TEMP_ON} 再靠 {@code neighborChanged} 修回；
  *       这里直接 SIDE ↔ FORCED_OFF 两态循环，语义更直观（见 {@link DuctConnectionType}）。</li>
- *   <li>旧版用螺丝刀（{@code IScrewdrivable}）循环边的类型（单向/过滤/智能）并打开配置界面；
- *       螺丝刀与其界面不在本次移植范围，因此只保留扳手的连接开关。边类型（单向/过滤）的
- *       玩法在 {@code GasLink} 里有对应字段，但暂未提供方块入口。</li>
+ *   <li>旧版把边类型与参数存在"边对象"里、参数用 GUI 编辑；本移植存在
+ *       {@link GasDuctBlockEntity} 的面级配置里，参数用螺丝刀/空手的三个旋钮循环
+ *       （手势对照见 {@link DuctEdgeInteraction}，差异见 {@code docs/DUCT-EDGE-VARIANTS.md} §4）。</li>
  *   <li>旧版 {@code animateTick} 会按压力差喷发气体粒子，并且受客户端配置开关控制；
  *       这里只在泄漏面上喷烟，避免每刻对每个导管做压力读取（更省，也更符合"看得见的问题"）。</li>
  * </ul>
  */
 public class GasDuctBlock extends Block
-        implements IBE<GasDuctBlockEntity>, IGasNodeBlock, SimpleWaterloggedBlock, IWrenchable {
+        implements IBE<GasDuctBlockEntity>, IGasNodeBlock, SimpleWaterloggedBlock, IWrenchable, IScrewdrivable {
 
     public static final EnumProperty<DuctConnectionType> NORTH = EnumProperty.create("north", DuctConnectionType.class);
     public static final EnumProperty<DuctConnectionType> EAST = EnumProperty.create("east", DuctConnectionType.class);
@@ -236,6 +240,43 @@ public class GasDuctBlock extends Block
             return dy > 0 ? Direction.UP : Direction.DOWN;
         }
         return dz > 0 ? Direction.SOUTH : Direction.NORTH;
+    }
+
+    // ===================== 边类型（螺丝刀 / 空手） =====================
+
+    /**
+     * 螺丝刀右键：循环被点击那一面的边类型。
+     *
+     * <p>沿用 {@link #pickConnectionDirection} 判断"玩家想改哪一面"—— 与扳手改连接用同一套判定，
+     * 否则同一个位置用扳手改的是南面、用螺丝刀改的却是上面，玩家会以为其中一个坏了。
+     */
+    @Override
+    public InteractionResult onScrewdrived(BlockState state, UseOnContext context) {
+        return DuctEdgeInteraction.adjust(context.getLevel(), context.getClickedPos(), context.getClickedFace(),
+                context.getClickLocation(), context.getPlayer(), DuctEdgeInteraction.Gesture.CYCLE_TYPE);
+    }
+
+    /** 潜行 + 螺丝刀：循环该面边类型的主参数（过滤气体 / 智能阈值指标）。 */
+    @Override
+    public InteractionResult onSneakScrewdrived(BlockState state, UseOnContext context) {
+        return DuctEdgeInteraction.adjust(context.getLevel(), context.getClickedPos(), context.getClickedFace(),
+                context.getClickLocation(), context.getPlayer(), DuctEdgeInteraction.Gesture.PRIMARY);
+    }
+
+    /**
+     * 空手右键：次参数；潜行 + 空手：第三参数。
+     *
+     * <p>为什么用空手而不是再加一个工具：螺丝刀只有"普通/潜行"两个状态，
+     * 而智能边有三个独立旋钮（指标 / 档位 / 大小于）。空手右键在导管上本来没有任何行为，
+     * 用它承载剩下的两个旋钮既不需要新物品，也不会和扳手（拆连接）冲突。
+     */
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
+                                               BlockHitResult hit) {
+        final DuctEdgeInteraction.Gesture gesture = player.isShiftKeyDown()
+                ? DuctEdgeInteraction.Gesture.TERTIARY
+                : DuctEdgeInteraction.Gesture.SECONDARY;
+        return DuctEdgeInteraction.adjust(level, pos, hit.getDirection(), hit.getLocation(), player, gesture);
     }
 
     // ===================== 形状 / 水 / 粒子 =====================

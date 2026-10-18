@@ -3,6 +3,7 @@ package org.valkyrienskies.clockwork.content.contraptions.propeller.blades;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.ItemStack;
 import org.valkyrienskies.clockwork.content.contraptions.propeller.blades.item.BladeItem;
+import org.valkyrienskies.clockwork.content.contraptions.propeller.blades.item.BladeItems;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +19,10 @@ import java.util.List;
  *   <li>旧版要从 contraption 方块 NBT 里"反过来"读控制器的数据（控制器方块被搬进 contraption 后
  *       只剩 NBT），新架构下控制器就是子空间里的普通方块实体，螺旋桨轴承直接在内存里读它
  *       （{@code LevelPlot#getBlockEntityActors}），因此不再需要 NBT 中转，本类退化为纯数据载体。</li>
- *   <li>旧版每片叶子的展长存在物品 NBT 的 {@code BladeLength} 里（切割 / 加长配方会改写它），
- *       1.21.1 移除了物品 NBT、且那两个自定义配方类型没有移植，所以展长改为叶片物品的固有属性
- *       （见 {@link BladeItem}）。</li>
+ *   <li>展长与旧版一样是"每片叶子各不相同"的：旧版读物品 NBT 的 {@code BladeLength}，
+ *       这里读数据组件（{@link BladeItems#getLength}，见
+ *       {@link org.valkyrienskies.clockwork.index.CWDataComponents#BLADE_LENGTH}）。
+ *       宽 / 窄仍是物品的固有属性。</li>
  * </ul>
  */
 public record BladeData(boolean wide, double angleDegrees, double length) {
@@ -51,7 +53,7 @@ public record BladeData(boolean wide, double angleDegrees, double length) {
         final List<BladeData> data = new ArrayList<>(blades.size());
         for (final ItemStack stack : blades) {
             if (stack.getItem() instanceof final BladeItem blade) {
-                data.add(new BladeData(blade.isWide(), angleDegrees, blade.getBladeLength()));
+                data.add(new BladeData(blade.isWide(), angleDegrees, BladeItems.getLength(stack)));
             }
         }
         return data;

@@ -16,11 +16,11 @@
 
 ## 0. 统计
 
-- 注册方块 **68** 个（其中 **6** 个由另一任务负责：air_compressor, clock, duct_tank, extendon, hose_port, pump_duct）。
-- 本轮审计范围：**62** 个方块 + **25** 个物品。
-- 结论分布：✅ **61** / ⚠️ **1** / ❌ **0** / —（另一任务）**6**。
+- 注册方块 **68** 个（其中 **4** 个由另一任务负责：clock, duct_tank, hose_port, pump_duct）。
+- 本轮审计范围：**64** 个方块 + **25** 个物品。
+- 结论分布：✅ **63** / ⚠️ **1** / ❌ **0** / —（另一任务）**4**。
 - 检查项合计问题 **0** 个（分项见 §3）。
-- 上游遗留（官方自己也没引用，仅记录，不计入问题）**32** 个模型。
+- 上游遗留（官方自己也没引用，仅记录，不计入问题）**22** 个模型。
 
 ## 1. 全量矩阵（68 个注册方块）
 
@@ -31,7 +31,7 @@
 
 | 方块 | 类 | 旧版 BER | 工程 BER | Shape | 物品模型 | 结论 |
 |---|---|---|---|---|---|---|
-| `air_compressor` | AirCompressorBlock | AirCompressorRenderer | AirCompressorRenderer | model | ✅ | —（另一任务） |
+| `air_compressor` | AirCompressorBlock | AirCompressorRenderer | AirCompressorRenderer | model | ✅ | ✅ |
 | `alt_meter` | AltMeterBlock | AltMeterRenderer | AltMeterRenderer | model | ✅ | ✅ |
 | `andesite_flap_bearing` | AndesiteFlapBearingBlock | FlapBearingRenderer | FlapBearingRenderer | model | ✅ | ✅ |
 | `asteroid_block` | MeteorTestBlock | — | — | model | ✅ | ✅ |
@@ -53,7 +53,7 @@
 | `duct` | GasDuctBlock | DuctRenderer | DuctRenderer | model | ✅ | ✅ |
 | `duct_tank` | DuctTankBlock | — | DuctTankRenderer | model | ✅ | —（另一任务） |
 | `exhaust` | ExhaustBlock | — | — | model | ✅ | ✅ |
-| `extendon` | ExtendonBlock | ExtendonRenderer | ExtendonRenderer | model | ✅ | —（另一任务） |
+| `extendon` | ExtendonBlock | ExtendonRenderer | ExtendonRenderer | model | ✅ | ✅ |
 | `filter_duct` | FilterDuctBlock | — | — | model | ✅ | ✅ |
 | `flap` | FlapBlock | WingBlockEntityRenderer | WingColorRenderer | model | ✅ | ✅ |
 | `gas_backtank` | GasBacktankBlock | — | — | model | ✅ | ✅ |
@@ -166,14 +166,15 @@
 | F11 | `brass_propeller_bearing` / `juryrigged_propeller_bearing`、`phys_bearing`、`redstone_resistor` | 同上：`super.renderSafe` 在本工程等于"不画"，其中前两者是输入轴/整体，后两者会把方块叠一层 | 统一改成显式 `renderRotatingBuffer` / 去掉无用的父类调用（类注释写明原因） |
 | F12 | `CWClientSetup` | 新增 6 个 partial 类必须提前登记，否则烘焙后创建 = missingno 黑紫 | 追加 `AltMeterPartials/FlapBearingPartials/DuctPartials/ValveDuctPartials/GasNozzlePartials/DeliveryCannonPartials.init()`，并在各 partial 类头写明"为什么必须提前 init" |
 
-### 2026-10-17 收口轮（F13–F16）
+### 2026-10-17 收口轮（F13–F16）＋ 2026-10-18 热管连接模型返工（F17）
 
 | # | 方块 / 项 | 原因（证据） | 修法 |
 |---|---|---|---|
 | F13 | `solver` 光束 | 旧版 `SolverRenderer.kt:69` 用自研 `ClockworkRenderTypes.BEAM`（`POSITION_COLOR_TEX_LIGHTMAP` + 自注册 shader）+ `util/beam/BeamRenderer` 画 64 格滚动贴图；本移植一条都没搬，实机完全看不到光束 | 新增 `solver/client/SolverRenderer`：改用原版 `RenderType.entityTranslucentEmissive(beam.png)`（javap 核实 `NO_CULL + COLOR_WRITE + emissive`），4 条 45° 交叉带子 + 亮芯；**不用** `RenderType.lightning()`（javap 核实其绑定 `WEATHER_TARGET`）。服务端新增 `beamDistance` 随 `sendData()` 同步（旧版每帧客户端 `clip`），宽度/颜色进 `CWServer.solverBeamWidth/solverBeamColor` |
 | F14 | `delivery_chute` 频率槽 | 旧版 `DeliveryChuteBlockEntities` 登记 `FrequencySlotRenderer<DeliveryChuteBlockEntity>`，槽位来自 `FrequencySlotBehaviour.kt`；本移植既无 behaviour 也无渲染器，频率只是隐藏字段 | 新增 `frequency_slot/FrequencySlotBehaviour`（NBT 键沿用 `Frequency`、剪贴板 `DeliveryFrequencies`、`setFrequency` 只存 1 个）+ `FrequencySlotRenderer`（`ValueBoxRenderer` 画在滑道顶部开口中心 y=15/16）。交互：潜行右键 / 直击槽位设频率，空手潜行清空；`hasFrequency` 与加农炮匹配逻辑不变 |
 | F15 | `command_seat` 轴半块 | 旧版 `SequencedSeatRenderer.kt:33` 画 1 根朝下 + 4 根水平 `AllPartialModels.SHAFT_HALF`；审计曾误记"轴已做进 block 模型"，实际 `models/block/command_seat/block.json` 15 个 element 全是座体（坐标 6..10 的轴截面一个都没有） | 新增 `sequenced_seat/client/CommandSeatRenderer`：朝下输入轴沿用旧版 `renderRotatingBuffer`（随输入转速转），4 根水平输出轴静态绘制（旧版输出轴旋转代码本就注释掉）；`CWKineticsIndex` 补 `.renderer()`。`buttonone/buttontwo/joystick` 三个子模型保持不用（旧版 blockstate/渲染器同样没引用，属上游遗留） |
-| F16 | `heat_pipe` 六档热度 | 200 个 `*_warm/_hot/_very_hot/_molten/_super_hot` 模型无人引用；blockstate 只按六面连接选常温模型。模型还是按 `[0,0,6,6]` 硬编码 UV 生成的，而 `heatpipe_connection` 内容区在 (0,6)-(16,16)、`heatpipe_rim` 在 0..7×0..16，直接引用会采到透明区域 | `HeatPipeBlock.Heat`（cool/warm/hot/very_hot/molten/super_hot，阈值 373.15/500/800/1300/2000 K，对齐加热器三段温度）+ `HEAT` 属性；`HeatPipeBlockEntity` 每 20 tick 检查、按 `worldPosition` 哈希错相位、**跨档才** `setBlockAndUpdate`。`tools/gen_heat_pipe_blockstate.py` 从现有条件幂等展开 38×6=228 条 multipart；`tools/gen_heat_pipe_models.py` 改为按贴图内容区 + 统一 `UV_SCALE=0.97` 取景，删掉 10 个无消费者的 straight/item_straight 热度变体。`[13]` 提示 27→2（仅剩 valve_duct 旧提示） |
+| F16 | `heat_pipe` 六档热度 | 200 个 `*_warm/_hot/_very_hot/_molten/_super_hot` 模型无人引用；blockstate 只按六面连接选常温模型。模型还是按 `[0,0,6,6]` 硬编码 UV 生成的，而 `heatpipe_connection` 内容区在 (0,6)-(16,16)、`heatpipe_rim` 在 0..7×0..16，直接引用会采到透明区域 | `HeatPipeBlock.Heat`（cool/warm/hot/very_hot/molten/super_hot，阈值 373.15/500/800/1300/2000 K，对齐加热器三段温度）+ `HEAT` 属性；`HeatPipeBlockEntity` 每 20 tick 检查、按 `worldPosition` 哈希错相位、**跨档才** `setBlockAndUpdate`。模型/blockstate 在 2026-10-18 又重做了一次，见 F17 |
+| F17 | `heat_pipe` 连接模型（"热管连接模型异常"） | ①`heatpipe_connection` 被当成"内容区 (0,6)-(10,10) 居中取景"，那片只有 2 个不透明 texel → `cutoutMipped` 下**整根臂透明**（只剩核心与收口环）；②官方 30 条平面 multipart 每条只约束一个平面的 4 个属性，实测 64 个状态里 **12 个缺两根臂**（如 `up+south+east+west`）、**64 个全部被 2~3 个模型同时命中**（核心/臂叠画）；③每件都画 6 个面，端面与邻居/核心共面（z-fighting）；④收口环尺寸与官方 Blockbench 不一致 | 几何逐字取自官方 Blockbench `Clockwork-1.20.1-main/.../duct/block_old.json`（6 方向 × 内管/外壳/收口环三件，UV 用它的 texel 单元格 → 密度恒 1 px/单位）；blockstate 改成部件级 multipart（每档 1 core + 6 臂 = 42 条），64 个状态互不重叠；43 个模型（`core`+`arm_*` ×6 档 + 物品 `item_straight`；`straight_duct` 已改用自己的 `block/duct/straight`）；生成器 `tools/gen_heat_pipe_models.py` / `gen_heat_pipe_blockstate.py`，断言 `tools/selftest_heat_pipe_model.py`（1238 条）+ `docs/HEAT-PIPE-MODEL.md` |
 | — | `goo_block` | 旧版 `GooBlockEntityRenderer.renderSafe` 只有 `super`（空实现） | 本轮确认**不做**，保持 `KNOWN_EQUIVALENT` |
 
 ## 5. 已判定但本轮未修（在案，不计入问题数）
@@ -182,7 +183,7 @@
 
 ## 6. 上游遗留模型（官方自己也没引用，仅记录）
 
-`block/flap_bearing_top`, `block/peepotron`, `block/vstop`, `block/blade_controller/blade_controller`, `block/blade_controller/blade/blade`, `block/blade_controller/blade/wideblade`, `block/combustion_engine/main`, `block/combustion_engine/single_piston`, `block/command_seat/buttonone`, `block/command_seat/buttontwo`, `block/command_seat/joystick`, `block/creative_gas_generator/item`, `block/duct/block`, `block/flap/flap`, `block/flap_bearing/block`, `block/flap_bearing/block_horizontal`, `block/flap_bearing/block_vertical`, `block/gyro/gyro`, `block/juryrigged_infuser/item`, `block/physics_infuser/core` …
+`block/flap_bearing_top`, `block/blade_controller/blade_controller`, `block/blade_controller/blade/blade`, `block/blade_controller/blade/wideblade`, `block/combustion_engine/main`, `block/combustion_engine/single_piston`, `block/command_seat/buttonone`, `block/command_seat/buttontwo`, `block/command_seat/joystick`, `block/compressor/compressor`, `block/creative_gas_generator/item`, `block/duct/block`, `block/extendon/hose`, `block/flap/flap`, `block/flap_bearing/block`, `block/flap_bearing/block_horizontal`, `block/flap_bearing/block_vertical`, `block/gyro/gyro`, `block/reactionwheel/reactionwheel`, `block/redstone_resistor/block_brass` …
 
 ## 7. 仍需实机确认 / 无法静态判定
 

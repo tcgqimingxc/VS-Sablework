@@ -18,6 +18,7 @@ import org.valkyrienskies.clockwork.content.contraptions.propeller.blades.BladeC
 import org.valkyrienskies.clockwork.content.contraptions.propeller.blades.BladeControllerBlockEntity;
 import org.valkyrienskies.clockwork.content.contraptions.propeller.blades.BladeData;
 import org.valkyrienskies.clockwork.content.contraptions.propeller.blades.BladePartials;
+import org.valkyrienskies.clockwork.content.contraptions.propeller.blades.item.BladeItems;
 
 import java.util.List;
 
@@ -34,7 +35,9 @@ import java.util.List;
  *       控制器只需要把叶片按 {@code 360° / 片数} <b>均布</b>，因此不需要网络同步的角度缓存。</li>
  *   <li>桨距角直接读 {@link BladeControllerBlockEntity#pitchDegrees()}（滚轮选项自带客户端同步），
  *       旧版是单独的角速度插值器 {@code clientBladeAngle}。</li>
- *   <li>展长取 {@link BladeData#length()}（叶片物品的固有属性），旧版从物品 NBT 的 {@code BladeLength} 读。</li>
+ *   <li>展长取 {@link BladeData#length()}（来自叶片物品的数据组件，可被加长 / 切割配方改变），
+ *       旧版从物品 NBT 的 {@code BladeLength} 读；拉伸方式与旧版逐项一致
+ *       （中段沿轴向 {@code scale(z, length)}、叶尖跟随外移，常量 0.3 / 0.5 / 1.0 全部照抄）。</li>
  *   <li>旧版还要处理 Create contraption 的渲染矩阵（{@code ContraptionMatrices}）；这里叶片永远在
  *       Sable 子空间里，Sable 用原版 {@code BlockEntityRenderDispatcher} 派发 BER
  *       （{@code VanillaSubLevelBlockEntityRenderer}），所以什么都不用做。</li>
@@ -120,9 +123,16 @@ public class BladeControllerRenderer extends SmartBlockEntityRenderer<BladeContr
         return buf;
     }
 
-    /** 叶片最远伸到控制器外 1 格，包围盒要放大，否则站在旁边时会被视锥剔除。 */
+    /**
+     * 叶片最远伸到控制器外约 {@code 0.5 × 展长 + 0.8} 格（模型：叶尖 z ∈ [-0.5L-0.8, …]，
+     * 再加上 0.3 的整片后移与均布旋转），包围盒要按<b>最大</b>展长放大，
+     * 否则长叶片在屏幕边缘会被视锥剔除（旧版固定 inflate(1)，只够 1~2 格）。
+     *
+     * <p>用配置上限而不是当前叶片的实际长度：包围盒是按方块实体缓存的，
+     * 玩家换叶片 / 改配置后不一定立刻重建，按上限给是最稳的。
+     */
     @Override
-    public AABB getRenderBoundingBox(BladeControllerBlockEntity be) {
-        return new AABB(be.getBlockPos()).inflate(1.0);
+    public AABB getRenderBoundingBox(final BladeControllerBlockEntity be) {
+        return new AABB(be.getBlockPos()).inflate(0.5 * BladeItems.maxLength() + 1.0);
     }
 }

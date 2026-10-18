@@ -14,11 +14,11 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 |---|---|---|
 | 官方资源树（权威） | `assets/vs_clockwork/` | 贴图清点基准（166 个文件）；块/物品模型、blockstates |
 | 工程资源树 | `clockwork_unoffical/src/main/resources/assets/vs_clockwork/` | 移植后的实际资源，**运行时优先**；与官方树有差异 |
-| 产物 jar | `clockwork_unoffical/build/libs/vs_clockwork-0.6.0-1.21.1.jar`（7.8 MB） | 打包结果（应与工程树一致） |
+| 产物 jar | `clockwork_unoffical/build/libs/vs_clockwork-0.6.0-1.21.1.jar`（7.7 MB） | 打包结果（应与工程树一致） |
 | 依赖 jar（14 个） | `clockwork_unoffical/libs/*.jar` | 跨命名空间解析（create: / sable: / simulated: …） |
 | 原版 jar | `C:\Users\yql11\OneDrive\Desktop\.minecraft\libraries\net\minecraft\client\1.21.1-20240808.144430\client-1.21.1-20240808.144430-extra.jar` | `minecraft:` 命名空间的模型/贴图存在性 |
 | 注册快照 | `tools/blockstate_properties.json`（68 个方块，1.21.1 / NeoForge 21.1.251） | 判定「方块是否真的注册了」 |
-| Java 引用 | `clockwork_unoffical/src/main/java/`（301 个文件） | PartialModel 字面量 / 动态前缀、renderer 里直接绑定的 PNG |
+| Java 引用 | `clockwork_unoffical/src/main/java/`（311 个文件） | PartialModel 字面量 / 动态前缀、renderer 里直接绑定的 PNG |
 
 ## 1. 判定规则（先看这里，再看表）
 
@@ -43,11 +43,11 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 | 其中 PNG 贴图 | 155 | 主表一行一个 |
 | 其中 `.png.mcmeta` | 10 | 动画定义，挂在对应 PNG 行下 |
 | 其中其它（制作期资源） | 1 | `.aseprite` 等，见 §10 |
-| **已用** | 115 | 含 Java 直接引用 3 张 |
+| **已用** | 120 | 含 Java 直接引用 3 张 |
 | **已清理**（本次删除，仅官方树保留） | 26 | 附录 D.1；不参与构建，不算孤儿/仅声明 |
 | **孤儿**（无任何模型声明、仍发布） | 7 | §5；其中保留待接的已逐条标注 |
-| **仅声明**（模型有、烘焙不到、仍发布） | 3 | §6，功能未接的主战场 |
-| 仅官方树旧版模型引用 | 4 | §4.3（工程树已改，不算缺口） |
+| **仅声明**（模型有、烘焙不到、仍发布） | 0 | §6，功能未接的主战场 |
+| 仅官方树旧版模型引用 | 2 | §4.3（工程树已改，不算缺口） |
 | 已烘焙未上面 | 0 | 可达模型里多写的键 |
 | **缺图引用**（黑紫） | 2 | §7；全部只在官方树旧版模型里，运行时已无黑紫 |
 | 官方树独有 / 工程树新增 | 26 / 6 | §4；官方树独有的 26 张全部是本次收口删除（附录 D.1），不是意外缺失 |
@@ -55,7 +55,7 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 
 - 官方树 PNG：155 张；工程树同目录 PNG：135 张（差集 = 工程新增 6 张 / 工程缺失 26 张；缺失的 26 张全部是本次收口删除，见附录 D.1）。
 - 产物 jar 内 `textures/block/**`：135 张。
-- 模型 629 个（三来源去重），能被根烘焙到的 550 个；**工程树 / 产物 jar 实际发布**：模型 607 个、blockstates 71 个、物品模型 100 个；三来源 blockstates 77 个、物品模型 101 个、Java PartialModel 引用 7 个（另 65 个靠动态前缀解析到）。
+- 模型 444 个（三来源去重），能被根烘焙到的 400 个；**工程树 / 产物 jar 实际发布**：模型 422 个、blockstates 71 个、物品模型 100 个；三来源 blockstates 77 个、物品模型 101 个、Java PartialModel 引用 7 个（另 69 个靠动态前缀解析到）。
 - 已注册方块 68 个；工程树死 blockstate 3 个（§9.1；收口前 9 个：5 删 / 3 保留 / 1 仅官方树）。
 
 ## 3. 主表：`textures/block/**` 每个贴图 → 谁在用
@@ -98,7 +98,7 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 | 32 | `block/compressor.png` | 32×32 |  | ✓ | ✓ | ✓ | `air_compressor` | — | — | ✓ | 已用 |
 | 33 | `block/compressor_fabric.png` | 32×32 |  | ✓ | ✓ | ✓ | `air_compressor` | — | — | ✓ | 已用 |
 | 34 | `block/compressor_old.png` | 32×32 |  | ✓ | — | — | — | — | — | — | 已清理 |
-| 35 | `block/copper_duct.png` | 16×16 |  | ✓ | ✓ | ✓ | — | — | — | — | 仅声明 |
+| 35 | `block/copper_duct.png` | 16×16 |  | ✓ | ✓ | ✓ | `duct` | — | — | ✓ | 已用 |
 | 36 | `block/core.png` | 32×32 |  | ✓ | ✓ | ✓ | — | `physics_infuser` | — | — | 已用 |
 | 37 | `block/creative_gas_generator.png` | 64×64 |  | ✓ | ✓ | ✓ | `creative_gas_generator` | — | — | ✓ | 已用 |
 | 38 | `block/deepslate_wanderlite_ore.png` | 16×160 | 动画 10f | ✓ | ✓ | ✓ | `wanderlite_deepslate_ore` | — | — | ✓ | 已用 |
@@ -109,9 +109,9 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 | 43 | `block/duct.png` | 32×32 |  | ✓ | ✓ | ✓ | `duct`, `exhaust`, `gas_engine`, `redstone_duct` +2 | — | — | ✓ | 已用 |
 | 44 | `block/duct_old.png` | 32×32 |  | ✓ | — | — | — | — | — | — | 已清理 |
 | 45 | `block/duct_pump.png` | 32×32 |  | ✓ | ✓ | ✓ | `pump_duct` | — | — | ✓ | 已用 |
-| 46 | `block/duct_tank_connected.png` | 64×64 |  | ✓ | ✓ | ✓ | — | — | — | — | 仅官方树 |
+| 46 | `block/duct_tank_connected.png` | 64×64 |  | ✓ | ✓ | ✓ | — | `duct_tank` | — | — | 已用 |
 | 47 | `block/duct_tank_placeholder.png` | 32×32 |  | ✓ | — | — | — | — | — | — | 已清理 |
-| 48 | `block/duct_tank_top_connected.png` | 64×64 |  | ✓ | ✓ | ✓ | — | — | — | — | 仅官方树 |
+| 48 | `block/duct_tank_top_connected.png` | 64×64 |  | ✓ | ✓ | ✓ | — | `duct_tank` | — | — | 已用 |
 | 49 | `block/electricity.png` | 32×480 | 动画 15f | ✓ | — | — | — | — | — | — | 已清理 |
 | 50 | `block/empty.png` | 16×16 |  | ✓ | — | — | — | — | — | — | 已清理 |
 | 51 | `block/end_wanderlite_ore.png` | 16×160 | 动画 10f | ✓ | ✓ | ✓ | `wanderlite_end_ore` | — | — | ✓ | 已用 |
@@ -170,7 +170,7 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 | 104 | `block/nyx.png` | 16×16 |  | ✓ | ✓ | ✓ | `charged_nyx`, `nyx` | — | — | ✓ | 已用 |
 | 105 | `block/nyx_wanderlite_ore.png` | 16×160 | 动画 10f | ✓ | ✓ | ✓ | `wanderlite_nyx_ore` | — | — | ✓ | 已用 |
 | 106 | `block/nyx_wanderlite_ore_top.png` | 16×160 | 动画 10f | ✓ | ✓ | ✓ | `wanderlite_nyx_ore` | — | — | ✓ | 已用 |
-| 107 | `block/oneway_duct.png` | 16×16 |  | ✓ | ✓ | ✓ | — | — | — | — | 仅声明 |
+| 107 | `block/oneway_duct.png` | 16×16 |  | ✓ | ✓ | ✓ | `duct` | — | — | ✓ | 已用 |
 | 108 | `block/peepulon.png` | 48×32 |  | ✓ | — | — | — | — | — | — | 已清理 |
 | 109 | `block/peepulon_1.png` | 48×32 |  | ✓ | ✓ | ✓ | `distance_sensor` | — | — | ✓ | 已用 |
 | 110 | `block/peepulon_2.png` | 48×32 |  | ✓ | ✓ | ✓ | `distance_sensor` | — | — | ✓ | 已用 |
@@ -196,7 +196,7 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 | 130 | `block/redstoneresistor.png` | 64×64 |  | ✓ | ✓ | ✓ | `redstone_resistor` | — | — | ✓ | 已用 |
 | 131 | `block/slicker.png` | 64×64 |  | ✓ | ✓ | ✓ | `slicker` | — | — | ✓ | 已用 |
 | 132 | `block/slicker_activated.png` | 64×64 |  | ✓ | ✓ | ✓ | `slicker` | — | — | ✓ | 已用 |
-| 133 | `block/smart_duct.png` | 16×16 |  | ✓ | ✓ | ✓ | — | — | — | — | 仅声明 |
+| 133 | `block/smart_duct.png` | 16×16 |  | ✓ | ✓ | ✓ | `duct` | — | — | ✓ | 已用 |
 | 134 | `block/smart_flap_bearing.png` | 48×48 |  | ✓ | ✓ | ✓ | `smart_flap_bearing` | — | — | ✓ | 已用 |
 | 135 | `block/smart_propeller_bearing.png` | 64×64 |  | ✓ | ✓ | ✓ | `copter_bearing` | — | — | ✓ | 已用 |
 | 136 | `block/smooth_wanderlite.png` | 16×16 |  | ✓ | ✓ | ✓ | `smooth_wanderlite`, `smooth_wanderlite_slab`, `smooth_wanderlite_stairs` | — | — | ✓ | 已用 |
@@ -240,16 +240,14 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 
 > 也就是说，工程树不再发布这些图是**有意为之**，不是打包漏文件；官方树仍保留同名副本，需要时可回拷。
 
-### 4.3 官方树旧版模型还在引用、工程树已改掉的贴图（4 张）
+### 4.3 官方树旧版模型还在引用、工程树已改掉的贴图（2 张）
 
 | 贴图 | 官方树里引用它的模型 | 说明 |
 |---|---|---|
-| `block/duct_tank_connected.png` | `block/duct_tank/block_single` | 工程树模型已换别的贴图，运行时用不到这张（不是缺口） |
-| `block/duct_tank_top_connected.png` | `block/duct_tank/block_single` | 工程树模型已换别的贴图，运行时用不到这张（不是缺口） |
 | `block/fluid_tank.png` | `block/gas_engine/block` | 工程树模型已换别的贴图，运行时用不到这张（不是缺口） |
 | `block/fluid_tank_top.png` | `block/gas_engine/block` | 工程树模型已换别的贴图，运行时用不到这张（不是缺口） |
 
-### 4.4 两边同名但内容不同的模型：15 个
+### 4.4 两边同名但内容不同的模型：17 个
 
 工程树是 1.21.1 移植版：OBJ loader 从 `forge:obj` / `porting_lib:obj` 改成 `neoforge:obj`、`models/` 前缀修正、`#missing` 补上、贴图改名等，所以两边不必逐字节一致。逐来源的模型告警见 §8.3。
 
@@ -281,17 +279,7 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 
 ## 6. 仅声明贴图（模型声明了，但没有任何根能烘焙到）
 
-共 **3** 张（收口前 15 张：12 张死局部模型用图已随模型一起删除）。剩下的 3 张是**唯一整套没接**的导管 custom 边件，贴图和模型都画好了，但模型没有 blockstate / 物品模型 / Java partial 去引用，游戏里烘焙不到。按功能分组：
-
-### 导管边件（duct/custom/*）（3 张）
-
-> 三个边件模型（oneway_forward / oneway_backward / smart / copper）都在，但 `blockstates/duct.json` 只引用 duct/core 与 duct/core_straight，没有任何 blockstate 能烘焙到它们；DuctRenderer.java:41 原话：「`duct/custom/*` 四个边件暂无人使用」。这是本次最像「整套功能没接」的一组贴图
-
-| 贴图 | 尺寸 | 关联方块 | 方块注册 | 声明它的模型 |
-|---|---|---|---|---|
-| `block/copper_duct.png` | 16×16 | `duct` | ✓ | `block/duct/custom/copper`, `block/duct/custom/oneway_backward`, `block/duct/custom/oneway_forward`；**保留待补**：导管 custom 铜边件：同上，等待铜导管外观接线 |
-| `block/oneway_duct.png` | 16×16 | `duct` | ✓ | `block/duct/custom/oneway_backward`, `block/duct/custom/oneway_forward`；**保留待补**：导管 custom 单向边件：没有任何 blockstate 能选到；`DuctRenderer.java:41` 原话「`duct/custom/*` 四个边件暂无人使用」→ 等待功能移植 |
-| `block/smart_duct.png` | 16×16 | `duct` | ✓ | `block/duct/custom/smart`；**保留待补**：导管 custom 智能边件：同上，等待 `GasDuctBlock` 加智能属性 |
+共 **0** 张（收口前 15 张：12 张死局部模型用图已随模型一起删除）。剩下的 3 张是**唯一整套没接**的导管 custom 边件，贴图和模型都画好了，但模型没有 blockstate / 物品模型 / Java partial 去引用，游戏里烘焙不到。按功能分组：
 
 
 ## 7. 缺图引用（模型引用了、但所有来源都没有 → 黑紫）
@@ -307,9 +295,41 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 
 ### 8.1 blockstate / 物品 / Java 引用了不存在的模型
 
-（无）
+| 缺失的模型 | 谁在引用 |
+|---|---|
+| `vs_clockwork:block/heat_pipe/d_x: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/d_x.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/d_y: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/d_y.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/d_z: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/d_z.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/l_x: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/l_x.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/l_y: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/l_y.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/l_z: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/l_z.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/ld_x: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/ld_x.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/ld_y: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/ld_y.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/ld_z: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/ld_z.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/lr_x: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/lr_x.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/lr_y: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/lr_y.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/lr_z: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/lr_z.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/lu_x: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/lu_x.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/lu_y: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/lu_y.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/lu_z: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/lu_z.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/r_x: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/r_x.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/r_y: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/r_y.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/r_z: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/r_z.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/rd_x: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/rd_x.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/rd_y: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/rd_y.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/rd_z: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/rd_z.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/ru_x: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/ru_x.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/ru_y: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/ru_y.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/ru_z: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/ru_z.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/straight: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/straight.json` | `block:straight_duct` |
+| `vs_clockwork:block/heat_pipe/u_x: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/u_x.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/u_y: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/u_y.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/u_z: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/u_z.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/ud_x: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/ud_x.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/ud_y: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/ud_y.json` | `block:heat_pipe` |
+| `vs_clockwork:block/heat_pipe/ud_z: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/ud_z.json` | `block:heat_pipe` |
 
-### 8.2 没有任何根能烘焙到的模型（57 个，按目录分组）
+### 8.2 没有任何根能烘焙到的模型（53 个，按目录分组）
 
 这些模型自身不报错，但只会出现在「死链」里；§6 的 `仅声明` 大多由它们造成。（`*_old` / `old/` 子目录属于旧版遗留，已在 §5 归到「旧版外观遗留」。）本次已从工程树删除 22 个死模型（附录 D.2），下表只剩仍发布的。
 
@@ -318,7 +338,7 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 - `block/command_seat`：3 个 —— `block/command_seat/buttonone`, `block/command_seat/buttontwo`, `block/command_seat/joystick`
 - `block/compressor`：1 个 —— `block/compressor/compressor`
 - `block/creative_gas_generator`：1 个 —— `block/creative_gas_generator/item`
-- `block/duct`：28 个 —— `block/duct/block`, `block/duct/block_old`, `block/duct/connection_old/cool`, `block/duct/connection_old/hot` +24
+- `block/duct`：24 个 —— `block/duct/block`, `block/duct/block_old`, `block/duct/connection_old/cool`, `block/duct/connection_old/hot` +20
 - `block/extendon`：1 个 —— `block/extendon/hose`
 - `block/flap`：1 个 —— `block/flap/flap`
 - `block/flap_bearing`：2 个 —— `block/flap_bearing/block_horizontal`, `block/flap_bearing/block_vertical`
@@ -335,6 +355,10 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 | 官方树 | 14 | `block/brass_propeller_bearing/item`: 面引用 #missing 无法解析（会渲染成黑紫）；`block/compressor/compressor`: 面引用 #missing 无法解析（会渲染成黑紫）；`block/compressor/item`: 面引用 #missing 无法解析（会渲染成黑紫）；`block/gas_engine/block`: 面引用 #missing 无法解析（会渲染成黑紫）；`block/juryrigged_propeller_bearing/item`: 面引用 #missing 无法解析（会渲染成黑紫）；`block/physics_infuser/zap`: 面引用 #missing 无法解析（会渲染成黑紫） |
 
 > 官方树里的告警如果工程树已修，说明是移植期修掉的（例如 `#missing`）；两边都报的才是真待修。
+
+### 8.4 运行时优先来源（工程树 → jar → 官方）的解析告警
+
+- **模型链断裂（blockstate/item/Java 引用）**（31）：`block heat_pipe -> vs_clockwork:block/heat_pipe/d_x: vs_clockwork:block/heat_pipe/d_x: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/d_x.json`, `block heat_pipe -> vs_clockwork:block/heat_pipe/d_y: vs_clockwork:block/heat_pipe/d_y: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/d_y.json`, `block heat_pipe -> vs_clockwork:block/heat_pipe/d_z: vs_clockwork:block/heat_pipe/d_z: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/d_z.json`, `block heat_pipe -> vs_clockwork:block/heat_pipe/l_x: vs_clockwork:block/heat_pipe/l_x: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/l_x.json` +27
 
 ## 9. 注册侧与资源侧的缺口
 
@@ -451,7 +475,7 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 | `delivery_cannon` | ✓ | ✓ | 2 | `cannon_barrel_largecheckers`, `cannon_base` |
 | `delivery_chute` | ✓ | ✓ | 2 | `cannon_barrel_largecheckers`, `delivery_chute` |
 | `distance_sensor` | ✓ | ✓ | 5 | `peepulon_1`, `peepulon_2`, `peepulon_3`, `peepulon_4`, `peepulon_redstone` |
-| `duct` | ✓ | ✓ | 1 | `duct` |
+| `duct` | ✓ | ✓ | 4 | `copper_duct`, `duct`, `oneway_duct`, `smart_duct` |
 | `duct_tank` | ✓ | ✓ | 4 | `duct_tank`, `duct_tank_gas`, `duct_tank_top`, `fluid_tank_inner` |
 | `exhaust` | ✓ | ✓ | 1 | `duct` |
 | `extendon` | ✓ | ✓ | 1 | `extendon` |
@@ -514,8 +538,8 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 | `block/altimeter` | **已用**：alt_meter 方块的旧命名族 | `alt_meter/block.json` 用 `block/altimeter`，`alt_meter/redstone.json` 用 `block/altimeter_redstone`；方块 id 是 `alt_meter`，贴图名却是 `altimeter`，两套命名并存 |
 | `block/alt_meter_on` | **保留待接**：旧版「红石点亮」变量图 | `alt_meter/block.bbmodel` 里它作为第二层贴图存在，但 blockstate 没有 `power` 变体、没有任何 JSON 模型引用它；等接点亮状态再上（本次不删） |
 | `block/nyx_wanderlite_ore_top` | **已接入**：`wanderlite/nyx_ore.json` 已改 `cube_bottom_top`，top 用此图 | 官方树与 1.20.1 源码都还是 `cube_all`（上游自己没接），工程树按本次任务目标接线；见附录 D.5，回拷官方模型会退回 cube_all |
-| `block/heatpipe_core` | 常温档，**已用** | `heat_pipe` 常温档的连接件模型（l/r/u/d/lu/... 各方向）＋ `straight_duct` 引用的 `heat_pipe/straight` 都用它 |
-| `block/heatpipe_core_hot` | 高温档，**已用**（不是孤儿！） | `heat_pipe` 方块带 `heat` 属性（cool/warm/hot/very_hot/molten/super_hot），工程树的 `blockstates/heat_pipe.json` 有 228 条 multipart（38 个连接形态 × 6 档）覆盖全部 6 档（官方树只有 30 条常温变体）——「六档热度整套没接」这个怀疑在**工程树里不成立**，只在官方树成立 |
+| `block/heatpipe_core` | 常温档，**已用** | `heat_pipe` 常温档的部件模型（`core` + `arm_{north,south,east,west,up,down}` 单臂）与物品模型 `heat_pipe/item_straight` 都用它 |
+| `block/heatpipe_core_hot` | 高温档，**已用**（不是孤儿！） | `heat_pipe` 方块带 `heat` 属性（cool/warm/hot/very_hot/molten/super_hot），工程树的 `blockstates/heat_pipe.json` 有 42 条 multipart（7 个部件 × 6 档）覆盖全部 6 档（官方树只有 30 条常温变体）——「六档热度整套没接」这个怀疑在**工程树里不成立**，只在官方树成立 |
 | `block/heatpipe_rim_molten` | 熔融档，**已用** | 同上；`heat_pipe/*_molten` 模型由 `heat=molten` 的条件选中 |
 | `block/oneway_duct` | **保留待补**：单向阀导管边件没接 | `duct/custom/oneway_forward.json` / `oneway_backward.json` 引用它，但这两个模型不被任何 blockstate 引用；`DuctRenderer.java:41` 原话：「`duct/custom/*` 四个边件暂无人使用」。要接必须先给 `GasDuctBlock` 加单向/智能属性（本次不删） |
 | `block/smart_duct` | **保留待补**：智能导管边件没接 | `duct/custom/smart.json` 引用；同样没有 blockstate 能选到它（DuctRenderer.java:41，本次不删） |
@@ -544,9 +568,10 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 ## 14. 附录 C：后续修复清单（本任务只列，不动手）
 
 1. **官方树上游 bug（已确认，不修）**：2 张缺图引用**全部只出现在官方树**（工程树已修，运行时不黑紫），官方树仅作参考、不参与构建，所以**不要修官方树**；回拷资源时注意别把这两处带回来：`create:block/copper_plating`、`vs_clockwork:block/creative_generator`。`create:block/copper_plating` 是 Create 6 已删除的贴图（工程树已换 `copper_casing`）；`block/creative_generator` 是少写 `_gas_` 的笔误（工程树已改 `creative_gas_generator`）。
-2. **接未移植功能（本次已确认保留，见附录 D.4）**：3 张导管 custom 边件（`oneway_duct` / `smart_duct` / `copper_duct`）要接，先给 `GasDuctBlock` 加单向/智能属性，再让 `DuctRenderer` 用上 `duct/custom/*`；`afterblazer`（含 `angry` / `infuriated` / `blaze_fury` / `fuming`）、`combustion_engine`、`balloon_encased_shaft` 三套 WIP 资源等功能移植；`alt_meter_on` / `balloon_casing_connected` 等状态/CT 变体等接线；`blue_hue` 等蓝色光晕功能再上。
-3. **仍未注册的 3 个 WIP blockstate**：`afterblazer`、`balloon_encased_shaft`、`combustion_engine` 属未移植功能，**有意保留**，不是死资源（依据见 §9.1）。
-4. **本次已收口（2026-10-17）**：删除贴图 26 张（含 12 张孤儿 + 12 张死模型用图 + 2 张旧轴承链）、死模型 22 个 + `reactionwheel/old/**`、死 blockstate 5 个；剩余孤儿 7 张 / 仅声明 3 张均为有意保留；完整清单与依据见附录 D。
+2. **接未移植功能（本次已确认保留，见附录 D.4）**：0 张导管 custom 边件（`oneway_duct` / `smart_duct` / `copper_duct`）要接，先给 `GasDuctBlock` 加单向/智能属性，再让 `DuctRenderer` 用上 `duct/custom/*`；`afterblazer`（含 `angry` / `infuriated` / `blaze_fury` / `fuming`）、`combustion_engine`、`balloon_encased_shaft` 三套 WIP 资源等功能移植；`alt_meter_on` / `balloon_casing_connected` 等状态/CT 变体等接线；`blue_hue` 等蓝色光晕功能再上。
+3. **补模型**：`vs_clockwork:block/heat_pipe/d_x: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/d_x.json`、`vs_clockwork:block/heat_pipe/d_y: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/d_y.json`、`vs_clockwork:block/heat_pipe/d_z: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/d_z.json`、`vs_clockwork:block/heat_pipe/l_x: 模型文件不存在: assets/vs_clockwork/models/block/heat_pipe/l_x.json` 被 blockstate / Java 引用但不存在。
+4. **仍未注册的 3 个 WIP blockstate**：`afterblazer`、`balloon_encased_shaft`、`combustion_engine` 属未移植功能，**有意保留**，不是死资源（依据见 §9.1）。
+5. **本次已收口（2026-10-17）**：删除贴图 26 张（含 12 张孤儿 + 12 张死模型用图 + 2 张旧轴承链）、死模型 22 个 + `reactionwheel/old/**`、死 blockstate 5 个；剩余孤儿 7 张 / 仅声明 3 张均为有意保留；完整清单与依据见附录 D。
 
 ## 15. 附录 D：资源卫生收口记录（2026-10-17）
 
@@ -683,11 +708,11 @@ python tools/map_textures.py -v         # 额外打印孤儿 / 缺图清单
 |---|---|---|
 | `textures/block` 工程树 PNG | 161 | 135 |
 | 产物 jar 内 PNG | 161 | 135 |
-| 已用 | 118 | 115 |
+| 已用 | 118 | 120 |
 | 已清理（仅官方树留档） | 0 | 26 |
 | 孤儿（仍发布） | 20 | 7 |
-| 仅声明（仍发布） | 15 | 3 |
-| 工程树模型 | 629 | 607 |
+| 仅声明（仍发布） | 15 | 0 |
+| 工程树模型 | 629 | 422 |
 | 工程树 blockstates | 76 | 71 |
 | 工程树物品模型 | 101 | 100 |
 

@@ -78,10 +78,17 @@ public class ExhaustBlock extends DirectionalBlock implements IBE<ExhaustBlockEn
         return state.setValue(FACING, mirror.mirror(state.getValue(FACING)));
     }
 
-    /** 排气口只在背面接受气体（排气方向不吸气）。 */
+    /**
+     * 只在背面（{@code FACING} 的反面）接气。
+     *
+     * <p>旧版 {@code ExhaustBlock.canConnectTo} 的判定是
+     * {@code direction != FACING.opposite() -> false}；原实现写成 {@code dir != FACING}
+     * 会额外接通上/下/左/右四面，排气口会从侧面误连进管道网络，也会让相邻导管画出
+     * 并不存在的接口圈。这里按旧版语义收紧到唯一背面。
+     */
     @Override
     public boolean gasConnectable(BlockState state, Direction dir) {
-        return dir != state.getValue(FACING);
+        return dir == state.getValue(FACING).getOpposite();
     }
 
     /** 客户端按节点压力喷白烟（旧版是自定义气体粒子，这里用原版粒子替代）。 */

@@ -27,7 +27,9 @@ import org.valkyrienskies.clockwork.content.logistics.gas.GasTypes;
  *   <li>旧版用 VS2 的 {@code aerodynamicUtils} 取空气密度/温度；这里用
  *       {@link GasPhysics#ambientAirDensity}（海拔模型）与环境温度配置。</li>
  *   <li>旧版有 4 态状态机并同步给客户端做贴图/粒子（ACTIVE/INACTIVE/EXHAUSTED/OBSTRUCTED）；
- *       这里保留同样的 4 个状态并同步（后续渲染可用），但没有做压缩机的动画渲染器。</li>
+ *       这里保留同样的 4 个状态并同步，客户端动画由
+ *       {@code client/AirCompressorRenderer} 读取 {@link #status()} 与
+ *       {@link #getClientInflate()} 驱动（对应旧版同一个渲染器）。</li>
  * </ul>
  */
 public class AirCompressorBlockEntity extends GasKineticNodeBlockEntity {
@@ -48,7 +50,7 @@ public class AirCompressorBlockEntity extends GasKineticNodeBlockEntity {
     // BlockEntityRendererProvider 对一种 BE 只创建一个渲染器实例，所有压缩机共用它，
     // 状态放进渲染器会被别的方块覆盖。
 
-    /** 风箱充气进度：0 = 完全瘪，1 = 完全鼓。 */
+    /** 风箱充气进度：0 = 完全瘪，1 = 完全鼓；只经 {@link #setClientInflate(float)} 写入。 */
     private float clientInflate;
     /** 本充气循环是否已经放过"充饱"的粒子与音效（旧版 clientParticles）。 */
     private boolean clientBurst;
@@ -65,7 +67,19 @@ public class AirCompressorBlockEntity extends GasKineticNodeBlockEntity {
         return clientInflate;
     }
 
+    /**
+     * 写入充气进度，并夹紧到 [0,1]。
+     *
+     * <p>{@code Mth.clamp} 对 NaN 无效（NaN 参与的比较全是 false，原样返回），而 NaN 一旦进入
+     * 渲染器的缓动/缩放，会把风箱与顶板的所有顶点乘成 NaN —— 表现出来是"整块消失"。
+     * 转速来自动力学网络，属于外部输入，所以这里先把 NaN 归 0；±Inf 交给 clamp
+     * （+Inf→1、-Inf→0）。
+     */
     public void setClientInflate(float value) {
+        if (Float.isNaN(value)) {
+            clientInflate = 0f;
+            return;
+        }
         clientInflate = Mth.clamp(value, 0f, 1f);
     }
 

@@ -25,7 +25,7 @@ $env:JAVA_HOME="C:\Users\yql11\java\dragonwell-21.0.8.0.8+9-GA"
 |---|---|
 | 材料 / 装饰 | 游荡石系（矿/块/砖/台阶/雕纹/平滑/玻璃）、陨星岩系、热气球外壳 ✅ |
 | 通用动力 | `universal_shaft`(+连接器渲染)、`redstone_resistor`、`wing`/`flap`(染色+连接体+**升力已接 Sable lift provider**)、`goo`、`slicker`(Sable 固定约束)、`extendon` ✅ |
-| 物理机械 | `physics_infuser`、`phys_bearing`(ROTATE/LOCK/FREE)、brass/juryrigged 螺旋桨、**可变桨距 `blade_controller`+叶片**、`gimbal_bearing`、`gyro`、`reactionwheel`、`andesite/smart_flap_bearing`、`copter_bearing`、`sugar_rocket`、`ballooner` ✅ |
+| 物理机械 | `physics_infuser`、`phys_bearing`(ROTATE/LOCK/FREE)、brass/juryrigged 螺旋桨、**可变桨距 `blade_controller`+叶片（展长可加长/切割，`vs_clockwork:blade_length` 数据组件 + 两个配方类型，见 `docs/BLADE-LENGTH.md`）**、`gimbal_bearing`、`gyro`、`reactionwheel`、`andesite/smart_flap_bearing`、`copter_bearing`、`sugar_rocket`、`ballooner` ✅ |
 | 气体物流 | 自研气体网络（质量+温度→压力、BFS 连通域、流动/泄漏/换热、10 刻阈值同步）；`duct`/`straight_duct`/`pump`/`valve`/`filter`/`redstone`/`tank`/`heat_pipe`/`intake`/`compressor`/`coal_burner`/`steam_generator`/`creative_generator`/`gas_engine`(4 个 mixin 接 Create 锅炉)/`sterling_engine`/`gas_crafter`(自定义配方)/`gas_heater`/`exhaust`(接 Create 气流)/`gas_thruster`/`gas_nozzle`/`hose_port`/`gas_backtank` ✅ |
 | 奇物 / 工具 | `wanderwand`(选区→`IAreaSelector`)、`gravitron`(抓取+**装配/解体**)、screwdriver、drill、saw、三类传感器、`lodefocus`、`alt_meter`、`clock`、`solver`、飞行家护甲(贴图已修)、`wanderlite_cube/matrix`、唱片、食物、`asteroid_block`、陨石与矿物生成 ✅ |
 | 交付 | `delivery_cannon`(抛物线反解发射)、`delivery_chute` ✅ |
@@ -92,6 +92,12 @@ powershell -ExecutionPolicy Bypass -File tools\run_gates.ps1      # 三关一起
 - `wanderlite_cube/matrix` 用静态模型替代旧版自定义 BER（旧版依赖 Create 自定义 ItemRenderer + 自定 shader）。
 - `incomplete_wanderwand` 配方从"铁粒/锌粒二选一"简化为 `c:nuggets/iron`（要恢复需验证 `neoforge:compound` 反序列化）。
 - 实机手感全部未校验：伺服/关节阻尼、推力与升力数值、气体平衡、炮口朝向与命中率、粒子观感。
+- **叶片加长 / 切割（2026-10-18 已补齐，原 `_disabled_data` 条目）**：旧版两个配方类型恢复
+  （`blade_crafting` 工作台相加、`blade_cutting` 动力锯减半），展长改为原生
+  `DataComponentType<Integer>`（默认 1、上限 `CWServer.maxBladeSize = 8`、旧 NBT 自动迁移），
+  推力 / 渲染 / tooltip 已全链路接入，mixin 见 `mixin/content/blade/MixinSawBladeRecipe`。
+  取证与差异见 `docs/BLADE-LENGTH.md`，纯逻辑自检 `tools/selftest_blade_length.py`（已挂进 `run_gates.ps1 -SelfTest`）。
+  仍缺：物品图标不随长度缩放（旧版 `BladeItemRenderer` 未移植）、`blade_cutting` 没有 JEI 分类（旧版也没有）。
 - 防御性加固（**已做**）：`mixin/content/sequenced_assembly/MixinSequencedRecipe` 在 `SequencedRecipe#initFromSequencedAssembly` 的 HEAD 拦下 `ingredients` 长度为 0 的步骤（WARN 打日志 + `ci.cancel()`），让**别的模组**的坏序列装配配方也只打日志不崩游戏（长度 > 0 时完全不干预）；注入点写死 `require = 0`，取舍是：以后 Create 改签名/描述符时最坏只是这条保护静默失效，绝不会因为保护代码自身注入失败而拒绝加载，代价是注入失效时不再有加载期报错提醒。
 
 ## 6. 方块实体渲染器（BER）覆盖情况（2026-10-16 补）

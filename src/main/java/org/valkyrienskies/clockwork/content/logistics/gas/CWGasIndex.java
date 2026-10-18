@@ -413,6 +413,11 @@ public final class CWGasIndex {
             .build()
             .register();
 
+    // -------- 导管边类型（单向 / 过滤 / 智能）没有独立方块：它们是导管某个面的配置 --------
+    // 旧版就是如此（content/logistics/gas/duct/DuctEdgeType.kt:16-23，螺丝刀按面循环），
+    // 方块状态只表达"这一面有没有连接"，边类型与参数存在 GasDuctBlockEntity 的 NBT 里，
+    // 外观由 DuctRenderer 按面画 duct/custom/* —— 详见 docs/DUCT-EDGE-VARIANTS.md。
+
     // ===================== 方块实体 =====================
 
     public static final BlockEntityEntry<GasDuctBlockEntity> DUCT_BE = REGISTRATE
@@ -563,6 +568,9 @@ public final class CWGasIndex {
             .blockEntity("intake", IntakeBlockEntity::new)
             .validBlocks(INTAKE)
             .register();
+
+    // 导管边类型没有独立的方块实体：类型与参数存在 GasDuctBlockEntity 的 NBT 里，
+    // 外观由 DuctRenderer 用 DuctPartials 的四个 duct/custom/* 模型画在接缝处。
 
     /**
      * 触发类加载，完成本切片的所有注册（由 {@code ClockworkMod} 调用）。

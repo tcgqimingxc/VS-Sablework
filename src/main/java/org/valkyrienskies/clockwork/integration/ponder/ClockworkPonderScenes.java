@@ -88,7 +88,9 @@ public final class ClockworkPonderScenes {
         entries.forComponents(CWContraptionsIndex.GYRO).addStoryBoard("gyro", GyroScenes::gyro);
         // solid_delivery —— 官方 solid_delivery.nbt；旧版 OtherPonders#solid_delivery；差异：无（Depot/Chute/Belt/配重弹出器都是 Create 方块）。
         entries.forComponents(CWGasIndex.DELIVERY_CANNON, CWGasIndex.DELIVERY_CHUTE).addStoryBoard("solid_delivery", SolidDeliveryScenes::solidDelivery);
-        // duct —— 官方 duct.nbt；旧版 KelvinPonders#duct；差异：本移植没有边类型（One-way/Filtered/Smart），故跳过 text_4..8，只演示连接开关与泄漏修复。
+        // duct —— 官方 duct.nbt；旧版 KelvinPonders#duct；差异：无结构差异。
+        // 单向 / 过滤 / 智能是"导管某个面的边类型"（旧版机制），不是独立方块，
+        // 所以场景只挂在 duct 上 —— 用螺丝刀在接缝上循环切换（见 DuctScenes 类注释）。
         entries.forComponents(CWGasIndex.DUCT).addStoryBoard("duct", DuctScenes::gasDuct);
     }
 

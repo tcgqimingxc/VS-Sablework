@@ -2,834 +2,64 @@
   "multipart": [
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_x"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "true",
-        "up": "true",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_x"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "false",
-        "up": "true",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_x"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "true",
-        "up": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_x"
-      },
-      "when": {
-        "down": "true",
-        "north": "true",
-        "south": "false",
-        "up": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_x"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "false",
-        "up": "true",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_x"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "false",
-        "up": "true",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_x"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "false",
-        "up": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_x"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "true",
-        "up": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_x"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "true",
-        "up": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_x"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "false",
-        "up": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_y"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "true",
-        "west": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_y"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "true",
-        "west": "true",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_y"
-      },
-      "when": {
-        "east": "true",
-        "north": "true",
-        "south": "false",
-        "west": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_y"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "false",
-        "west": "true",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_y"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "true",
-        "west": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_y"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "true",
-        "west": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_y"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "false",
-        "west": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_y"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "false",
-        "west": "true",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_y"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "false",
-        "west": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_y"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "false",
-        "west": "true",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_z"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "true",
-        "west": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_z"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "true",
-        "west": "true",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_z"
-      },
-      "when": {
-        "down": "true",
-        "east": "true",
-        "up": "false",
-        "west": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_z"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "false",
-        "west": "true",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_z"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "true",
-        "west": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_z"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "true",
-        "west": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_z"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "false",
-        "west": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_z"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "false",
-        "west": "true",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_z"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "false",
-        "west": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_z"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "false",
-        "west": "true",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
         "model": "vs_clockwork:block/heat_pipe/core"
       },
       "when": {
-        "down": "false",
-        "east": "false",
-        "north": "false",
-        "south": "false",
-        "up": "false",
-        "west": "false",
         "heat": "cool"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full"
+        "model": "vs_clockwork:block/heat_pipe/arm_north"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "cool"
+        "heat": "cool",
+        "north": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_down"
+        "model": "vs_clockwork:block/heat_pipe/arm_south"
       },
       "when": {
-        "down": "false",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "cool"
+        "heat": "cool",
+        "south": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_up"
+        "model": "vs_clockwork:block/heat_pipe/arm_east"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "false",
-        "west": "true",
-        "heat": "cool"
+        "heat": "cool",
+        "east": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_north"
+        "model": "vs_clockwork:block/heat_pipe/arm_west"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "false",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "cool"
+        "heat": "cool",
+        "west": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_south"
+        "model": "vs_clockwork:block/heat_pipe/arm_up"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "false",
-        "up": "true",
-        "west": "true",
-        "heat": "cool"
+        "heat": "cool",
+        "up": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_east"
+        "model": "vs_clockwork:block/heat_pipe/arm_down"
       },
       "when": {
-        "down": "true",
-        "east": "false",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_west"
-      },
-      "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "false",
-        "heat": "cool"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_x_warm"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "true",
-        "up": "true",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_x_warm"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "false",
-        "up": "true",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_x_warm"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "true",
-        "up": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_x_warm"
-      },
-      "when": {
-        "down": "true",
-        "north": "true",
-        "south": "false",
-        "up": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_x_warm"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "false",
-        "up": "true",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_x_warm"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "false",
-        "up": "true",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_x_warm"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "false",
-        "up": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_x_warm"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "true",
-        "up": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_x_warm"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "true",
-        "up": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_x_warm"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "false",
-        "up": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_y_warm"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "true",
-        "west": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_y_warm"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "true",
-        "west": "true",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_y_warm"
-      },
-      "when": {
-        "east": "true",
-        "north": "true",
-        "south": "false",
-        "west": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_y_warm"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "false",
-        "west": "true",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_y_warm"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "true",
-        "west": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_y_warm"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "true",
-        "west": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_y_warm"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "false",
-        "west": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_y_warm"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "false",
-        "west": "true",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_y_warm"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "false",
-        "west": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_y_warm"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "false",
-        "west": "true",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_z_warm"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "true",
-        "west": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_z_warm"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "true",
-        "west": "true",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_z_warm"
-      },
-      "when": {
-        "down": "true",
-        "east": "true",
-        "up": "false",
-        "west": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_z_warm"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "false",
-        "west": "true",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_z_warm"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "true",
-        "west": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_z_warm"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "true",
-        "west": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_z_warm"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "false",
-        "west": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_z_warm"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "false",
-        "west": "true",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_z_warm"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "false",
-        "west": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_z_warm"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "false",
-        "west": "true",
-        "heat": "warm"
+        "heat": "cool",
+        "down": "true"
       }
     },
     {
@@ -837,471 +67,61 @@
         "model": "vs_clockwork:block/heat_pipe/core_warm"
       },
       "when": {
-        "down": "false",
-        "east": "false",
-        "north": "false",
-        "south": "false",
-        "up": "false",
-        "west": "false",
         "heat": "warm"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_warm"
+        "model": "vs_clockwork:block/heat_pipe/arm_north_warm"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "warm"
+        "heat": "warm",
+        "north": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_down_warm"
+        "model": "vs_clockwork:block/heat_pipe/arm_south_warm"
       },
       "when": {
-        "down": "false",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "warm"
+        "heat": "warm",
+        "south": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_up_warm"
+        "model": "vs_clockwork:block/heat_pipe/arm_east_warm"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "false",
-        "west": "true",
-        "heat": "warm"
+        "heat": "warm",
+        "east": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_north_warm"
+        "model": "vs_clockwork:block/heat_pipe/arm_west_warm"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "false",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "warm"
+        "heat": "warm",
+        "west": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_south_warm"
+        "model": "vs_clockwork:block/heat_pipe/arm_up_warm"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "false",
-        "up": "true",
-        "west": "true",
-        "heat": "warm"
+        "heat": "warm",
+        "up": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_east_warm"
+        "model": "vs_clockwork:block/heat_pipe/arm_down_warm"
       },
       "when": {
-        "down": "true",
-        "east": "false",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_west_warm"
-      },
-      "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "false",
-        "heat": "warm"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_x_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "true",
-        "up": "true",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_x_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "false",
-        "up": "true",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_x_hot"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "true",
-        "up": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_x_hot"
-      },
-      "when": {
-        "down": "true",
-        "north": "true",
-        "south": "false",
-        "up": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_x_hot"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "false",
-        "up": "true",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_x_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "false",
-        "up": "true",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_x_hot"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "false",
-        "up": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_x_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "true",
-        "up": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_x_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "true",
-        "up": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_x_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "false",
-        "up": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_y_hot"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "true",
-        "west": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_y_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "true",
-        "west": "true",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_y_hot"
-      },
-      "when": {
-        "east": "true",
-        "north": "true",
-        "south": "false",
-        "west": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_y_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "false",
-        "west": "true",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_y_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "true",
-        "west": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_y_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "true",
-        "west": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_y_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "false",
-        "west": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_y_hot"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "false",
-        "west": "true",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_y_hot"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "false",
-        "west": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_y_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "false",
-        "west": "true",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_z_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "true",
-        "west": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_z_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "true",
-        "west": "true",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_z_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "true",
-        "up": "false",
-        "west": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_z_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "false",
-        "west": "true",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_z_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "true",
-        "west": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_z_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "true",
-        "west": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_z_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "false",
-        "west": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_z_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "false",
-        "west": "true",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_z_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "false",
-        "west": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_z_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "false",
-        "west": "true",
-        "heat": "hot"
+        "heat": "warm",
+        "down": "true"
       }
     },
     {
@@ -1309,471 +129,61 @@
         "model": "vs_clockwork:block/heat_pipe/core_hot"
       },
       "when": {
-        "down": "false",
-        "east": "false",
-        "north": "false",
-        "south": "false",
-        "up": "false",
-        "west": "false",
         "heat": "hot"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_north_hot"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "hot"
+        "heat": "hot",
+        "north": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_down_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_south_hot"
       },
       "when": {
-        "down": "false",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "hot"
+        "heat": "hot",
+        "south": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_up_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_east_hot"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "false",
-        "west": "true",
-        "heat": "hot"
+        "heat": "hot",
+        "east": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_north_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_west_hot"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "false",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "hot"
+        "heat": "hot",
+        "west": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_south_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_up_hot"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "false",
-        "up": "true",
-        "west": "true",
-        "heat": "hot"
+        "heat": "hot",
+        "up": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_east_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_down_hot"
       },
       "when": {
-        "down": "true",
-        "east": "false",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_west_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "false",
-        "heat": "hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_x_very_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "true",
-        "up": "true",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_x_very_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "false",
-        "up": "true",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_x_very_hot"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "true",
-        "up": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_x_very_hot"
-      },
-      "when": {
-        "down": "true",
-        "north": "true",
-        "south": "false",
-        "up": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_x_very_hot"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "false",
-        "up": "true",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_x_very_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "false",
-        "up": "true",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_x_very_hot"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "false",
-        "up": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_x_very_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "true",
-        "up": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_x_very_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "true",
-        "up": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_x_very_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "false",
-        "up": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_y_very_hot"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "true",
-        "west": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_y_very_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "true",
-        "west": "true",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_y_very_hot"
-      },
-      "when": {
-        "east": "true",
-        "north": "true",
-        "south": "false",
-        "west": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_y_very_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "false",
-        "west": "true",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_y_very_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "true",
-        "west": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_y_very_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "true",
-        "west": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_y_very_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "false",
-        "west": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_y_very_hot"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "false",
-        "west": "true",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_y_very_hot"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "false",
-        "west": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_y_very_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "false",
-        "west": "true",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_z_very_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "true",
-        "west": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_z_very_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "true",
-        "west": "true",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_z_very_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "true",
-        "up": "false",
-        "west": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_z_very_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "false",
-        "west": "true",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_z_very_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "true",
-        "west": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_z_very_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "true",
-        "west": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_z_very_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "false",
-        "west": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_z_very_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "false",
-        "west": "true",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_z_very_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "false",
-        "west": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_z_very_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "false",
-        "west": "true",
-        "heat": "very_hot"
+        "heat": "hot",
+        "down": "true"
       }
     },
     {
@@ -1781,471 +191,61 @@
         "model": "vs_clockwork:block/heat_pipe/core_very_hot"
       },
       "when": {
-        "down": "false",
-        "east": "false",
-        "north": "false",
-        "south": "false",
-        "up": "false",
-        "west": "false",
         "heat": "very_hot"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_very_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_north_very_hot"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "very_hot"
+        "heat": "very_hot",
+        "north": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_down_very_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_south_very_hot"
       },
       "when": {
-        "down": "false",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "very_hot"
+        "heat": "very_hot",
+        "south": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_up_very_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_east_very_hot"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "false",
-        "west": "true",
-        "heat": "very_hot"
+        "heat": "very_hot",
+        "east": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_north_very_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_west_very_hot"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "false",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "very_hot"
+        "heat": "very_hot",
+        "west": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_south_very_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_up_very_hot"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "false",
-        "up": "true",
-        "west": "true",
-        "heat": "very_hot"
+        "heat": "very_hot",
+        "up": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_east_very_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_down_very_hot"
       },
       "when": {
-        "down": "true",
-        "east": "false",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_west_very_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "false",
-        "heat": "very_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_x_molten"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "true",
-        "up": "true",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_x_molten"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "false",
-        "up": "true",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_x_molten"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "true",
-        "up": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_x_molten"
-      },
-      "when": {
-        "down": "true",
-        "north": "true",
-        "south": "false",
-        "up": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_x_molten"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "false",
-        "up": "true",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_x_molten"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "false",
-        "up": "true",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_x_molten"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "false",
-        "up": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_x_molten"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "true",
-        "up": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_x_molten"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "true",
-        "up": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_x_molten"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "false",
-        "up": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_y_molten"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "true",
-        "west": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_y_molten"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "true",
-        "west": "true",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_y_molten"
-      },
-      "when": {
-        "east": "true",
-        "north": "true",
-        "south": "false",
-        "west": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_y_molten"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "false",
-        "west": "true",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_y_molten"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "true",
-        "west": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_y_molten"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "true",
-        "west": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_y_molten"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "false",
-        "west": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_y_molten"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "false",
-        "west": "true",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_y_molten"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "false",
-        "west": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_y_molten"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "false",
-        "west": "true",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_z_molten"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "true",
-        "west": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_z_molten"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "true",
-        "west": "true",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_z_molten"
-      },
-      "when": {
-        "down": "true",
-        "east": "true",
-        "up": "false",
-        "west": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_z_molten"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "false",
-        "west": "true",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_z_molten"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "true",
-        "west": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_z_molten"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "true",
-        "west": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_z_molten"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "false",
-        "west": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_z_molten"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "false",
-        "west": "true",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_z_molten"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "false",
-        "west": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_z_molten"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "false",
-        "west": "true",
-        "heat": "molten"
+        "heat": "very_hot",
+        "down": "true"
       }
     },
     {
@@ -2253,471 +253,61 @@
         "model": "vs_clockwork:block/heat_pipe/core_molten"
       },
       "when": {
-        "down": "false",
-        "east": "false",
-        "north": "false",
-        "south": "false",
-        "up": "false",
-        "west": "false",
         "heat": "molten"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_molten"
+        "model": "vs_clockwork:block/heat_pipe/arm_north_molten"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "molten"
+        "heat": "molten",
+        "north": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_down_molten"
+        "model": "vs_clockwork:block/heat_pipe/arm_south_molten"
       },
       "when": {
-        "down": "false",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "molten"
+        "heat": "molten",
+        "south": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_up_molten"
+        "model": "vs_clockwork:block/heat_pipe/arm_east_molten"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "false",
-        "west": "true",
-        "heat": "molten"
+        "heat": "molten",
+        "east": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_north_molten"
+        "model": "vs_clockwork:block/heat_pipe/arm_west_molten"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "false",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "molten"
+        "heat": "molten",
+        "west": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_south_molten"
+        "model": "vs_clockwork:block/heat_pipe/arm_up_molten"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "false",
-        "up": "true",
-        "west": "true",
-        "heat": "molten"
+        "heat": "molten",
+        "up": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_east_molten"
+        "model": "vs_clockwork:block/heat_pipe/arm_down_molten"
       },
       "when": {
-        "down": "true",
-        "east": "false",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_west_molten"
-      },
-      "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "false",
-        "heat": "molten"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_x_super_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "true",
-        "up": "true",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_x_super_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "false",
-        "up": "true",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_x_super_hot"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "true",
-        "up": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_x_super_hot"
-      },
-      "when": {
-        "down": "true",
-        "north": "true",
-        "south": "false",
-        "up": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_x_super_hot"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "false",
-        "up": "true",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_x_super_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "false",
-        "up": "true",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_x_super_hot"
-      },
-      "when": {
-        "down": "true",
-        "north": "false",
-        "south": "false",
-        "up": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_x_super_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "true",
-        "up": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_x_super_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "false",
-        "south": "true",
-        "up": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_x_super_hot"
-      },
-      "when": {
-        "down": "false",
-        "north": "true",
-        "south": "false",
-        "up": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_y_super_hot"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "true",
-        "west": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_y_super_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "true",
-        "west": "true",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_y_super_hot"
-      },
-      "when": {
-        "east": "true",
-        "north": "true",
-        "south": "false",
-        "west": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_y_super_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "false",
-        "west": "true",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_y_super_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "true",
-        "west": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_y_super_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "true",
-        "west": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_y_super_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "true",
-        "south": "false",
-        "west": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_y_super_hot"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "false",
-        "west": "true",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_y_super_hot"
-      },
-      "when": {
-        "east": "true",
-        "north": "false",
-        "south": "false",
-        "west": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_y_super_hot"
-      },
-      "when": {
-        "east": "false",
-        "north": "false",
-        "south": "false",
-        "west": "true",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lu_z_super_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "true",
-        "west": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ru_z_super_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "true",
-        "west": "true",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ld_z_super_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "true",
-        "up": "false",
-        "west": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/rd_z_super_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "false",
-        "west": "true",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/ud_z_super_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "true",
-        "west": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/u_z_super_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "true",
-        "west": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/d_z_super_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "false",
-        "up": "false",
-        "west": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/lr_z_super_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "false",
-        "west": "true",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/l_z_super_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "true",
-        "up": "false",
-        "west": "false",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/r_z_super_hot"
-      },
-      "when": {
-        "down": "false",
-        "east": "false",
-        "up": "false",
-        "west": "true",
-        "heat": "super_hot"
+        "heat": "molten",
+        "down": "true"
       }
     },
     {
@@ -2725,111 +315,61 @@
         "model": "vs_clockwork:block/heat_pipe/core_super_hot"
       },
       "when": {
-        "down": "false",
-        "east": "false",
-        "north": "false",
-        "south": "false",
-        "up": "false",
-        "west": "false",
         "heat": "super_hot"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_super_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_north_super_hot"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "super_hot"
+        "heat": "super_hot",
+        "north": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_down_super_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_south_super_hot"
       },
       "when": {
-        "down": "false",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "super_hot"
+        "heat": "super_hot",
+        "south": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_up_super_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_east_super_hot"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "false",
-        "west": "true",
-        "heat": "super_hot"
+        "heat": "super_hot",
+        "east": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_north_super_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_west_super_hot"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "false",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "super_hot"
+        "heat": "super_hot",
+        "west": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_south_super_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_up_super_hot"
       },
       "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "false",
-        "up": "true",
-        "west": "true",
-        "heat": "super_hot"
+        "heat": "super_hot",
+        "up": "true"
       }
     },
     {
       "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_east_super_hot"
+        "model": "vs_clockwork:block/heat_pipe/arm_down_super_hot"
       },
       "when": {
-        "down": "true",
-        "east": "false",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "true",
-        "heat": "super_hot"
-      }
-    },
-    {
-      "apply": {
-        "model": "vs_clockwork:block/heat_pipe/full_wo_west_super_hot"
-      },
-      "when": {
-        "down": "true",
-        "east": "true",
-        "north": "true",
-        "south": "true",
-        "up": "true",
-        "west": "false",
-        "heat": "super_hot"
+        "heat": "super_hot",
+        "down": "true"
       }
     }
   ]

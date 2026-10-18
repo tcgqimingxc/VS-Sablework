@@ -3,6 +3,7 @@
   "package": "org.valkyrienskies.clockwork.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "content.blade.MixinSawBladeRecipe",
     "content.gas.boiler.FluidTankSizeAccessor",
     "content.gas.boiler.MixinBoilerData",
     "content.gas.boiler.MixinSteamEngineBlock",

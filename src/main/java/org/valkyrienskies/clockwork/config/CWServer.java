@@ -18,6 +18,15 @@ public class CWServer extends ConfigBase {
             f(2000000.0f, 0.0f, 1.0E9f, "propellerMaxForce", Comments.propellerMaxForce);
     public final ConfigFloat propellerMaxTorque =
             f(2000000.0f, 0.0f, 1.0E9f, "propellerMaxTorque", Comments.propellerMaxTorque);
+    /**
+     * 单片叶片的最大展长 [格]（旧版 {@code ClockworkConfig.SERVER.maxBladeSize = 8.0}）。
+     *
+     * <p>工作台加长配方的上限判定、{@code BladeItems#setLength} 的夹取、以及叶片控制器渲染器的
+     * 包围盒都读这一个值；改小后老存档里更长的叶片会在下一次写入时被夹到新上限，
+     * 但<b>读取</b>时也会夹（见 {@code BladeItems#getLength}），所以不会出现超长叶片仍按旧值算推力。
+     */
+    public final ConfigInt maxBladeSize =
+            i(8, 1, 64, "maxBladeSize", Comments.maxBladeSize);
 
     /** 浮力：热气球/浮空结构的受力倍率。 */
     public final ConfigGroup balloons = group(1, "balloons", Comments.balloons);
@@ -47,6 +56,48 @@ public class CWServer extends ConfigBase {
             f(0.005f, 0.0f, 1.0f, "gasAmbientHeatExchange", Comments.gasAmbientHeatExchange);
     public final ConfigFloat gasFlowPerPascal =
             f(1.0E-6f, 0.0f, 1.0f, "gasFlowPerPascal", Comments.gasFlowPerPascal);
+    /**
+     * 普通金属连接的基础导热率 [1/tick]。
+     *
+     * <p>物理含义：一条连接的热导 G [W/K] 与两侧节点串联热容
+     * {@code C_series = C₁C₂/(C₁+C₂)} 决定了温度差每刻衰减的比例
+     * {@code k = G·Δt/C_series}；本实现把 Δt 与 C 合并成一个 0..1 的比例，
+     * 所以 <b>k 就是“每刻消掉的两侧温差比例”</b>。k=0 表示完全绝热，k=1 表示一 tick 均温。
+     *
+     * <p>为什么需要这个基础值：质量搬运只带走“被搬走的那份气体”的热量，压力一均衡流动就停；
+     * 没有导热时，不在流路上的死端（例如挂在支管末端的斯特林机）永远停在室温。
+     * 旧版 {@code DuctNetworkUtils.configureMetalDuctEdge} 把
+     * {@code ductThermalConductivityMultiplier}（默认 1000）写到所有金属边上，即旧版本来就有这条路径；
+     * 本移植早期只给铜接头加了导热，普通导管恒为 0，属回归。
+     *
+     * <p>默认 0.1 的依据：比环境散热（{@code gasAmbientHeatExchange}=0.005/tick）快 20 倍，
+     * 热量能沿十几格管道跑到机器，而不会被环境散热吃掉；同时 5～8 个节点的网络里
+     * 煤炉仍能把自己维持在 800K 以上（k 再大就会把炉子本身拉离 850K 目标）。
+     * 铜接头用 {@code copperDuctThermalConductivity} 覆盖，两者取较大值。
+     */
+    public final ConfigFloat gasThermalConductivity =
+            f(0.1f, 0.0f, 1.0f, "gasThermalConductivity", Comments.gasThermalConductivity);
+
+    // -------- 导管边件（单向 / 智能 / 铜）：语义取证见 docs/DUCT-EDGE-VARIANTS.md --------
+
+    /** 铜接头：相同压差下比普通导管多搬多少气（旧版没有这个方块，属按材质语义补，见文档 §2.4）。 */
+    public final ConfigFloat copperDuctFlowScale =
+            f(1.5f, 0.1f, 10.0f, "copperDuctFlowScale", Comments.copperDuctFlowScale);
+    /** 铜接头：每刻消掉的两侧温差比例（与基础导热率取较大者；铜比普通金属管更快）。 */
+    public final ConfigFloat copperDuctThermalConductivity =
+            f(0.15f, 0.0f, 1.0f, "copperDuctThermalConductivity", Comments.copperDuctThermalConductivity);
+    /**
+     * 智能边件：压差档阈值 [Pa]。
+     *
+     * <p>旧版这个数是 GUI 里的滚动输入（{@code SmartDuctScreen.kt:70-77}，范围 0..99999 kPa）。
+     * 本移植没有那个界面（GUI 不在移植范围），改为服务端配置 + 方块状态里的"高/低于"方向，
+     * 表达同一套语义；每个智能边件共享这一个阈值。
+     */
+    public final ConfigFloat smartDuctPressureThreshold =
+            f(200000.0f, 0.0f, 1.0E9f, "smartDuctPressureThreshold", Comments.smartDuctPressureThreshold);
+    /** 智能边件：温度档阈值 [K]（同上，旧版是 GUI 滚动输入，单位 K）。 */
+    public final ConfigFloat smartDuctTemperatureThreshold =
+            f(500.0f, 1.0f, 5000.0f, "smartDuctTemperatureThreshold", Comments.smartDuctTemperatureThreshold);
 
     public final ConfigFloat airCompressorSpeed =
             f(1.0E-4f, 0.0f, 10.0f, "airCompressorSpeed", Comments.airCompressorSpeed);
@@ -269,6 +320,8 @@ public class CWServer extends ConfigBase {
         static final String propellerForceMultiplier = "螺旋桨推力倍率（1.0 = 默认手感）";
         static final String propellerMaxForce = "单个螺旋桨每物理刻允许施加的最大力 [N]";
         static final String propellerMaxTorque = "单个螺旋桨每物理刻允许施加的最大力矩 [N*m]";
+        static final String maxBladeSize = "单片螺旋桨叶片的最大展长 [格]（旧版同名配置默认 8）："
+                + "工作台加长上限、长度夹取、叶片渲染包围盒都读它";
         static final String balloons = "热气球 / 浮力相关参数";
         static final String balloonForceMultiplier = "浮力倍率（1.0 = 默认手感）";
         static final String balloonMaxScanVolume = "气球内部体积扫描上限（方块数），防止卡顿";
@@ -281,6 +334,12 @@ public class CWServer extends ConfigBase {
         static final String gasAmbientPressure = "环境压力 [Pa]，1 atm = 101325";
         static final String gasAmbientHeatExchange = "每刻与环境交换的温度差比例（0 = 完全绝热）";
         static final String gasFlowPerPascal = "连接上的压差到质量流量的系数 [kg/(tick*Pa)]，越大气体流动越快";
+        static final String gasThermalConductivity = "普通金属连接的基础导热率 [1/tick]：每刻消掉的两侧温差比例（0 = 完全绝热；"
+                + "导热与流动无关，负责把热量送到不在流路上的死端，如支管末端的斯特林机）；铜接头取它和铜值的较大者";
+        static final String copperDuctFlowScale = "铜接头的通流倍率（1.0 = 与普通导管相同；只在铜接头参与的连接上生效）";
+        static final String copperDuctThermalConductivity = "铜接头每刻消掉的两侧温差比例（与 gasThermalConductivity 取较大者；铜比普通金属管更快）";
+        static final String smartDuctPressureThreshold = "智能边件的压差阈值 [Pa]，配合方块状态里的高于/低于档位使用";
+        static final String smartDuctTemperatureThreshold = "智能边件的温度阈值 [K]，配合方块状态里的高于/低于档位使用";
         static final String airCompressorSpeed = "空气压缩机每 RPM 每刻的产气质量 [kg/(tick*RPM)]（旧版同名配置默认值）";
         static final String airCompressorMaxPressure = "空气压缩机停机压力 [Pa]，超过后不再产气（旧版同名配置）";
         static final String airCompressorHeliumAirDensity = "外部空气密度低于该值时副产以太（旧版同名配置；0 或负数 = 禁用）";

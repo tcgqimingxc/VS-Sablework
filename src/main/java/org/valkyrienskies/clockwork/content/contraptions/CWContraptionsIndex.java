@@ -38,6 +38,7 @@ import org.valkyrienskies.clockwork.content.contraptions.propeller.blades.BladeC
 import org.valkyrienskies.clockwork.content.contraptions.propeller.blades.BladeControllerBlockEntity;
 import org.valkyrienskies.clockwork.content.contraptions.propeller.blades.client.BladeControllerRenderer;
 import org.valkyrienskies.clockwork.content.contraptions.propeller.blades.item.BladeItem;
+import org.valkyrienskies.clockwork.content.contraptions.propeller.blades.item.BladeRecipes;
 import org.valkyrienskies.clockwork.content.contraptions.propeller.client.PropellerBearingRenderer;
 import org.valkyrienskies.clockwork.content.contraptions.propeller.copter.CopterBearingBlock;
 import org.valkyrienskies.clockwork.content.contraptions.propeller.copter.CopterBearingBlockEntity;
@@ -322,16 +323,16 @@ public final class CWContraptionsIndex {
             .renderer(() -> BladeControllerRenderer::new)
             .register();
 
-    /** 窄叶片（旧版 {@code propeller_blade}：木剑 +2 伤害 / 耐久 100）。 */
+    /** 窄叶片（旧版 {@code propeller_blade}：木剑 +2 伤害 / 耐久 100 / 默认展长 1 格）。 */
     public static final ItemEntry<BladeItem> PROPELLER_BLADE = REGISTRATE
-            .item("propeller_blade", p -> new BladeItem(Tiers.WOOD, false, 1.0, p))
+            .item("propeller_blade", p -> new BladeItem(Tiers.WOOD, false, p))
             .properties(p -> p.durability(100).attributes(SwordItem.createAttributes(Tiers.WOOD, 2, 0.4f)))
             .tab(CWCreativeTabs.physicalitiesKey())
             .register();
 
     /** 宽叶片（旧版 {@code wide_propeller_blade}：木剑 +4 伤害 / 耐久 200 / 弦长更大）。 */
     public static final ItemEntry<BladeItem> WIDE_PROPELLER_BLADE = REGISTRATE
-            .item("wide_propeller_blade", p -> new BladeItem(Tiers.WOOD, true, 1.0, p))
+            .item("wide_propeller_blade", p -> new BladeItem(Tiers.WOOD, true, p))
             .properties(p -> p.durability(200).attributes(SwordItem.createAttributes(Tiers.WOOD, 4, 0.2f)))
             .tab(CWCreativeTabs.physicalitiesKey())
             .register();
@@ -344,5 +345,9 @@ public final class CWContraptionsIndex {
         // 轴承伺服必须在"每个物理子步"刷新（Sable 一游戏刻跑多个子步），
         // 注册顺序无关紧要：物理回调只在世界 tick 时才可能被触发。
         AbstractBearingBlockEntity.registerPhysicsHook();
+        // 叶片加长 / 切割两个自定义配方类型（旧版 ClockworkRecipes.kt）。
+        // 必须在这里注册：配方管理器在数据包加载时就会按 id 找它们，
+        // 漏注册 = 实机 "Unknown registry key ... recipe_serializer"（_disabled_data 里记录的历史崩溃）。
+        BladeRecipes.register();
     }
 }

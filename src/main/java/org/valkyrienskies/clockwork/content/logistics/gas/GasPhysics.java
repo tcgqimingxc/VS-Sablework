@@ -61,6 +61,18 @@ public final class GasPhysics {
     }
 
     /**
+     * 相邻节点之间的基础导热率 [1/tick]：每刻消掉的两侧温差比例。
+     *
+     * <p>对应旧版 {@code DuctNetworkUtils.configureMetalDuctEdge} 给每条金属边写的
+     * {@code thermalConductivityMultiplier}：导热是连接（管壁 + 管内气体）的属性，
+     * 与有没有气流无关。没有它，压力均衡后静止的支路永远到不了热源温度。
+     * 详见 {@code CWServer#gasThermalConductivity}。
+     */
+    public static double thermalConductivity() {
+        return ClockworkConfig.server().gasThermalConductivity.get();
+    }
+
+    /**
      * 外部空气密度（无量纲倍率，1.0 = 海平面）。
      *
      * @param pos 取气位置（压缩机进气口）

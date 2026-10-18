@@ -100,15 +100,39 @@ public interface GasNode {
     }
 
     /**
-     * 本节点参与的所有连接只允许通过的气体种类，{@code null} = 不过滤。
+     * 本节点全部连接只允许通过的气体种类，{@code null} = 不过滤。
      *
      * <p>对应旧版 Kelvin 的 {@code ClockworkFilteredDuctEdge}（滤管按边过滤）；
-     * 本移植把过滤声明放在节点上，{@link GasNetwork} 在搬运时统一裁决，
-     * 这样"滤管两侧"都受约束，不会出现从滤管背面塞进杂气的情况。
+     * 本移植把"节点级、与方向无关"的过滤声明放在这里（{@code filter_duct} 用它做白名单），
+     * 而<b>边类型</b>带来的过滤挂在方向上（{@link #gasLink(Direction)} 携带的 {@link GasFilter}）——
+     * 因为边类型是"某一面"的属性，不是整个节点的属性。
      */
     @org.jetbrains.annotations.Nullable
     default GasType gasFilter() {
         return null;
+    }
+
+    /**
+     * 本节点在 {@code dir} 这一面是否允许<b>这一次</b>搬运通过（智能边类型的阈值闸）。
+     *
+     * <p>为什么闸门放在节点上而不是 {@link GasLink} 上：判定需要"这次搬运的压差 / 气体温度"，
+     * 而 link 是在<b>搬运之前</b>按方向查出来的（压差还没算）。放在节点上就只多一次虚调用，
+     * 也不用为每根管子每刻新建一个带阈值的 link 对象。
+     *
+     * <p>为什么要带 {@code dir}：阈值参数是<b>面级</b>配置（旧版每条边各有一套
+     * {@code FilterType} / {@code comparisonValue} / {@code moreThan}，见
+     * {@code smart/ClockworkSmartEdge.kt:16-19}），同一条导管的不同面可以完全不同。
+     * {@code GasNetwork#transfer} 会分别以"本节点朝向对侧的那一面"问 {@code from} 与 {@code to}。
+     *
+     * <p>对应旧版 Kelvin {@code SmartEdge}。两侧节点都会被问一次，只有智能边会否决；
+     * 其余方块用默认实现（永远放行）。
+     *
+     * @param dir            本节点朝向对侧的连接面
+     * @param pressureDelta  有符号压差 [Pa]，<b>正 = 从本节点流向对侧</b>（阈值比较请取绝对值）
+     * @param gasTemperature 将要被搬走的那股气体的温度 [K]
+     */
+    default boolean gasFlowGateOpen(Direction dir, double pressureDelta, double gasTemperature) {
+        return true;
     }
 
     /**

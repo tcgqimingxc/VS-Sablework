@@ -35,6 +35,19 @@ public class RedstoneDuctBlock extends RotatedPillarBlock implements IBE<Redston
         super.createBlockStateDefinition(builder);
     }
 
+    /**
+     * Keep in sync with RedstoneDuctBlockEntity#gasConnected: only the two axial faces connect.
+     *
+     * <p>Without this override IGasNodeBlock defaults to "connect on all faces", so a neighboring
+     * duct would store SIDE on a face the redstone duct itself never accepts: the model and the
+     * connection ring look connected, but the BFS can never cross that face. Both sides of an
+     * edge must use the same face rule, otherwise this becomes a fake connection.
+     */
+    @Override
+    public boolean gasConnectable(BlockState state, Direction dir) {
+        return dir.getAxis() == state.getValue(BlockStateProperties.AXIS);
+    }
+
     @Override
     public Class<RedstoneDuctBlockEntity> getBlockEntityClass() {
         return RedstoneDuctBlockEntity.class;

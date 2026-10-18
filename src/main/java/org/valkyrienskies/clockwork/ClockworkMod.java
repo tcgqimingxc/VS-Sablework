@@ -13,6 +13,7 @@ import org.valkyrienskies.clockwork.content.kinetics.CWKineticsIndex;
 import org.valkyrienskies.clockwork.content.logistics.gas.CWGasIndex;
 import org.valkyrienskies.clockwork.index.CWBlocks;
 import org.valkyrienskies.clockwork.index.CWCreativeTabs;
+import org.valkyrienskies.clockwork.index.CWDataComponents;
 import org.valkyrienskies.clockwork.index.CWItems;
 import org.valkyrienskies.clockwork.index.CWSounds;
 import org.valkyrienskies.clockwork.integration.cc.ClockworkComputerCraft;
@@ -27,7 +28,7 @@ import org.valkyrienskies.clockwork.integration.cc.ClockworkComputerCraft;
  * <ol>
  *   <li>创造标签 + Registrate 事件监听（必须先于任何内容注册）</li>
  *   <li>配置</li>
- *   <li>各内容索引类（方块 / 物品 / 方块实体 / 声音 / 粒子）</li>
+ *   <li>各内容索引类（方块 / 物品 / 方块实体 / 声音 / 数据组件 / 配方类型）</li>
  *   <li>网络通道与事件监听</li>
  * </ol>
  */
@@ -46,6 +47,7 @@ public final class ClockworkMod {
         // 1) 标签与注册器事件
         CWCreativeTabs.register(modBus);
         CWSounds.register(modBus);
+        CWDataComponents.register(modBus);
         REGISTRATE.registerEventListeners(modBus);
 
         // 2) 配置

@@ -1,0 +1,15 @@
+{
+  "type": "vs_clockwork:blade_cutting",
+  "ingredients": [
+    {
+      "item": "vs_clockwork:propeller_blade"
+    }
+  ],
+  "processing_time": 100,
+  "results": [
+    {
+      "id": "vs_clockwork:propeller_blade",
+      "count": 1
+    }
+  ]
+}

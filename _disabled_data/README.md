@@ -3,42 +3,30 @@
 这个目录**不在** `src/main/resources/` 下，所以打包时不会被读进 jar、游戏不会加载它。
 里面的文件都是原封不动保留的：恢复 = 按"放回位置"移回 `src/main/resources/` 下的原路径，内容无需改动。
 
-## 1. 叶片自定义配方（2026-10-11 实机日志里的 3 条 `Unknown registry key ... recipe_serializer`）
+## 1. 叶片自定义配方 —— 已恢复（2026-10-18，不再是禁用项）
 
-| 文件 | 原因 | 放回位置（实现后） |
-|---|---|---|
-| `recipe/blade_cutting/blade_cutting.json` | `vs_clockwork:blade_cutting` 配方类型未移植 | `data/vs_clockwork/recipe/blade_cutting/blade_cutting.json` |
-| `recipe/blade_cutting/wide_blade_cutting.json` | 同上 | `data/vs_clockwork/recipe/blade_cutting/wide_blade_cutting.json` |
-| `recipe/blade_crafting_recipe.json` | `vs_clockwork:blade_crafting` 配方类型未移植 | `data/vs_clockwork/recipe/blade_crafting_recipe.json` |
+这三条配方已按旧版机制完整实现并移回 `src/main/resources/`，本目录不再保留副本：
 
-**为什么先禁用而不是直接移植**（详细理由见 1.20.1 旧版 `content/contraptions/propeller/blades/item/`）：
+| 已放回位置 | 对应实现 |
+|---|---|
+| `data/vs_clockwork/recipe/blade_crafting_recipe.json` | `content/.../blades/item/BladeCraftingRecipe.java`（工作台，两片以上同款叶片相加） |
+| `data/vs_clockwork/recipe/blade_cutting/blade_cutting.json` | `content/.../blades/item/BladeCuttingRecipe.java`（动力锯，长度减半） |
+| `data/vs_clockwork/recipe/blade_cutting/wide_blade_cutting.json` | 同上（宽叶版本） |
 
-1. 这两个类型的**全部意义**是改写"每片叶子的展长"——旧版把它存在物品 NBT `BladeLength` 里：
-   - `CuttingBladeRecipe`（= `create:cutting` 的子类）把 `BladeLength` **减半**（`CuttingBladeRecipe.kt:18-26`）；
-   - `CraftingTableBladeRecipe`（= 工作台 `CustomRecipe`）把多片叶子的 `BladeLength` **相加**，上限
-     `ClockworkConfig.maxBladeSize`（`CraftingTableBladeRecipe.kt:18-54`）。
-   1.21.1 的移植已经把展长改成**每种叶片物品的固有属性**（`BladeItem#getBladeLength`、
-   `BladeData` 类头注释里写明了这个取舍），而叶片本体 / 叶片控制器 / 螺旋桨**已经实机验证连通**，
-   本次不允许改动那条玩法链路。移回这两条配方 = 必须重新引入"每 stack 展长"（数据组件 +
-   BladeItem/BladeData/渲染器全链路改造），收益是"把叶片切成更短"这种当前没有语义的操作。
-2. `blade_cutting` 还需要**没移植的 mixin**：旧版靠 `mixin/content/blade/SawBladeRecipeMixin`
-   拦截 Create 的 `SawBlockEntity#getRecipes` / `#applyRecipe`，才让动力锯在输入叶片时改用
-   `BLADE_CUTTING` 类型、并用 `cutBlade()` 重写结果。1.21.1 的 Create 6.0.10 里这两个方法的
-   签名/描述符要重新用 javap 核实（本仓库铁律：不许猜 API），属于独立的一小块工作。
-3. 这两条配方的 JSON 本身是"同物品进、同物品出"（`propeller_blade -> propeller_blade`）：
-   只有配合 `cutBlade()` 的 NBT 改写才有意义；没有 NBT 时它等于一条什么都不做的无限配方。
+配套代码：`index/CWDataComponents`（`vs_clockwork:blade_length` 数据组件）、
+`blades/item/BladeItems`（默认值 / 上下限 / 旧 NBT 迁移）、`blades/item/BladeRecipes`（两个配方类型与序列化器的注册）、
+`mixin/content/blade/MixinSawBladeRecipe`（拦 Create 的 `SawBlockEntity#getRecipes` / `#applyRecipe`）。
 
-**玩家仍然能获得叶片**（禁用这三条不影响获取路径，下面 4 条都是可用配方，已随本次构建一起进包）：
+当初禁用时的三条判断现在都不成立，记录在此便于追溯：
 
-- `data/vs_clockwork/recipe/crafting/propeller_blade.json`：木台阶 + 木棍 → 窄叶片（工作台）
-- `data/vs_clockwork/recipe/crafting/wide_propeller_blade.json`：木板 + 木棍 → 宽叶片（工作台）
-- `data/vs_clockwork/recipe/cutting/propeller_blade.json`：`create:cutting` 木板 → 3 窄叶片（动力锯）
-- `data/vs_clockwork/recipe/cutting/wide_propeller_blade.json`：`create:cutting` 木板 → 2 宽叶片（动力锯）
+1. ~~1.21.1 已把展长改成物品固有属性~~ → 展长重新变成"每 stack"的，载体是原生 `DataComponentType<Integer>`
+   （不是旧的自由 NBT），`BladeItem` / `BladeData` / 渲染器已全链路改为读组件。
+2. ~~`blade_cutting` 需要的 mixin 没移植~~ → 已按 1.21.1 Create 6.0.10 重新实现
+   （`rollResults` 在 1.21.1 多了 `RandomSource` 参数，用 `javap -p -c -l` 核实过签名与局部变量表）。
+3. ~~"同物品进、同物品出"没有意义~~ → 截短结果由 `BladeCuttingRecipe.cut()` 改写组件长度后产出，
+   与旧版 `cutBlade()` 等价（旧版下限 0.25，本移植按整数格取 1）。
 
-**恢复步骤**：先实现 `vs_clockwork:blade_cutting` / `vs_clockwork:blade_crafting`
-（`RecipeType` + `RecipeSerializer`/`MapCodec` 注册，参考 `CWGasIndex` 里 `gas_crafting` 的写法）
-以及所需 mixin，再把上表 3 个文件移回"放回位置"，最后跑一次 `tools/check_data_refs.py`
-（它会检查 recipe 里的 `type` 是否在代码里注册过）。
+旧的判断依据仍然保留在 `docs/PORT-STATUS.md` §5 的历史条目里；实现与取证见 `docs/BLADE-LENGTH.md`。
 
 ## 2. 非法路径资源
 

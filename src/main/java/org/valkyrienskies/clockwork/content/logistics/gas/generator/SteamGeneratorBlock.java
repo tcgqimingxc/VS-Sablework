@@ -86,7 +86,10 @@ public class SteamGeneratorBlock extends FaceAttachedHorizontalDirectionalBlock
 
     @Override
     public boolean gasConnectable(BlockState state, Direction dir) {
-        // 背面（贴锅炉的一侧）不参与气体连接
-        return dir != getFacing(state).getOpposite();
+        // 旧版 SteamGeneratorBlock.canConnectTo 只允许“背离锅炉的那一面”接气：
+        // floor 放置时 getFacing(state) = UP，墙挂/吊顶时就是朝向锅炉的反面。
+        // 原实现只排除了贴锅炉的一面，会把四个侧面也接通；侧面本来是相邻提取器/锅炉结构，
+        // 不是气体接口，所以按旧版收紧为 dir == getFacing(state)。
+        return dir == getFacing(state);
     }
 }
