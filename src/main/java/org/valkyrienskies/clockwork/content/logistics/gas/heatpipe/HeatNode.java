@@ -2,6 +2,7 @@ package org.valkyrienskies.clockwork.content.logistics.gas.heatpipe;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import org.valkyrienskies.clockwork.content.logistics.gas.GasMix;
 import org.valkyrienskies.clockwork.content.logistics.gas.GasNode;
@@ -52,8 +53,12 @@ public interface HeatNode {
      *
      * <p>位置必须严格相等：多方块储罐的成员段和主方块共享同一份 {@link GasMix}，
      * 但"接触点"是成员段自己，不能用主方块的坐标顶替。
+     *
+     * <p>参数用 {@link BlockGetter} 而不是 {@link Level}：热管的 {@code updateShape} 拿到的是
+     * {@code LevelAccessor}（不是 {@code Level}），而判定"邻居是不是热节点"只需要
+     * {@code getBlockEntity}，没必要为了类型转换把连接判定挪到别处。
      */
-    static HeatNode at(Level level, BlockPos pos) {
+    static HeatNode at(BlockGetter level, BlockPos pos) {
         return level.getBlockEntity(pos) instanceof final HeatNode node
                 && node.heatNodePos().equals(pos) ? node : null;
     }

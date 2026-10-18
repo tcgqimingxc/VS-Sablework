@@ -1,0 +1,86 @@
+{
+  "credit": "生成自 tools/gen_heat_pipe_models.py（几何取自官方 Blockbench block_old.json；cap = 边界 rim 平移到 core 面）",
+  "textures": {
+    "core": "vs_clockwork:block/heatpipe_core_hot",
+    "connection": "vs_clockwork:block/heatpipe_connection_hot",
+    "rim": "vs_clockwork:block/heatpipe_rim_hot",
+    "particle": "vs_clockwork:block/heatpipe_core_hot"
+  },
+  "elements": [
+    {
+      "name": "cap_east",
+      "from": [
+        11.05,
+        4.5,
+        4.5
+      ],
+      "to": [
+        13.05,
+        11.5,
+        11.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            9,
+            7,
+            7
+          ],
+          "texture": "#rim",
+          "rotation": 90
+        },
+        "east": {
+          "uv": [
+            0,
+            16,
+            7,
+            9
+          ],
+          "texture": "#rim",
+          "rotation": 270
+        },
+        "south": {
+          "uv": [
+            0,
+            9,
+            7,
+            7
+          ],
+          "texture": "#rim",
+          "rotation": 270
+        },
+        "west": {
+          "uv": [
+            0,
+            7,
+            7,
+            0
+          ],
+          "texture": "#rim",
+          "rotation": 270
+        },
+        "up": {
+          "uv": [
+            0,
+            9,
+            7,
+            7
+          ],
+          "texture": "#rim",
+          "rotation": 270
+        },
+        "down": {
+          "uv": [
+            0,
+            9,
+            7,
+            7
+          ],
+          "texture": "#rim",
+          "rotation": 270
+        }
+      }
+    }
+  ]
+}

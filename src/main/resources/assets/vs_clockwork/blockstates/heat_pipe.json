@@ -19,11 +19,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_north"
+      },
+      "when": {
+        "heat": "cool",
+        "north": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_south"
       },
       "when": {
         "heat": "cool",
         "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_south"
+      },
+      "when": {
+        "heat": "cool",
+        "south": "false"
       }
     },
     {
@@ -37,11 +55,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_east"
+      },
+      "when": {
+        "heat": "cool",
+        "east": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_west"
       },
       "when": {
         "heat": "cool",
         "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_west"
+      },
+      "when": {
+        "heat": "cool",
+        "west": "false"
       }
     },
     {
@@ -55,11 +91,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_up"
+      },
+      "when": {
+        "heat": "cool",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_down"
       },
       "when": {
         "heat": "cool",
         "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_down"
+      },
+      "when": {
+        "heat": "cool",
+        "down": "false"
       }
     },
     {
@@ -81,11 +135,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_north_warm"
+      },
+      "when": {
+        "heat": "warm",
+        "north": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_south_warm"
       },
       "when": {
         "heat": "warm",
         "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_south_warm"
+      },
+      "when": {
+        "heat": "warm",
+        "south": "false"
       }
     },
     {
@@ -99,11 +171,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_east_warm"
+      },
+      "when": {
+        "heat": "warm",
+        "east": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_west_warm"
       },
       "when": {
         "heat": "warm",
         "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_west_warm"
+      },
+      "when": {
+        "heat": "warm",
+        "west": "false"
       }
     },
     {
@@ -117,11 +207,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_up_warm"
+      },
+      "when": {
+        "heat": "warm",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_down_warm"
       },
       "when": {
         "heat": "warm",
         "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_down_warm"
+      },
+      "when": {
+        "heat": "warm",
+        "down": "false"
       }
     },
     {
@@ -143,11 +251,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_north_hot"
+      },
+      "when": {
+        "heat": "hot",
+        "north": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_south_hot"
       },
       "when": {
         "heat": "hot",
         "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_south_hot"
+      },
+      "when": {
+        "heat": "hot",
+        "south": "false"
       }
     },
     {
@@ -161,11 +287,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_east_hot"
+      },
+      "when": {
+        "heat": "hot",
+        "east": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_west_hot"
       },
       "when": {
         "heat": "hot",
         "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_west_hot"
+      },
+      "when": {
+        "heat": "hot",
+        "west": "false"
       }
     },
     {
@@ -179,11 +323,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_up_hot"
+      },
+      "when": {
+        "heat": "hot",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_down_hot"
       },
       "when": {
         "heat": "hot",
         "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_down_hot"
+      },
+      "when": {
+        "heat": "hot",
+        "down": "false"
       }
     },
     {
@@ -205,11 +367,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_north_very_hot"
+      },
+      "when": {
+        "heat": "very_hot",
+        "north": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_south_very_hot"
       },
       "when": {
         "heat": "very_hot",
         "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_south_very_hot"
+      },
+      "when": {
+        "heat": "very_hot",
+        "south": "false"
       }
     },
     {
@@ -223,11 +403,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_east_very_hot"
+      },
+      "when": {
+        "heat": "very_hot",
+        "east": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_west_very_hot"
       },
       "when": {
         "heat": "very_hot",
         "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_west_very_hot"
+      },
+      "when": {
+        "heat": "very_hot",
+        "west": "false"
       }
     },
     {
@@ -241,11 +439,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_up_very_hot"
+      },
+      "when": {
+        "heat": "very_hot",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_down_very_hot"
       },
       "when": {
         "heat": "very_hot",
         "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_down_very_hot"
+      },
+      "when": {
+        "heat": "very_hot",
+        "down": "false"
       }
     },
     {
@@ -267,11 +483,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_north_molten"
+      },
+      "when": {
+        "heat": "molten",
+        "north": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_south_molten"
       },
       "when": {
         "heat": "molten",
         "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_south_molten"
+      },
+      "when": {
+        "heat": "molten",
+        "south": "false"
       }
     },
     {
@@ -285,11 +519,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_east_molten"
+      },
+      "when": {
+        "heat": "molten",
+        "east": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_west_molten"
       },
       "when": {
         "heat": "molten",
         "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_west_molten"
+      },
+      "when": {
+        "heat": "molten",
+        "west": "false"
       }
     },
     {
@@ -303,11 +555,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_up_molten"
+      },
+      "when": {
+        "heat": "molten",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_down_molten"
       },
       "when": {
         "heat": "molten",
         "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_down_molten"
+      },
+      "when": {
+        "heat": "molten",
+        "down": "false"
       }
     },
     {
@@ -329,11 +599,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_north_super_hot"
+      },
+      "when": {
+        "heat": "super_hot",
+        "north": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_south_super_hot"
       },
       "when": {
         "heat": "super_hot",
         "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_south_super_hot"
+      },
+      "when": {
+        "heat": "super_hot",
+        "south": "false"
       }
     },
     {
@@ -347,11 +635,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_east_super_hot"
+      },
+      "when": {
+        "heat": "super_hot",
+        "east": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_west_super_hot"
       },
       "when": {
         "heat": "super_hot",
         "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_west_super_hot"
+      },
+      "when": {
+        "heat": "super_hot",
+        "west": "false"
       }
     },
     {
@@ -365,11 +671,29 @@
     },
     {
       "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_up_super_hot"
+      },
+      "when": {
+        "heat": "super_hot",
+        "up": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "vs_clockwork:block/heat_pipe/arm_down_super_hot"
       },
       "when": {
         "heat": "super_hot",
         "down": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "vs_clockwork:block/heat_pipe/cap_down_super_hot"
+      },
+      "when": {
+        "heat": "super_hot",
+        "down": "false"
       }
     }
   ]

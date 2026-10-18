@@ -1,5 +1,5 @@
 {
-  "credit": "生成自 tools/gen_heat_pipe_models.py（几何取自官方 Blockbench block_old.json）",
+  "credit": "生成自 tools/gen_heat_pipe_models.py（几何取自官方 Blockbench block_old.json；cap = 边界 rim 平移到 core 面）",
   "textures": {
     "core": "vs_clockwork:block/heatpipe_core_hot",
     "connection": "vs_clockwork:block/heatpipe_connection_hot",

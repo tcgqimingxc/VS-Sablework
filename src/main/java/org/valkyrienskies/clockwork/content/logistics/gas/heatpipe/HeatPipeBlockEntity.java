@@ -20,7 +20,8 @@ import java.util.List;
  * <ul>
  *   <li>官方用 {@code if (gasConnected(dir)) continue} 跳过"连接"的面；而热管的连接位就是连接臂，
  *       于是<b>臂越多越不换热</b>：两根热管接在一起 = 两面都跳过 = 完全不导热。本移植反过来，
- *       <b>只在画了臂的面换热</b>，与 {@link HeatPipeBlock#getConnection} 同一判据。</li>
+ *       <b>只在连接位为 true 的面换热</b>。连接位由 {@link HeatPipeBlock#getConnection} 计算、
+ *       由 {@link HeatPipeBlock#onWrenched} 单面覆盖，所以"画臂 ⇔ 换热"在稳态下仍然成立。</li>
  *   <li>官方只有热管自己实现 {@code HeatNode}，气体机器/导管都不是热节点，所以即使不跳过也没有
  *       换热对象。本移植让所有气体节点实现热节点（见 {@link HeatNode} / {@code GasNode}），
  *       热管贴着加热器、煤炉、斯特林、燃气机、导管、储罐都能取放热量。</li>
@@ -79,13 +80,20 @@ public class HeatPipeBlockEntity extends GasNodeBlockEntity {
             gasChanged();
         }
         for (final Direction dir : Direction.values()) {
-            // 臂 = 热接触：与 HeatPipeBlock#getConnection 同一判据。
+            // 连接位 = 热接触：由 HeatPipeBlock#getConnection 计算、由扳手单面覆盖。
             // 不带臂的面既不画几何、也不换热，玩家用扳手关掉一面就是断开这一面的热路。
             if (!state.getValue(HeatPipeBlock.DIR_TO_CONNECTION.get(dir))) {
                 continue;
             }
             final HeatNode other = HeatNode.neighbor(level, getBlockPos(), dir);
             if (other == null || other == this) {
+                continue;
+            }
+            // 两根热管之间必须两侧都同意：对方朝向本方的连接位为 false 时，即使本侧还是 true
+            // （区块半加载、命令改状态等瞬态），也不要把热量灌进已经关掉的一侧。
+            // 对方是气体方块时没有"连接位"概念，不做这个检查。
+            if (other instanceof HeatPipeBlockEntity otherPipe
+                    && !otherPipe.getBlockState().getValue(HeatPipeBlock.DIR_TO_CONNECTION.get(dir.getOpposite()))) {
                 continue;
             }
             // 每次重算自身热容：热管不含气体，容量恒定；但写成"当场取"可以避免以后
