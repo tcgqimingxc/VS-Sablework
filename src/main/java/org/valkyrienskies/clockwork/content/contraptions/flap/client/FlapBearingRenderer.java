@@ -43,6 +43,17 @@ import org.valkyrienskies.clockwork.content.contraptions.flap.FlapBearingPartial
  * 每刻推进时并<b>不</b>同步到客户端，因此客户端拿不到伺服角；这里改用与输入轴一致的
  * {@link #getAngleForBe}（同 {@code GyroRenderer} / {@code PropellerBearingRenderer}）。
  * 观感差异：顶盖随输入转速转，而不是随襟翼摆角摆 —— 需实机确认可接受度（见 docs/RENDER-AUDIT.md §5）。
+ *
+ * <p><b>角度单位（唯一约定，别再混）</b>
+ * <ul>
+ *   <li><b>自转角 = 弧度</b>：{@link #getAngleForBe} 返回弧度
+ *       （{@code ((renderTime*speed*3/10 + offset) % 360) / 180 * PI}，Create 6.0.10 字节码核实），
+ *       {@code kineticRotationTransform} 转手就把这个值交给 {@code SuperByteBuffer#rotateCentered}
+ *       （弧度重载）；所以原值直传，<b>不要</b>再套 {@code AngleHelper.rad} ——
+ *       那会把弧度当角度再除 57.3，顶盖看起来几乎不转（2026-10-18 修）。</li>
+ *   <li><b>朝向角 = 角度</b>：{@code AngleHelper.horizontalAngle/verticalAngle} 与常量 90 都是角度，
+ *       只在交给 {@code rotateCentered} 时用 {@code AngleHelper.rad} 转一次。</li>
+ * </ul>
  */
 public class FlapBearingRenderer extends KineticBlockEntityRenderer<FlapBearingBlockEntity> {
 
@@ -71,12 +82,16 @@ public class FlapBearingRenderer extends KineticBlockEntityRenderer<FlapBearingB
     /**
      * 顶盖：先按 facing 摆正（与 blockstate JSON 的 x/y 同一约定），再绕 facing 轴自转。
      * 三个 {@code rotateCentered} 的顺序与旧版 :53-63 逐行一致，参数换了 1.21 的重载（弧度/轴向不变）。
+     *
+     * @param angle {@link #getAngleForBe} 的原始返回值，单位<b>弧度</b>；直接交给
+     *              {@code kineticRotationTransform}（内部 {@code rotateCentered}，弧度），勿再换算
      */
     private void renderTop(FlapBearingBlockEntity be, BlockState state, Direction facing, float angle,
                            PoseStack ms, MultiBufferSource buffer, int light) {
         boolean axisAlongFirst = state.getValue(FlapBearingBlock.AXIS_ALONG_FIRST_COORDINATE);
         SuperByteBuffer top = CachedBuffers.partial(FlapBearingPartials.TOP, state).reset();
-        kineticRotationTransform(top, be, facing.getAxis(), AngleHelper.rad(angle), light);
+        // 弧度直传：getAngleForBe 与 kineticRotationTransform/rotateCentered 的单位都是弧度。
+        kineticRotationTransform(top, be, facing.getAxis(), angle, light);
 
         if (facing.getAxis().isHorizontal()) {
             top.rotateCentered(AngleHelper.rad(AngleHelper.horizontalAngle(facing.getOpposite())), Direction.UP);

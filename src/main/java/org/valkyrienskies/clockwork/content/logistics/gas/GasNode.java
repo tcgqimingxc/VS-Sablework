@@ -4,6 +4,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 
+import java.util.List;
+
 /**
  * 一个气体网络节点（由方块实体实现）。
  *
@@ -42,6 +44,34 @@ public interface GasNode {
 
     default Level gasLevel() {
         return gasState().hostLevel();
+    }
+
+    /**
+     * 本节点占据的<b>全部物理方块位置</b>。单方块节点只有 {@link #gasPos()} 一个；多方块节点
+     * （储罐）返回整罐所有段落。
+     *
+     * <p><b>为什么网络必须知道这些"端点"</b>：气体网络按方块位置查邻居
+     * （{@link GasNetworks#nodeAt(Level, BlockPos)}），而多方块的节点身份只有一个（主方块坐标）。
+     * 导管可以贴在任意一段上，如果网络只从主方块坐标向外找邻居，贴在非主方块段上的导管就永远
+     * 不会被当成同一条边——实机表现就是"1×1 能进气，搭成 2×2/3×3 后同一根导管却抽不动"。
+     * 端点列表让 {@link GasNetworks} 能从<b>每个真实方块位置</b>出发找邻居，同时仍只模拟一个节点。
+     *
+     * <p>只有服务端注册/建网时会调用（客户端不跑气体模拟），实现可以按需计算。
+     */
+    default List<BlockPos> gasEndpoints() {
+        return List.of(gasPos());
+    }
+
+    /**
+     * 在物理端点 {@code endpoint} 上，本节点是否愿意在 {@code dir} 面与邻居连通。
+     *
+     * <p>单方块节点的端点就是自己，直接复用 {@link #gasConnected(Direction)}；多方块节点必须按
+     * 传进来的端点判断（同一张"段与段不互连"的规则，但邻居是端点旁边的方块，而不是主方块旁边的）。
+     *
+     * <p>默认实现忽略端点，因此已有节点无需改动。
+     */
+    default boolean gasConnectedAt(BlockPos endpoint, Direction dir) {
+        return gasConnected(dir);
     }
 
     /**

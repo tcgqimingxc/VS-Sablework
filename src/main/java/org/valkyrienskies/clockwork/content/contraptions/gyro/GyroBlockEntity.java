@@ -32,8 +32,13 @@ import org.valkyrienskies.clockwork.platform.CWForces;
  *   up      = 陀螺自身"上"方向（由红石倾斜）经结构姿态变换到世界系
  *   ω⊥      = ω − up·(ω·up)          偏离自转轴的那部分角速度（需要被消掉）
  *   ω理想   = up × (0,1,0) − ω⊥      一边把 up 掰向世界上，一边阻尼摆动
- *   τ       = R · I · Rᵀ · ω理想     再乘以由输入轴转速决定的强度
+ *   τ_local = I_local · R⁻¹ · ω理想   再乘以由输入轴转速决定的强度
  * </pre>
+ *
+ * <p>为什么是 local：Sable 的 {@code ForceTotal}/Rapier 接口收的是 local 力矩
+ * （{@code sable_rapier} 的 {@code applyForceAndTorque} 里先 {@code rb.rotation().mul_vec3(torque)}
+ * 再 {@code apply_torque_impulse}）。旧版 VS2 的 {@code applyWorldTorque} 收世界系，
+ * 所以旧版写 {@code R·I·Rᵀ·ω}；两者数值等价（局部表示 = {@code I·R⁻¹·ω}），不要按旧版公式再乘 R。
  */
 public class GyroBlockEntity extends KineticBlockEntity implements BlockEntitySubLevelActor {
 
@@ -71,7 +76,10 @@ public class GyroBlockEntity extends KineticBlockEntity implements BlockEntitySu
         final int east = this.level.getSignal(pos.relative(Direction.EAST), Direction.EAST);
         final int west = this.level.getSignal(pos.relative(Direction.WEST), Direction.WEST);
         this.pitchSignal = north - south;
-        this.rollSignal = east - west;
+        // 旧版 GyroBlockEntity.updatePower 是 Point(powerZN - powerZP, powerXN - powerXP)，
+        // 即横滚 = west - east。这里原先写成 east - west，与旧版方向相反
+        // （2026-10-18 按旧版源码逐行核对后修正；俯仰的 north - south 本来就一致）。
+        this.rollSignal = west - east;
     }
 
     @Override
@@ -88,7 +96,10 @@ public class GyroBlockEntity extends KineticBlockEntity implements BlockEntitySu
         final Vector3d worldUp = new Vector3d(0.0, 1.0, 0.0);
         final Vector3d idealOmega = new Vector3d(upWorld).cross(worldUp, new Vector3d()).sub(offAxis);
 
-        // τ = R · I · Rᵀ · ω理想（与旧版 GyroShipControl 完全一致）
+        // τ_local = I_local · R⁻¹ · ω理想：Sable 的 ForceTotal/Rapier 接口收的是 local 力矩
+        // （sable_rapier lib.rs: rb.rotation().mul_vec3(torque) 之后才 apply_torque_impulse），
+        // 所以这里绝不能按“世界系 τ = R·I·Rᵀ·ω理想”再乘一次 R，否则斜着的结构会被往错误方向掰。
+        // 等价换算：R⁻¹·(R·I·Rᵀ·ω理想) = I·(R⁻¹·ω理想)，即下面两行。
         final Vector3d localIdeal = orientation.transformInverse(idealOmega, new Vector3d());
         final Vector3d localTorque = subLevel.getMassTracker().getInertiaTensor()
                 .transform(localIdeal, new Vector3d());

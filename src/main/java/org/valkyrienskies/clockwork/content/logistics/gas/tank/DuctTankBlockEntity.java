@@ -14,8 +14,10 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.valkyrienskies.clockwork.content.logistics.gas.GasMix;
+import org.valkyrienskies.clockwork.content.logistics.gas.GasNetworks;
 import org.valkyrienskies.clockwork.content.logistics.gas.GasNodeBlockEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -89,6 +91,10 @@ public class DuctTankBlockEntity extends GasNodeBlockEntity implements IMultiBlo
     private BlockPos controller;
     private final BlockPos lastKnownPos;
     private boolean updateConnectivity;
+    /**
+     * 结构事件后延迟几 tick 再补发一次数据包（2 = 事件刻 + 1 tick）。见 {@link #notifyMultiUpdated()}。
+     */
+    private int structureSyncDelay;
 
     public DuctTankBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state, CAPACITY_PER_BLOCK);
@@ -154,8 +160,9 @@ public class DuctTankBlockEntity extends GasNodeBlockEntity implements IMultiBlo
      * （不注册、不参与模拟），因此同一个 {@code nodes} 表里不会出现 9 个指向同一份气体的条目。
      *
      * <p>未成型的段（{@code controller == null}）按 {@link #isController()} 的定义算主方块，
-     * 于是每段先各自是一个 1×1 节点、成型后被 {@code GasNetworks#prune} 收敛成主方块那一个节点，
-     * 不需要额外的"重算归属"回调。
+     * 于是每段先各自是一个 1×1 节点；成型后由 {@link #notifyMultiUpdated()} 里的
+     * {@code GasNetworks#structureChanged} 把旧主方块/成员段的注册项清掉、只留下新主方块，
+     * 不需要等 {@code prune} 的惰性兜底（它现在也会清，但结构事件当场清更不容易留下"半新半旧"的拓扑）。
      */
     @Override
     public boolean gasNodeActive() {
@@ -167,10 +174,11 @@ public class DuctTankBlockEntity extends GasNodeBlockEntity implements IMultiBlo
      * （旧版注释：{@code if (isController) blockPos else controller}，即恒为主方块）。
      *
      * <p>为什么节点坐标不能是"本段自己的坐标"（曾经踩过的坑）：气体网络按方块坐标找节点
-     * （{@code GasNetworks.nodeAt} 先查注册表、再回落到方块坐标上的方块实体），
+     * （{@code GasNetworks.nodeAt} 先查端点表/注册表、再回落到方块实体），
      * 若节点坐标 = 段自己的坐标，那么贴着第 N 段的导管找到的就是"第 N 段那个节点"，
      * 而不是整罐；再叠上"段与段之间不建边"，除主方块外的段就全都接不通（见类注释）。
-     * 恒返回主方块坐标后，任意一段被导管问到，拿到的都是同一个整罐节点，接哪一块都等价。
+     * 恒返回主方块坐标 + {@link #gasEndpoints()} 把每段都登记成端点后，任意一段被导管问到，
+     * 拿到的都是同一个整罐节点，接哪一块都等价（端点表见 {@link GasNetworks}）。
      *
      * <p>客户端也走这一条：客户端不注册节点、不跑气体模拟，护目镜只读数据，恒等映射没有副作用。
      */
@@ -178,6 +186,62 @@ public class DuctTankBlockEntity extends GasNodeBlockEntity implements IMultiBlo
     public BlockPos gasPos() {
         DuctTankBlockEntity whole = controllerBE();
         return whole == null ? getBlockPos() : whole.getBlockPos();
+    }
+
+    /**
+     * 整罐所有段落的物理位置（主方块 + 成员），供气体网络从"任意一段"出发找导管。
+     *
+     * <p>为什么必须把成员段也交出去：节点身份只有一个（主方块坐标），但导管可以贴在任意一段上；
+     * 网络如果只从主方块坐标找邻居，贴在别的段上的导管永远接不进来。旧实现靠
+     * {@code GasNetworks.nodeAt(段坐标)} 回落到成员方块实体来"碰巧"找到这条边，但边的去重按
+     * 物理坐标、反向遍历按主方块坐标，某些方向会漏（见 {@code GasNetwork.simulate} 注释）。
+     *
+     * <p>扫描范围以主方块为中心向两侧各取 {@code width - 1} / {@code height - 1}：Create 的
+     * controller 通常是最小角，但这里不依赖这个前提；只收 {@code tankRoot()} 等于本罐主方块的段，
+     * 不会把相邻的另一座罐算进来。只在注册/结构事件时调用（网络有缓存）。
+     */
+    @Override
+    public List<BlockPos> gasEndpoints() {
+        DuctTankBlockEntity whole = controllerBE();
+        if (whole == null || whole.level == null) {
+            return List.of(getBlockPos());
+        }
+        int w = Math.max(1, whole.width);
+        int h = Math.max(1, whole.height);
+        BlockPos root = whole.getBlockPos();
+        List<BlockPos> out = new ArrayList<>(w * w * h);
+        for (int dy = 0; dy < h; dy++) {
+            for (int dx = -(w - 1); dx < w; dx++) {
+                for (int dz = -(w - 1); dz < w; dz++) {
+                    BlockPos pos = root.offset(dx, dy, dz);
+                    if (!whole.level.isLoaded(pos)) {
+                        continue;
+                    }
+                    if (whole.level.getBlockEntity(pos) instanceof DuctTankBlockEntity part
+                            && root.equals(part.tankRoot())
+                            && !out.contains(pos)) {
+                        out.add(pos);
+                    }
+                }
+            }
+        }
+        if (out.isEmpty()) {
+            out.add(root);
+        }
+        return out;
+    }
+
+    /** 按真实端点判断连通：同一罐体的两段之间不连，其余一律放行（见 {@link #gasConnected}）。 */
+    @Override
+    public boolean gasConnectedAt(BlockPos endpoint, Direction dir) {
+        if (level == null) {
+            return true;
+        }
+        BlockEntity neighbor = level.getBlockEntity(endpoint.relative(dir));
+        if (neighbor instanceof DuctTankBlockEntity other) {
+            return !tankRoot().equals(other.tankRoot());
+        }
+        return true;
     }
 
     /** 本段所在整罐的容量 [kg] = 单块容量 × 高 × 宽²（口径与 Create 液体储罐 width*width*height 一致）。 */
@@ -265,14 +329,7 @@ public class DuctTankBlockEntity extends GasNodeBlockEntity implements IMultiBlo
      */
     @Override
     public boolean gasConnected(Direction dir) {
-        if (level == null) {
-            return true;
-        }
-        BlockEntity neighbor = level.getBlockEntity(getBlockPos().relative(dir));
-        if (neighbor instanceof DuctTankBlockEntity other) {
-            return !tankRoot().equals(other.tankRoot());
-        }
-        return true;
+        return gasConnectedAt(getBlockPos(), dir);
     }
 
     @Override
@@ -293,6 +350,23 @@ public class DuctTankBlockEntity extends GasNodeBlockEntity implements IMultiBlo
         super.tick();
         if (level == null || level.isClientSide) {
             return;
+        }
+        // 结构事件后的"下一 tick 补发一次"兜底（见 notifyMultiUpdated）。
+        // 为什么需要：成型瞬间服务端在 formMulti 里连发 setController/notifyMultiUpdated 的数据包，
+        // 而方块状态广播要等本刻末；客户端的方块实体若还没被创建/更新，数据包会被丢掉。下一 tick
+        // 客户端一定已经有这一格了，重发一次即可保证 Controller/Height/Width 落到位。
+        // 只在结构事件后跑一次，不是每 tick 都发。
+        if (structureSyncDelay > 0 && --structureSyncDelay == 0) {
+            sendData();
+            DuctTankBlockEntity whole = controllerBE();
+            if (whole != null) {
+                // 成型事件里如果 height/width 还没写好，当时那次孤儿气扫描会漏掉旧主方块；
+                // 到下一 tick 结构字段已经稳定，主方块再扫一次，保证气一定搬过来（只跑一次）。
+                if (whole == this) {
+                    whole.absorbOrphanGas();
+                }
+                whole.gasState().syncNow();
+            }
         }
         // 只消费"结构事件"排下的 flag；气体/热量的周期同步走 GasNodeState.syncIfChanged()，
         // 只发数据包、不写方块状态（见类注释的同步契约）。这里绝不 setBlock。
@@ -330,9 +404,66 @@ public class DuctTankBlockEntity extends GasNodeBlockEntity implements IMultiBlo
         // 而 GasNodeState 的常规同步是"10 刻 + 阈值"，跳变后的差值可能正落在阈值内，
         // 于是护目镜会停在旧结构的读数上。整罐的气体只在主块里，所以只让主块立即发包。
         DuctTankBlockEntity whole = controllerBE();
-        if (whole != null) {
-            whole.gasState().syncNow();
+        if (!level.isClientSide) {
+            // 成型可能换了主方块：新主方块的 GasMix 是空的，旧主方块那份气不能丢。
+            // ① 本段如果正是"旧主方块"，直接把自己那份交给当前主方块（不依赖 height/width 是否已更新）；
+            // ② 当前主方块再把所有存活段里可能残留的孤儿气扫一遍（见 absorbOrphanGas）。
+            // 旧版 DuctTankBlockEntity 在 notifyMultiUpdated 里用 nodeRemove/nodePlace 达到了同样的
+            // "以新主方块为准"，本移植用显式搬气 + 重注册。
+            if (whole != null) {
+                if (whole != this) {
+                    GasMix own = gasState().mix();
+                    if (!own.isEmpty()) {
+                        whole.gasState().mix().absorb(own);
+                        own.clearMass();
+                        gasState().markDirty();
+                    }
+                }
+                whole.absorbOrphanGas();
+                whole.gasState().syncNow();
+            }
+            // 结构事件显式重建气体节点注册表（旧主方块 → 新主方块、任意段 → 整罐端点）。
+            // 不放到 tick 里：tick 每刻都跑，而这里只在成型/拆分时跑一次。
+            GasNetworks.get(level).structureChanged(level, this);
+            // 下一 tick 再补发一次结构数据：成型瞬间的 sendData 可能早于客户端方块实体创建，
+            // 只靠 10 刻阈值的 syncIfChanged 不一定补得回来（阈值内不发包）。
+            // 用 2 而不是 1：结构事件发生在刻中途，本刻末尾客户端才收到 blockstate；等到
+            // "事件刻 + 1 tick" 时客户端一定已经有这一格，重发才不会再次被丢。
+            structureSyncDelay = 2;
         }
+    }
+
+    /**
+     * 把本罐所有段落自己 {@code GasState} 里的气并进当前主方块的 {@code GasState}。
+     *
+     * <p>整罐只认主方块那一份（{@link #gasMix()} 委托），成员段自己的 mix 平时永远是空的；
+     * 但"主方块换人"的那一瞬间，旧主方块会把气留在自己的 mix 里，新主方块是空的。
+     * 不搬的话，实机表现就是"搭好 2×2 后罐里的气/压力突然归零，拆了重搭或重进存档才回来"；
+     * 存档里也确实能看到成员段残留 0.75 kg、主方块却有 5 吨的孤儿数据。
+     *
+     * <p>只在结构事件里由服务端调用，不在 tick 里扫。
+     */
+    private void absorbOrphanGas() {
+        if (level == null || level.isClientSide) {
+            return;
+        }
+        GasMix target = gasState().mix();
+        for (BlockPos pos : gasEndpoints()) {
+            if (pos.equals(getBlockPos())) {
+                continue;
+            }
+            if (level.getBlockEntity(pos) instanceof DuctTankBlockEntity part && part != this) {
+                GasMix own = part.gasState().mix();
+                if (!own.isEmpty()) {
+                    target.absorb(own);
+                    own.clearMass();
+                    part.gasState().markDirty();
+                    part.setChanged();
+                }
+            }
+        }
+        gasState().markDirty();
+        setChanged();
     }
 
     /**
@@ -372,6 +503,12 @@ public class DuctTankBlockEntity extends GasNodeBlockEntity implements IMultiBlo
         if (level == null || level.isClientSide) {
             return;
         }
+        // 拆罐/换主方块：先把这个节点（如果本段正是注册的那个主方块）从气体网络里摘掉。
+        // 不摘的话，下一轮成型时 registered 仍是 true，本段就算重新当上主方块也不会再注册
+        // （旧实现的"拆分后再也不进气"就是这么来的）。unregister 按对象身份删表，
+        // 不依赖 controller 字段的当前值，所以放在清 controller 之前/之后都安全。
+        gasState().unregister();
+        GasNetworks.get(level).unregisterAt(getBlockPos());
         controller = null;
         height = 1;
         width = 1;

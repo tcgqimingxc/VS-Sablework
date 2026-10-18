@@ -110,6 +110,13 @@ public final class GasMix {
         }
     }
 
+    /** 清空所有组分（保留温度，视作管壁温度）。结构合并时把旧主方块的气搬到新主方块后调用。 */
+    public void clearMass() {
+        for (int i = 0; i < mass.length; i++) {
+            mass[i] = 0;
+        }
+    }
+
     /**
      * 抽取质量为 {@code kg} 的一份气体，组分比例与温度与本混合物一致。
      *

@@ -38,6 +38,17 @@ import org.valkyrienskies.clockwork.content.kinetics.sequenced_seat.client.Comma
  *       Simulated 的 {@code NameplateScreen} 写法改用纯 {@code Screen} + 原版控件
  *       （见 {@code client/CommandSeatScreen}），因此这里只需要在客户端打开它。</li>
  * </ul>
+ *
+ * <p><b>朝向属性（不要再加一个 FACING）：</b>旧版 {@code SequencedSeatBlock.kt:27} 就是
+ * {@code HorizontalKineticBlock}，只注册 4 向的 {@code HORIZONTAL_FACING}（属性名
+ * {@code facing}，合法值 north/south/east/west）；{@code blockstates/command_seat.json}
+ * 也正好是这 4 个变体。1.21 的 Create {@code HorizontalKineticBlock#createBlockStateDefinition}
+ * 已经 {@code builder.add(HORIZONTAL_FACING)}，本类<b>不能</b>再 add 6 向的
+ * {@code BlockStateProperties.FACING}：两者属性名都叫 {@code facing}，但取值集合不同
+ * （4 向 vs 6 向），在同一个 StateDefinition 里无法共存。实机日志里出现
+ * “Cannot get property DirectionProperty{name=facing, ... up, down}”不是本方块漏注册，
+ * 而是有代码把本方块的 state 交给了另一个需要 6 向 FACING 的方块（见
+ * {@link #useItemOn} 的注释）。
  */
 public class CommandSeatBlock extends HorizontalKineticBlock implements IBE<CommandSeatBlockEntity> {
 
@@ -73,10 +84,24 @@ public class CommandSeatBlock extends HorizontalKineticBlock implements IBE<Comm
         if (AllItems.WRENCH.isIn(stack)) {
             return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }
-        // 手里拿着"能接到这一面的动力方块"时让位给放置逻辑（旧版同规则）
+        // 手里拿着“能接到这一面的动力方块”时让位给放置逻辑（旧版同规则）。
+        //
+        // 这里必须调用本方块自己的 hasShaftTowards，绝不能写成 kinetic.hasShaftTowards(...)：
+        // 1.20.1 的 SequencedSeatBlock.kt:48 没有限定接收者，Kotlin 解析到的是座椅自己
+        // （face != UP），不是手里那个方块。1.21 移植时误改成 kinetic.…，等于把
+        // command_seat 的 BlockState 交给另一个方块的方法；Create 的 CreativeMotorBlock
+        // 会从这个 state 读 6 向 FACING，而 command_seat 只有 4 向 HORIZONTAL_FACING
+        // （两者属性名都叫 facing，但不是同一个 Property），于是 2026-10-18 实机抛
+        // IllegalArgumentException: Cannot get property DirectionProperty{name=facing,
+        // values=[north, east, south, west, up, down]} as it does not exist in
+        // Block{vs_clockwork:command_seat}。
+        //
+        // 修法不是给 command_seat 补 6 向 FACING（同名属性不能与 4 向的共存），而是恢复旧版
+        // 语义：只问“本座椅在这一面有没有轴”。这样无论手里拿的是电机、手摇曲柄还是别的
+        // DirectionalKineticBlock，都不会再拿错 state 去碰别人的属性。
         if (stack.getItem() instanceof final BlockItem blockItem
-                && blockItem.getBlock() instanceof final KineticBlock kinetic
-                && kinetic.hasShaftTowards(level, pos, state, hitResult.getDirection())) {
+                && blockItem.getBlock() instanceof KineticBlock
+                && this.hasShaftTowards(level, pos, state, hitResult.getDirection())) {
             return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }
         return this.interact(state, level, pos, player);

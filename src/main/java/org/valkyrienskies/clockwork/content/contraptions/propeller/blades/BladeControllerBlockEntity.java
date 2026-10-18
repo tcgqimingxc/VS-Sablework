@@ -172,18 +172,32 @@ public class BladeControllerBlockEntity extends SmartBlockEntity implements Bloc
         }
     }
 
-    /** 控制器被破坏时把里面的叶片掉出来（旧版 {@code destroy() -> dropBlades()}）。 */
-    @Override
-    public void destroy() {
-        if (this.level != null && !this.level.isClientSide) {
-            for (final ItemStack blade : this.blades) {
-                if (!blade.isEmpty()) {
-                    Block.popResource(this.level, this.worldPosition, blade);
-                }
+    /**
+     * 归还槽位里的全部叶片。只由 {@link BladeControllerBlock#playerWillDestroy} 调用
+     * （玩家亲手拆掉控制器），是"取下桨叶"之外唯一会把叶片变回掉落物的路径。
+     *
+     * <p><b>为什么不重写 {@code destroy()} 在那里掉落</b>：装配 / 解体时 Sable 用
+     * {@code LevelChunk#setBlockState(pos, AIR, true)} 搬方块，这个调用对旧方块状态同样会触发
+     * {@code onRemove} → {@code IBE.onRemove} → {@code SmartBlockEntity#destroy()}
+     * （1.21.1 反编译 {@code LevelChunk.java:274}）。而 {@code SubLevelAssemblyHelper#moveBlocks}
+     * 是先 {@code saveWithFullMetadata} 把方块实体数据（含 8 个叶片槽位）复制到新位置、
+     * 再销毁旧方块；若在 {@code destroy()} 里掉落，每开关一次"动态结构"就会凭空多掉一份
+     * （8 片 / 控制器），来回几次就是满地桨叶 —— 玩家反馈的"大量桨叶掉落物"。
+     *
+     * <p>所以 {@code destroy()} 不碰掉落：搬运路径由 Sable 负责搬 NBT，结构整体搬家不掉东西；
+     * 只有玩家明确拆掉控制器时才在这里归还。
+     */
+    public void dropBlades() {
+        if (this.level == null || this.level.isClientSide) {
+            return;
+        }
+        for (final ItemStack blade : this.blades) {
+            if (!blade.isEmpty()) {
+                Block.popResource(this.level, this.worldPosition, blade);
             }
         }
+        // 清空，保证同一次拆除里即使被调用两次也只会掉一份
         this.blades.clear();
-        super.destroy();
     }
 
     @Override

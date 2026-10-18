@@ -71,12 +71,15 @@ public class PropellerBearingRenderer extends KineticBlockEntityRenderer<Propell
 
         final BlockState state = be.getBlockState();
         final Direction facing = state.getValue(BlockStateProperties.FACING);
+        // getAngleForBe 返回的是弧度（Create 6.0.10：((renderTime*speed*3/10+offset)%360)/180*PI）。
+        // 之前这里用的是 rotateCenteredDegrees(angle)，把弧度当角度再除 57.3，顶盖看起来几乎不转；
+        // 改用接收弧度的 rotateCentered（2026-10-18 修，同 GyroRenderer 的二次换算）。
         final float angle = getAngleForBe(be, be.getBlockPos(), facing.getAxis());
 
         // 顶盖：先摆到 facing 方向（等价 blockstate JSON 的 x/y），再绕它自己的 +Y（= facing 轴）自转
         final SuperByteBuffer top = ContraptionRenderUtil.orientToFacing(
                 CachedBuffers.partial(ContraptionPartials.PROPELLER_TOP, state).reset(), facing);
-        top.rotateCenteredDegrees(angle, Direction.UP);
+        top.rotateCentered(angle, Direction.UP);
 
         final VertexConsumer vb = buffer.getBuffer(RenderType.solid());
         top.light(light).renderInto(ms, vb);

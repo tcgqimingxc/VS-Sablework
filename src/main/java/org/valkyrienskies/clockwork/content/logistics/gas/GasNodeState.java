@@ -75,18 +75,45 @@ public final class GasNodeState {
     /** 服务端每刻调用：驱动整个维度的网络模拟，并按需同步。 */
     public void serverTick() {
         Level level = host.getLevel();
-        if (level == null || !((GasNode) host).gasNodeActive()) {
+        if (level == null) {
+            return;
+        }
+        // 结构变化（成型/拆分）会让本段从"主方块"变成"成员"或反过来。成员不是节点：
+        // 必须把之前以"主方块"身份留下的注册项撤掉，否则注册表里会永久留着一个
+        // key=旧位置、gasPos=新主方块的幽灵节点；更糟的是 registered 仍为 true，
+        // 下一轮重新成型时本段就算当回主方块也不会再注册（见 GasNetworks#structureChanged）。
+        if (!((GasNode) host).gasNodeActive()) {
+            if (registered) {
+                unregister();
+            }
             return;
         }
         GasNetworks.get(level).tick(level);
         if (!registered) {
-            GasNetworks.get(level).register((GasNode) host);
-            registered = true;
+            registerNow();
         }
         if (dirty) {
             dirty = false;
             host.setChanged();
         }
+    }
+
+    /** 立即注册（不等下一次 tick）；结构成型后由 {@link GasNetworks#structureChanged} 调用。 */
+    public void registerNow() {
+        Level level = host.getLevel();
+        if (level == null || level.isClientSide) {
+            return;
+        }
+        GasNetworks.get(level).register((GasNode) host);
+        registered = true;
+    }
+
+    /**
+     * 只把"已注册"标志清掉，不动注册表；用于结构事件里先统一清表、再重新注册的场景。
+     * 与 {@link #unregister()} 的区别：后者按节点身份删表项，本方法假设表项已被删除。
+     */
+    public void resetRegistration() {
+        registered = false;
     }
 
     /**

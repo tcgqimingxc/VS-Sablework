@@ -3,7 +3,6 @@ package org.valkyrienskies.clockwork.content.contraptions.gyro.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
-import net.createmod.catnip.math.AngleHelper;
 import net.createmod.catnip.render.CachedBuffers;
 import net.createmod.catnip.render.SuperByteBuffer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -23,15 +22,18 @@ import org.valkyrienskies.clockwork.content.contraptions.gyro.GyroBlockEntity;
  * <p><b>与旧版逐项对照</b>
  * <ul>
  *   <li>陀螺本体：{@code CachedBuffers.block(state)}（即 {@code block/gyro/block} → {@code gyro.obj}）
- *       绕 Y 轴自转，两个 {@code translate(±0.45,0,±0.45)} 与末尾的
- *       {@code translate(0,1,0)} 逐行照抄旧版 :82-89。</li>
+ *       绕 Y 轴自转，末尾 {@code translate(0,1,0)}（与旧版 :82-89 一致）。旧版那对
+ *       {@code translate(±0.45,0,±0.45)} 已确认精确抵消，见 {@link #renderWheel}。</li>
  *   <li>输入轴：旧版自己手写 {@code coolKineticRotationTransform}（:53-65：先绕 X 轴 −90°、
  *       再下移 1 格、最后绕 Z 轴按角度转），这里原样照抄。</li>
  *   <li>输入轴模型：{@code partialFacing(PHYS_SHAFT, state, DOWN)}，同旧版 :94-98。</li>
- *   <li>角度：旧版用自己维护的 {@code LerpedFloat visualSpeed + angle}；1.21.1 的
- *       {@code KineticBlockEntity} 已经没有这两个字段（javap 核实），因此改用父类
- *       {@link #getAngleForBe}（{@code AnimationTickHolder.getRenderTime() * speed * 3/10 + offset}，
- *       与旧式 {@code speed * 3/10} 同一换算，且按渲染时间推进更平滑）。</li>
+ *   <li>角度：旧版用自己维护的 {@code LerpedFloat visualSpeed + angle}（<b>度</b>），再
+ *       {@code AngleHelper.rad(angle)} 转成弧度交给 {@code kineticRotationTransform}；
+ *       1.21.1 的 {@code KineticBlockEntity} 已经没有这两个字段（javap 核实），因此改用父类
+ *       {@link #getAngleForBe}。注意它<b>已经返回弧度</b>
+ *       （{@code ((renderTime * speed * 3/10 + offset) % 360) / 180 * PI}，Create 6.0.10 源码），
+ *       不能再套一次 {@code AngleHelper.rad} —— 那会把弧度当角度再除 57.3，转子看起来几乎不转
+ *       （实机"陀螺仪不工作"的观感即由此而来，2026-10-18 修）。</li>
  * </ul>
  *
  * <p><b>未移植的部件</b>：旧版 {@code renderCore}（:67-76）额外画三层水晶核心
@@ -57,6 +59,7 @@ public class GyroRenderer extends KineticBlockEntityRenderer<GyroBlockEntity> {
                               final MultiBufferSource buffer, final int light, final int overlay) {
         final BlockState state = be.getBlockState();
         final VertexConsumer vb = buffer.getBuffer(RenderType.solid());
+        // 弧度：getAngleForBe 已返回弧度，见类注释；全渲染器统一用弧度，避免二次换算
         final float angle = getAngleForBe(be, be.getBlockPos(), SPIN_AXIS);
 
         // 1) 底板（旧版 :40-44）：唯一不随轮子转的部件
@@ -75,18 +78,19 @@ public class GyroRenderer extends KineticBlockEntityRenderer<GyroBlockEntity> {
     }
 
     /**
-     * 陀螺本体。
+     * 陀螺本体：整个方块模型绕 Y 轴自转，然后整体上移一格（旧版 :82-89）。
      *
-     * <p>两次 {@code translate(±0.45,0,±0.45)} 把旋转枢轴从方块中心挪到 {@code (0.95,0.5,0.95)}，
-     * 这是旧版刻意为之（:82-86，注释里作者也在怀疑这里），<b>不要"顺手修正"</b>成绕中心转：
-     * 挪动枢轴后陀螺的摆动幅度才是旧版的观感。
+     * <p>旧版在自转前后各有一对 {@code translate(0.45,0,0.45)} / {@code translate(-0.45,0,-0.45)}，
+     * 两者在当前 PoseStack 上精确抵消（右乘 T(a) 再右乘 T(-a) = 单位阵），既不改变枢轴也不改变位置。
+     * 那里本来是想把枢轴挪到 {@code (0.95,0.5,0.95)}，但净效果为零；保留它只会让
+     * 后来的人以为枢轴不在方块中心。这里删掉死变换，只保留旧版真正可见的 {@code translate(0,1,0)}。
+     *
+     * @param angle 弧度（{@code getAngleForBe} 的原始返回值，勿再转一次）
      */
     private static void renderWheel(final GyroBlockEntity be, final PoseStack ms, final int light,
                                     final BlockState state, final float angle, final VertexConsumer vb) {
         final SuperByteBuffer wheel = CachedBuffers.block(state).reset();
-        wheel.translate(0.45, 0.0, 0.45);
-        wheel.translate(-0.45, 0.0, -0.45);
-        kineticRotationTransform(wheel, be, SPIN_AXIS, AngleHelper.rad(angle), light);
+        kineticRotationTransform(wheel, be, SPIN_AXIS, angle, light);
         wheel.translate(0.0, 1.0, 0.0);
         wheel.renderInto(ms, vb);
     }
@@ -94,7 +98,9 @@ public class GyroRenderer extends KineticBlockEntityRenderer<GyroBlockEntity> {
     /**
      * 旧版 {@code coolKineticRotationTransform}：把"躺着的"轴模型摆到方块下方，再绕自身轴旋转。
      *
-     * @param angle 弧度（旧版传的也是 {@code getAngleForBe} 的返回值）
+     * <p>{@code rotateCentered} 接收弧度；这里传 {@code getAngleForBe} 的原值即可（同旧版）。
+     *
+     * @param angle 弧度（{@code getAngleForBe} 的原始返回值）
      */
     private static SuperByteBuffer coolKineticRotationTransform(final SuperByteBuffer buffer, final float angle,
                                                                 final int light) {

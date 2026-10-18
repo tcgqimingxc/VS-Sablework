@@ -99,3 +99,64 @@
    阈值附近是否稳定（不应每 tick 闪）。
 3. 相邻假设（已被 `[7]/[8]/[9]` 与本次抽查排除）：贴图文件缺失/写成 missingno 占位、
    贴图键解析不出来、`texture_size` 字段、渲染层没注册、OBJ loader 残留 `forge:obj`。
+
+## 6. 2026-10-18 command_seat 实机崩溃：同名 facing 的 4 向/6 向陷阱
+
+> 实机日志（10:13:30）：
+> `java.lang.IllegalArgumentException: Cannot get property DirectionProperty{name=facing,
+> clazz=class net.minecraft.core.Direction, values=[north, east, south, west, up, down]}
+> as it does not exist in Block{vs_clockwork:command_seat}`
+> 堆栈指向 `CommandSeatBlock.useItemOn(CommandSeatBlock.java:79)`，但真正 `getValue` 的是
+> `CreativeMotorBlock.hasShaftTowards(CreativeMotorBlock.java:44)`。
+
+### 6.1 结论：不是 command_seat 漏注册 facing
+
+* `command_seat` 的父类是 Create `HorizontalKineticBlock`，它注册的是 **4 向**
+  `HORIZONTAL_FACING`（`facing` 的合法值只有 north/south/east/west），快照可证：
+  `stateCount=4`；`blockstates/command_seat.json` 也正好 4 个变体。旧版
+  `Clockwork-1.20.1-main/.../SequencedSeatBlock.kt:27` 同样是 `HorizontalKineticBlock`，
+  所以**不能**按崩溃信息里的 6 向 `FACING` 去 `builder.add`：两个属性都叫 `facing`，
+  取值集合不同，在同一个 `StateDefinition` 里无法共存。
+* 真正的错误在 `CommandSeatBlock.useItemOn`：1.21 移植版写成
+  `kinetic.hasShaftTowards(level, pos, state, hit.direction)`，把 **command_seat 自己的
+  BlockState** 传给了手里那个方块的 `hasShaftTowards`。旧版 `SequencedSeatBlock.kt:48`
+  没有限定接收者，Kotlin 解析到的是**座椅自己**的 `hasShaftTowards`（`face != UP`）；
+  1.20.1 从来没有把座椅 state 交给别人。
+* 于是：手里拿 Create 电机（6 向 `FACING`）右键 command_seat（4 向 `HORIZONTAL_FACING`）
+  → 电机从座椅 state 里找 6 向 `facing` → 找不到 → 崩溃。换任何“按自己的属性读 state”的
+  DirectionalKineticBlock 都会复现，属**同一模式**，不是 command_seat 独有。
+
+### 6.2 修法
+
+`CommandSeatBlock.useItemOn` 改回调用**本方块**的 `this.hasShaftTowards(...)`，恢复旧版
+“座椅这一面有轴才让位给放置”的语义；不再把 `state` 传给 `kinetic`。详细理由写在
+`useItemOn` 与类 Javadoc 里（含“为什么不能补 6 向 FACING”）。
+
+### 6.3 新增守门项 `[14]` / `[15]`（`tools/check_assets.py`）
+
+* `[14]`：扫描全部 `.getValue(...)` / `.setValue(...)`，把属性常量沿“本类字段 → 父类 →
+  接口 → 已知 Create/原版基类”解析成 `(属性名, 合法取值)`，再和 `blockstate_properties.json`
+  里**该方块**的属性比对。4 向 `HORIZONTAL_FACING` 与 6 向 `FACING` 按取值集合区分，
+  不再被同一个 `facing` 名字骗过。
+  - 全仓 166 处 `getValue` + 113 处 `setValue`；落到注册方块上的 146 处，属性解析成功
+    **138 处**（其中 facing/axis **110 处**），其余 8 处是 `ValueSettings#getValue` 等
+    非 BlockState 调用，另 1 处是 Mixin 读 Create 的 `SteamEngineBlock.FACING`（外部方块）。
+  - 结果 0 问题；`command_seat` 的 `HORIZONTAL_FACING` 命中 4 向快照，不再误报。
+* `[15]`：方块类里禁止 `A块.hasShaftTowards(..., state, ...)` / `A块.getRotationAxis(state)`
+  这类“把本方块 state 交给另一个方块”的写法，命中即报。全仓 0 命中；`UniversalShaftBlock` /
+  `ExtendonBlock` 的 `rotate.hasShaftTowards(..., neighbour, ...)` 传的是邻居自己的
+  state，不误报。
+* 自检：`tools/selftest_assets.py` 新增 2 个回归用例 —— 把 command_seat 的
+  `HORIZONTAL_FACING` 改成 `FACING`（必须被 `[14]` 报出）、把 `this.hasShaftTowards`
+  改回 `kinetic.hasShaftTowards`（必须被 `[15]` 报出）。
+
+### 6.4 验收
+
+* `gradlew --offline build` = BUILD SUCCESSFUL；
+* `check_assets.py --jar` 的硬失败项 `[1]..[12]/[14]/[15]` 全 0（`[13]` 仍是 2 条历史 UV
+  提示：`valve_duct` 的 `block_vertical`，非本轮引入，不计入合计）；
+* **需实机确认**：手持 Create 电机 / 手摇曲柄右键 command_seat 的四个侧面不再崩，且仍应让位
+  给放置逻辑（旧版行为：`hasShaftTowards` 对 UP 返回 false，所以只有顶面不接轴）。
+  顶面右键应正常坐下/开界面；其余五个面在手里拿动力方块时让位给放置。
+  如果实机觉得应该只在“手里方块真能接这一面”时让位，那需要另做“用对方方块自己的 state
+  判断”的设计，不能再用本方块 state 调对方方法。

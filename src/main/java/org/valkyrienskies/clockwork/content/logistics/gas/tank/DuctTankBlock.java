@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import org.valkyrienskies.clockwork.content.logistics.gas.CWGasIndex;
+import org.valkyrienskies.clockwork.content.logistics.gas.GasNetworks;
 import org.valkyrienskies.clockwork.content.logistics.gas.IGasNodeBlock;
 
 /**
@@ -150,6 +151,10 @@ public class DuctTankBlock extends Block implements IBE<DuctTankBlockEntity>, IG
                 }
                 // 与 Create 一致：先摘掉方块实体（IBE.onRemove = SmartBlockEntity.destroy + removeBlockEntity），
                 // 再拆罐——splitMulti 会自己跳过已经被拆掉的那一段。
+                // 气体网络这边也要先显式摘掉：被拆的如果正是主方块，它的注册项不能等到 prune
+                // 才消失，否则本刻的连通域还会把它当成一个活节点。
+                tank.gasState().unregister();
+                GasNetworks.get(level).unregisterAt(pos);
                 IBE.onRemove(state, level, pos, newState);
                 ConnectivityHandler.splitMulti(tank);
             }

@@ -204,3 +204,86 @@ python tools/gen_duct_tank_textures.py --check
 | `models/item/duct_tank.json` + `models/block/duct_tank/block_single_item.json` | 物品图标 = 官方非 CT 单块模型 |
 | `tools/selftest_tank_connectivity.py` | 本轮新增的静态自检 |
 | `tools/gen_duct_tank_assets.py` / `gen_duct_tank_textures.py` | 区分"世界 CT 模型"与"物品图标模型"的生成/核对 |
+
+---
+
+## 6. 刚成型时无法充气（2026-10-18 第五轮）
+
+> 反馈原话：**「气体储罐在刚建成多方块结构时无法充气（1x1 可以，2x2 刚建成时不行，重启才可以，3x3 同 2x2 一样）」**
+
+### 6.1 根因 A（主因，服务端）：节点身份是主方块坐标，找邻居却用物理段坐标
+
+整罐只有一个气体节点，身份 `gasPos() = 主方块坐标 C`；但导管可以贴在**任意一段** S 上。
+旧 `GasNetwork.simulate` 的边去重是：
+
+```java
+BlockPos aPos = a.gasPos();            // 导管侧：D
+BlockPos bPos = aPos.relative(dir);    // 物理位置 S（贴着的罐段）
+if (bPos.asLong() <= aPos.asLong()) return; // ← 用物理坐标比较
+```
+
+而储罐侧的反向遍历从 `gasPos = C` 出发，只找 C 的邻居。于是：
+
+* 从导管侧看，pair 是 `(D, S)`；
+* 从储罐侧看，pair 是 `(C, C 的邻居)`；
+* `S != C`，所以当 `S.asLong() < D.asLong()` 时导管侧跳过，储罐侧又找不到 D
+  → **这条边永远不会被处理**。
+
+`BlockPos.asLong` 是 `(x<<38)|(z<<12)|y` 的掩码打包，不是自然坐标序：x 为负会变成很大的正数。
+结果就是"同一座 2×2/3×3 罐，导管接在主方块那一侧能进气、接在别的段上不进气"；1×1 因为
+`gasPos == 物理位置`，两个方向都能配对，所以永远正常。
+
+服务端存档可以复现这个几何：3×3 罐主方块 `(8,-60,-7)`，泵在 `(7,-60,-6)` 贴着**非主方块的**
+`(8,-60,-6)`，x 更小（`7 < 8`）所以这条边恰好能处理，罐内累计到了 5435 kg；同一结构只要把泵
+放到段的东/北侧，旧代码就不会产生任何 transfer。
+
+### 6.2 根因 B：成型后没有显式重建注册表，幽灵节点留到区块卸载
+
+旧 `GasNetworks.prune` 只检查"方块实体是否还在/是否被替换"，不看：
+
+* `!gasNodeActive()`（旧主方块变成成员段后已不是节点）；
+* 注册 key 是否还等于当前 `gasPos()`（成型后 gasPos 已经指到新主方块）。
+
+旧主方块于是以 `key = 旧位置 A`、`gasPos = 新主方块 C` 的形式永久留在表里；它的
+`GasNodeState.registered` 也不清。等它以后再次成为主方块时，`registered == true` 导致
+**不会再注册**——拆分后怎么重搭都不进气，只有区块卸载/重进存档才恢复。
+
+### 6.3 根因 C：客户端结构数据包的时序
+
+成型瞬间 `setController` / `notifyMultiUpdated` 连发 `sendData()`，而方块状态广播要等本刻末。
+客户端的方块实体若还没建/还没更新，数据包会被丢掉；而 `syncIfChanged` 是 10 刻 + 阈值，
+阈值内的结构变化不会补发。表现就是"护目镜/气面在刚成型时不更新，重进存档（区块更新标签重发）才好"。
+本轮不恢复客户端自愈（仍然由服务端权威下发），只在结构事件后 **事件刻 + 1 tick 补发一次**。
+
+### 6.4 修法
+
+| 位置 | 改动 |
+|---|---|
+| `GasNode` | 新增 `gasEndpoints()`（多方块的全部物理端点）与 `gasConnectedAt(endpoint, dir)`（按真实端点判连）；默认实现保持单方块节点不变 |
+| `GasNetworks` | 新增 `endpoints` 表（物理位置 → 节点身份）与端点缓存；`nodeAt` 先查端点；`collect`/`simulate` 从端点找邻居、按**节点身份**去重；`prune` 剔除 `!gasNodeActive()` 与 key≠gasPos 的条目并清 `registered`；新增 `structureChanged()`（成型/拆分显式清表+重注册）与 `unregisterAt()` |
+| `GasNetwork` | 流循环改为"每个端点 × 6 面"，边按 gasPos 去重；同一节点多个端点贴同一邻居只走一次 |
+| `DuctTankBlockEntity` | `gasEndpoints()` 扫整罐并只收 `tankRoot()` 相同的段；`gasConnectedAt()` 按端点判"同罐段不互连"；`notifyMultiUpdated` 调 `structureChanged` + `absorbOrphanGas`（换主方块不丢气）+ 2 tick 后补发数据；`removeController` 显式 unregister；`tick` 只消费一次性的结构补发，不写 blockstate |
+| `DuctTankBlock` | `onRemove` 在 `IBE.onRemove`/`splitMulti` 前先把该格从气体网络摘掉 |
+| `GasMix` | 新增 `clearMass()`（孤儿气搬走后清空旧 mix） |
+| `GasNodeState` | `serverTick` 对非节点主动 `unregister`（成员段不再留幽灵条目）；新增 `registerNow()` / `resetRegistration()`；`unregister` 改为按对象身份删表 |
+
+### 6.5 自检
+
+新增 `tools/selftest_tank_fill.py`（挂到 `tools/run_gates.ps1 -SelfTest`）：**71 条断言**。
+
+* `[F1]` 1×1：六个方向接导管都能进气；
+* `[F2]` 2×2×1：4 段 × 每个自由面（含东/北/上）都能进气；
+* `[F3]` 3×3×1：9 段 × 每个自由面都能进气；
+* `[F4]` 成型时旧主方块的残留注册项被结构事件清掉，新主方块立刻可进气；
+* `[F5]` 拆中间一段后上下两段各自重新注册、各自进气；
+* `[F6]` 2×2 的 8 个侧面接法进气量完全一致（不允许坐标偏置）；
+* `[F7]` 静态约束：端点抽象、按身份去重、`structureChanged`、不丢气、下一 tick 补发、
+  `prune` 清非节点、`removeController` 摘注册。
+
+### 6.6 实机确认点
+
+1. 搭 **2×2×1**，**立刻**在任意一段的任意自由面接导管 + 泵/压缩机：应开始进气（不需要重进存档）；
+2. 拆掉其中一段再补回去：重新成型后仍能进气；
+3. **1×1** 仍然正常；
+4. 成型瞬间看护目镜：`Tank: N blocks` 与压力应在 1 tick 内更新，不应停在成型前的读数；
+5. 罐里有气时加高/加宽：气不应归零（旧主方块的 orphan gas 会被搬进新主方块）。

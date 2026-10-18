@@ -63,11 +63,12 @@ public class CopterBearingRenderer extends SmartBlockEntityRenderer<CopterBearin
         renderStatic(ContraptionPartials.COPTER_PISTON_SE, state, facing, ms, vb, light);
         renderStatic(ContraptionPartials.COPTER_WAFER, state, facing, ms, vb, light);
 
-        // 顶盖：绕 facing 轴自转
+        // 顶盖：绕 facing 轴自转。getAngleForBe 返回弧度，必须用 rotateCentered（不是 ...Degrees），
+        // 否则弧度被当角度再除 57.3，旋翼顶盖看起来几乎不转（同 GyroRenderer / PropellerBearingRenderer）。
         final float angle = KineticBlockEntityRenderer.getAngleForBe(be, be.getBlockPos(), facing.getAxis());
         final SuperByteBuffer top = ContraptionRenderUtil.orientToFacing(
                 CachedBuffers.partial(ContraptionPartials.COPTER_TOP, state).reset(), facing);
-        top.rotateCenteredDegrees(angle, Direction.UP);
+        top.rotateCentered(angle, Direction.UP);
         top.light(light).renderInto(ms, vb);
     }
 

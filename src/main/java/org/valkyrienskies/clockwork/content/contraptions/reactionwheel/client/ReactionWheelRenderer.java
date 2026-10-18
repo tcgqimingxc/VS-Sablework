@@ -3,7 +3,6 @@ package org.valkyrienskies.clockwork.content.contraptions.reactionwheel.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
-import net.createmod.catnip.math.AngleHelper;
 import net.createmod.catnip.render.CachedBuffers;
 import net.createmod.catnip.render.SuperByteBuffer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -27,6 +26,11 @@ import org.valkyrienskies.clockwork.content.contraptions.reactionwheel.ReactionW
  *   <li>旧版读自己维护的 {@code LerpedFloat visualSpeed + angle}；1.21.1 的
  *       {@code KineticBlockEntity} 已无这两个字段（javap 核实），改用父类
  *       {@link #getAngleForBe}（换算同为 {@code speed * 3/10}，按渲染时间推进）。</li>
+ *   <li><b>角度单位（别再混）</b>：{@link #getAngleForBe} 返回<b>弧度</b>
+ *       （{@code ((renderTime*speed*3/10 + offset) % 360) / 180 * PI}，Create 6.0.10 字节码核实），
+ *       而 {@code SuperByteBuffer#rotateCentered} 收的也是<b>弧度</b>（{@code rotateCenteredDegrees}
+ *       才会先乘 π/180）。所以这里原值直传，<b>不要</b>再套 {@code AngleHelper.rad} ——
+ *       那会把弧度当角度再除 57.3，轮子看起来几乎不转（2026-10-18 修）。</li>
  *   <li>旧版重写 {@code getRenderedBlockState} 只画轴、不调 {@code super.renderSafe}，
  *       于是"轴"由 BER 画、轮子由它自己画的一遍覆盖；本移植改为
  *       <b>显式画轴 + 自己画转动的轮子</b>，比旧版少一层歧义。
@@ -54,9 +58,10 @@ public class ReactionWheelRenderer extends KineticBlockEntityRenderer<ReactionWh
         final float angle = getAngleForBe(be, be.getBlockPos(), axis);
         final VertexConsumer vb = buffer.getBuffer(RenderType.solid());
 
-        // 轮子：整个方块模型绕输入轴自转
+        // 轮子：整个方块模型绕输入轴自转。
+        // 弧度直传：getAngleForBe 与 rotateCentered 的单位都是弧度（见类注释）。
         final SuperByteBuffer wheel = CachedBuffers.block(state).reset();
-        wheel.rotateCentered(AngleHelper.rad(angle), ContraptionPartials.positiveDirection(axis));
+        wheel.rotateCentered(angle, ContraptionPartials.positiveDirection(axis));
         wheel.light(light).renderInto(ms, vb);
     }
 

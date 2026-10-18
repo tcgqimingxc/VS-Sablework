@@ -4,7 +4,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 一个管道连通域的本刻模拟。
@@ -38,25 +40,49 @@ final class GasNetwork {
             node.gasState().resetThroughput();
         }
 
-        // ① 连接流动：每对相邻节点只处理一次（用 BlockPos 的 packed long 去重）
+        // ① 连接流动。
+        //
+        // 关键：从节点的每个真实端点找邻居（见 GasNode#gasEndpoints），边的"只处理一次"按
+        // **节点身份**（gasPos）去重，而不是按物理坐标。
+        //
+        // 旧实现按物理坐标比较（`bPos.asLong() <= aPos.asLong()` 就跳过），在单方块节点上没问题；
+        // 但储罐整罐只有一个节点、身份是主方块坐标，而导管可以贴在任意一段上：
+        //   导管(physical D) -- 段(physical S, gasPos = 主方块 C) -- 主方块 C
+        // 从导管侧算的 pair 是 (D, S)，反向从储罐侧算的 pair 却是 (C, 邻居(C))。只要 S 与 C 不同，
+        // 当 asLong(S) < asLong(D) 时导管侧跳过、储罐侧又找不到 D，这条边就**永远不会被处理**。
+        // 实机表现：同一座 2×2/3×3 罐，导管接在主方块那一侧能进气、接在别的段上不进气；
+        // 1×1 因为 gasPos == 物理位置，永远正常。
+        // 现在两侧都从端点出发，按身份去重：无论哪边坐标大，总有一侧能枚举到这条边。
+        Set<Long> seenNeighbours = new HashSet<>();
         for (GasNode a : nodes) {
-            BlockPos aPos = a.gasPos();
-            for (Direction dir : Direction.values()) {
-                if (!a.gasConnected(dir)) {
-                    continue;
+            seenNeighbours.clear();
+            long aIdentity = a.gasPos().asLong();
+            for (BlockPos endpoint : GasNetworks.endpointsOf(level, a)) {
+                for (Direction dir : Direction.values()) {
+                    if (!a.gasConnectedAt(endpoint, dir)) {
+                        continue;
+                    }
+                    BlockPos bPos = endpoint.relative(dir);
+                    GasNode b = GasNetworks.nodeAt(level, bPos);
+                    if (b == null || b == a) {
+                        continue;
+                    }
+                    long bIdentity = b.gasPos().asLong();
+                    if (bIdentity == aIdentity) {
+                        continue;
+                    }
+                    // 每对节点只处理一次；同一节点有多个端点贴着同一个邻居时也只会走一次。
+                    if (bIdentity <= aIdentity || !seenNeighbours.add(bIdentity)) {
+                        continue;
+                    }
+                    if (!b.gasConnectedAt(bPos, dir.getOpposite())) {
+                        continue;
+                    }
+                    if (!a.isGasPipe() && !b.isGasPipe()) {
+                        continue;
+                    }
+                    transfer(a, b, dir);
                 }
-                BlockPos bPos = aPos.relative(dir);
-                if (bPos.asLong() <= aPos.asLong()) {
-                    continue;
-                }
-                GasNode b = GasNetworks.nodeAt(level, bPos);
-                if (b == null || !b.gasConnected(dir.getOpposite())) {
-                    continue;
-                }
-                if (!a.isGasPipe() && !b.isGasPipe()) {
-                    continue;
-                }
-                transfer(a, b, dir);
             }
         }
 
