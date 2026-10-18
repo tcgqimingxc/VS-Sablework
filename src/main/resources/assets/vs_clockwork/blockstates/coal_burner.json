@@ -38,7 +38,10 @@
     {
       "when": {
         "AND": [
-          {"facing":  "north", "lit":  true}
+          {
+            "facing": "north",
+            "lit": true
+          }
         ]
       },
       "apply": {
@@ -48,7 +51,10 @@
     {
       "when": {
         "AND": [
-          {"facing": "south", "lit":  true}
+          {
+            "facing": "south",
+            "lit": true
+          }
         ]
       },
       "apply": {
@@ -59,7 +65,10 @@
     {
       "when": {
         "AND": [
-          {"facing": "east", "lit":  true}
+          {
+            "facing": "east",
+            "lit": true
+          }
         ]
       },
       "apply": {
@@ -70,12 +79,23 @@
     {
       "when": {
         "AND": [
-          {"facing": "west", "lit":  true}
+          {
+            "facing": "west",
+            "lit": true
+          }
         ]
       },
       "apply": {
         "model": "vs_clockwork:block/coal_burner/flame",
         "y": 270
+      }
+    },
+    {
+      "when": {
+        "facing": "north"
+      },
+      "apply": {
+        "model": "vs_clockwork:block/coal_burner/block"
       }
     }
   ]

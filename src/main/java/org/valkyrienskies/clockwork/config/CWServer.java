@@ -146,6 +146,18 @@ public class CWServer extends ConfigBase {
             f(1.0f, 0.0f, 100.0f, "gyroStrength", Comments.gyroStrength);
     public final ConfigFloat gyroMaxTorque =
             f(2000000.0f, 0.0f, 1.0E9f, "gyroMaxTorque", Comments.gyroMaxTorque);
+    /**
+     * 陀螺合计允许给结构带来的最大角加速度 [rad/s²]（&lt;= 0 表示不限制，不推荐）。
+     *
+     * <p>为什么按角加速度而不是只按力矩封顶：陀螺算出的力矩本来就是
+     * {@code τ = I·Δω/dt}，结构越大 I 越大、力矩同比例变大，用固定的 N·m 上限会让
+     * 小船被弹飞、大船又不够用；按 α 封顶后大小结构手感一致（τ ∝ I 约掉）。
+     * 这个上限同时是"失控时不被弹飞"的主保证：无上限时一次修正就可能给出巨大的角冲量。
+     *
+     * <p>多块陀螺时按块数摊薄，合计仍然是这一个值（见 GyroBlockEntity 类注释 §5）。
+     */
+    public final ConfigFloat gyroMaxAngularAcceleration =
+            f(20.0f, 0.0f, 1000.0f, "gyroMaxAngularAcceleration", Comments.gyroMaxAngularAcceleration);
     public final ConfigFloat reactionWheelEffectiveness =
             f(1.0f, 0.0f, 100.0f, "reactionWheelEffectiveness", Comments.reactionWheelEffectiveness);
 
@@ -304,8 +316,12 @@ public class CWServer extends ConfigBase {
         static final String infuserAssemblyTicks = "从开始到真正装配所需的刻数（装配中再次右键可跳过）";
         static final String infuserMaxBlocks = "单次装配允许的最大方块数（防止选中过大区域卡死）";
         static final String attitude = "姿态控制（陀螺 / 反作用轮）";
-        static final String gyroStrength = "陀螺稳定强度倍率（1.0 = 旧版手感）";
-        static final String gyroMaxTorque = "单个陀螺每物理刻允许施加的最大力矩 [N*m]";
+        static final String gyroStrength = "陀螺稳定强度倍率（1.0 = 旧版手感），单位 1/s：乘在 0..100 的转速曲线上，"
+                + "高转速下每子步已能消掉全部误差，再调大基本无感";
+        static final String gyroMaxTorque = "单个陀螺每物理刻允许施加的最大力矩 [N*m]（绝对上限，兜底用）";
+        static final String gyroMaxAngularAcceleration =
+                "陀螺合计允许给结构带来的最大角加速度 [rad/s²]（<= 0 表示不限制，不推荐）："
+                        + "与结构大小无关，是「失控时不被弹飞」的主限幅（多块时按块数摊薄）";
         static final String reactionWheelEffectiveness = "反作用轮的等效转速倍率：越大转向越猛（角动量守恒由 Sable 处理）";
         static final String wing = "机翼 / 襟翼气动参数（platform/CWWingForces 读取）";
         static final String wingArea = "单块机翼的参考面积 [m²]（旧版按方块数累加）";
