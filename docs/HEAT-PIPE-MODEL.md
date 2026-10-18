@@ -3,6 +3,8 @@
 > 2026-10-18 返工。对应实机反馈"热管连接模型异常"。
 > 生成器：`tools/gen_heat_pipe_models.py`、`tools/gen_heat_pipe_blockstate.py`
 > 断言：`tools/selftest_heat_pipe_model.py`（已挂进 `tools/run_gates.ps1 -SelfTest`）
+> **连接判定与传热的语义见 `docs/HEAT-PIPE-CONNECTION.md`**（本文只谈几何/UV；"6 个连接布尔"
+> 在那边被定义为"热接触"，与画臂一一对应）。
 
 ## 1. 异常的具体表现与根因（证据）
 

@@ -156,12 +156,17 @@ double limit = MAX_FLOW_RATIO * Math.min(a.gasCapacityKg(), b.gasCapacityKg()); 
 
 `GasNetworks.structureChanged`（148-188）只清理**新 `scope` 范围内**的 `endpoints`，然后重新注册新端点。`prune`（254-272）只删除“节点已不在 `nodes` 里”的端点。若储罐从 3×3 缩成 1×1，旧主方块仍在 `nodes` 里，旧段落的 `endpoints` 映射不会被清掉；这些位置之后可能被 `nodeAt` 误认为仍是该罐的端点。正常拆除会触发相邻方块的 `neighborChanged`，所以多数情况下不会立刻出问题；但这是结构收缩/重建时的潜在幽灵连接。建议在 `structureChanged` 里用“旧端点列表 − 新端点列表”做差集清理，或在 `register` 前先移除该 `gasPos` 的所有旧端点。
 
-### 3.3 热管：`gasNodeActive=false` 并没有让 BFS 忽略它（报告项 P1/P2）
+### 3.3 热管：`gasNodeActive=false` 并没有让 BFS 忽略它（报告项 P1/P2，2026-10-18 已修）
 
 * `HeatPipeBlockEntity` 注释说“`gasNodeActive()=false` 让气体模拟忽略它”（27-29 行），`GasNodeState.serverTick` 也确实在 85-90 行提前返回。
 * 但 `GasNetworks.nodeAt` 在注册表找不到时，会回退到 `getBlockEntity(pos) instanceof GasNode`（90-95 行），因此热管仍会被 BFS 当作节点发现；`GasNetworks.collect` 没有检查 `gasNodeActive()`，于是“管道—热管”这一对会被加入 `out`，`GasNetwork.simulate` 会把气体搬进热管；热管另一侧如果也是管道，还会形成“管道—热管—管道”的旁路。
 * 另外，热管的 `HeatNode.neighbor` 只把**其他热管**当热节点（`HeatNode.at` 只认 `HeatNode` 实现；全仓库只有 `HeatPipeBlockEntity implements HeatNode`），所以热管目前既不能把热传给相邻管道/机器，又可能被当成气体节点；这与类注释“不参与气体流动、用于连通不通风体的邻居”不一致。
-* 建议（不在本次改动内）：在 `GasNetworks.collect`/`GasNetwork.simulate` 里显式跳过 `!gasNodeActive()` 的节点（网络层，属于并行任务 ② 的范围），或让 `HeatPipeBlockEntity` 不实现 `GasNode` 而只实现 `HeatNode`；同时让 `GasNodeBlockEntity` 实现 `HeatNode` 或给热管增加真正的端点换热。
+* **已修**（与 `docs/HEAT-PIPE-CONNECTION.md` 同一提交）：
+  1. `GasNetworks.nodeAt` 的方块实体回落改为 `gasNodeActive() ? gasNode : null`，热管/未注册成员不再是网络节点；
+  2. `HeatPipeBlockEntity#gasConnected` 恒 `false`，即使有人绕过 `nodeAt`，两侧连通判定也不会成立；
+  3. `GasNode extends HeatNode`，所有气体节点（导管/储罐/加热器/煤炉/斯特林/燃气机/…）都是热节点；
+  4. `HeatPipeBlock#getConnection` 要求邻居是 `HeatNode`，`HeatPipeBlockEntity#tick` 只在**画了臂**的面换热（旧实现是 `if (gasConnected(dir)) continue`，方向反了）。
+  自检：`tools/selftest_heat_pipe_connection.py`（`[C5]` 覆盖气体隔离、`[C1]` 覆盖连接矩阵）。
 
 ### 3.4 滤管/智能边件的过滤语义（报告项 P2）
 

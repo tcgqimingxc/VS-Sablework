@@ -23,6 +23,10 @@ import java.util.List;
  *       {@code sendData()/readClient}（只在数值变化超过阈值时发）。</li>
  * </ul>
  *
+ * <p>作为 {@link GasNode} 的实现，本基类的所有子类（加热器 / 煤炉 / 燃气机 / 导管 / 储罐 / …）
+ * 同时是热节点：热管可以直接从它们身上取热或放热，见 {@link GasNode} 的 HeatNode 默认方法。
+ * 这样"热管画了臂"与"这条臂能传热"是同一件事。
+ *
  * @param capacityScale 额定容量倍率（1.0 = 单根导管），见 {@link GasPhysics#nodeCapacityKg()}
  */
 public abstract class GasNodeBlockEntity extends SmartBlockEntity implements GasNode, IHaveGoggleInformation {

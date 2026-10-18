@@ -73,6 +73,11 @@ public final class GasNetworks {
      * <p>回落到方块实体时若它是多方块的成员（{@code gasPos()} 指向别处），优先返回已经注册的主方块
      * 节点；否则返回它自己 —— 它的 {@code gasPos()}/{@code gasEndpoints()} 语义仍然正确，
      * BFS 的 visited 按 gasPos 去重，不会把一座罐子当成多个节点。
+     *
+     * <p><b>未注册且 {@code gasNodeActive()=false} 的方块返回 null</b>：这类方块不是气体网络的一部分
+     * （热管、以及尚未来得及注册的储罐成员）。旧实现直接返回它自己，于是热管会被 BFS 当成节点、
+     * 气体能搬进热管并从另一侧穿出 —— 热管本应"导热不搬气"。储罐成员段不受影响：它们会先命中
+     * 上面的端点表；即使端点表缺失，只要控制器已注册就会在下一行被换成控制器。
      */
     @Nullable
     public static GasNode nodeAt(Level level, BlockPos pos) {
@@ -92,7 +97,10 @@ public final class GasNetworks {
             return null;
         }
         GasNode controllerNode = manager.nodes.get(gasNode.gasPos());
-        return controllerNode != null ? controllerNode : gasNode;
+        if (controllerNode != null) {
+            return controllerNode;
+        }
+        return gasNode.gasNodeActive() ? gasNode : null;
     }
 
     /**

@@ -21,6 +21,9 @@ import java.util.List;
  * {@code createNetworkId()} 都在 {@code GeneratingKineticBlockEntity} 上（已用 javap 核实）。
  * 纯耗能机器（泵 / 阀 / 压缩机）用同一个基类也完全正常：它们的 {@code getGeneratedSpeed()} 默认返回 0，
  * 不会自转。
+ *
+ * <p>与 {@link GasNodeBlockEntity} 一样，本基类的子类（斯特林 / 燃气机 / 泵 / 阀 / 压缩机 / 进气口）
+ * 经 {@link GasNode} 同时是热节点，热管可以直接与它们换热。
  */
 public abstract class GasKineticNodeBlockEntity extends GeneratingKineticBlockEntity
         implements GasNode, com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation {

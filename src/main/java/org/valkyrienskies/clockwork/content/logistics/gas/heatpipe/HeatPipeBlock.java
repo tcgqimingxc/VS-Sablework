@@ -27,21 +27,27 @@ import java.util.EnumMap;
 import java.util.Map;
 
 /**
- * 热管：把热量从一个气体节点"导"到相邻节点（包括<b>不通气体</b>的邻居）。
+ * 热管：把热量从一个气体节点"导"到相邻节点，但<b>不搬运气体</b>。
  *
- * <p><b>旧版与新仓库都没有这个方块的实现源码</b>（只有 {@code blockstates/heat_pipe.json}
- * 的 multipart 与 15 张贴图）。本实现是按 blockstate 已声明的 6 个连接布尔属性
- * （{@code up/down/north/south/east/west}）自行设计的：
+ * <p>对应官方 0.6.0（1.21.1）的 {@code HeatPipeBlock}（反编译见
+ * {@code _refs/baseline_vs_clockwork_0.6.0-1.21.1.jar}）。<b>1.20.1 仓库里没有它的 Java 实现</b>：
+ * 只有 {@code blockstates/heat_pipe.json}（30 条平面 multipart）与模型，
+ * {@code HeatsinkBlock.kt} 是个空类，Kelvin 子模块未初始化。
  *
+ * <p><b>与官方实现的差异（本方块的全部要点）</b>：
  * <ul>
- *   <li>连接规则与普通导管一致：相邻导管互连、相邻气体方块看 {@link IGasNodeBlock#gasConnectable}，
- *       用<b>扳手</b>可以单独关掉某一面（与资源里的 multipart 形状对应）。</li>
- *   <li>它<b>不算气体管道</b>：本体的气体不被模拟（{@code gasPressureDecay} 不在它身上生效），
- *       因此不会把网络里的气体从"接缝"漏出去，也不会把两台机器直接连通。</li>
- *   <li>它仍然按气体节点注册，所以邻接的机器/导管会自动与它建边 —— 但因为没有气体流动，
- *       这些边的唯一作用是"知道谁是邻居"，供传热使用。</li>
- *   <li>每刻与相邻的热节点交换热量（见 {@link HeatPipeBlockEntity}）。</li>
+ *   <li>官方 {@code getConnection} 只要求邻居是 {@link IGasNodeBlock}；但官方没有任何气体机器实现
+ *       {@code HeatNode}，{@code HeatPipeBlockEntity#tick} 又用 {@code if (gasConnected(dir)) continue}
+ *       跳过"画了臂"的面 —— 结果是<b>臂画得越多越不传热</b>，两根热管接在一起反而完全不换热。</li>
+ *   <li>本移植把判据统一成"<b>臂 = 热接触</b>"：邻居必须是 {@link HeatNode}（所有气体节点经
+ *       {@link org.valkyrienskies.clockwork.content.logistics.gas.GasNode} 继承该接口），
+ *       并且（若邻居是气体方块）自报这一面可连。画臂与传热从此是同一个谓词。</li>
+ *   <li>热管仍然不参与气体网络：{@code gasNodeActive=false}、{@code gasConnected=false}、
+ *       {@code isGasPipe=false}；官方"不搬气体"的语义不变。</li>
  * </ul>
+ *
+ * <p>连接臂/碰撞箱仍按 6 个连接布尔属性出（与资源里的部件级 multipart 逐面一致）；
+ * 扳手可以单独关掉某一面 —— 关掉即"断开热接触"，不再传热。
  */
 public class HeatPipeBlock extends Block implements IBE<HeatPipeBlockEntity>, IGasNodeBlock, IWrenchable {
 
@@ -148,16 +154,36 @@ public class HeatPipeBlock extends Block implements IBE<HeatPipeBlockEntity>, IG
 
     // ===================== 连接判定 =====================
 
-    /** 与 {@code GasDuctBlock#getConnection} 同规则，但只有两态（连 / 不连）。 */
+    /**
+     * 某个面是否与邻居建立<b>热接触</b>（= 是否画臂 = 是否换热）。
+     *
+     * <p>规则：
+     * <ul>
+     *   <li>相邻热管：看对方朝向本方的连接位（互连；任一侧用扳手关掉都会让两侧一起断开）；</li>
+     *   <li>相邻气体方块：必须<b>有热质量</b>（{@link HeatNode#at} 非空）且自报这一面可连
+     *       （{@link IGasNodeBlock#gasConnectable}：加热器/斯特林/燃气机只在端口方向为真，
+     *       所以连接矩阵与官方逐面一致）；</li>
+     *   <li>相邻的非气体热节点（接口留给以后的炉子/热源）：整块都是热质量，任何一面都算。</li>
+     * </ul>
+     *
+     * <p><b>为什么这里要查一次方块实体</b>：只按方块类型判定的旧写法，在"气体方块但不是热节点"
+     * 时会画出一条永远不会传热的臂 —— 实机反馈的"臂伸过去了、温度不动"就是这种不一致。
+     * 多一次 {@code getBlockEntity} 换来"臂 ⇔ 传热"永远成立。
+     */
     public boolean getConnection(BlockState state, BlockPos pos, BlockState neighborState,
                                  BlockPos neighborPos, Direction dir, Level level) {
         if (neighborState.getBlock() instanceof HeatPipeBlock) {
             return neighborState.getValue(DIR_TO_CONNECTION.get(dir.getOpposite()));
         }
+        if (HeatNode.at(level, neighborPos) == null) {
+            // 没有热质量的邻居：画臂也导不了热，不画。
+            return false;
+        }
         if (neighborState.getBlock() instanceof IGasNodeBlock nodeBlock) {
             return nodeBlock.gasConnectable(neighborState, dir.getOpposite());
         }
-        return false;
+        // 非气体的热节点：没有"端口方向"的概念，贴着就算接触。
+        return true;
     }
 
     public BlockState getConnectedState(Level level, BlockState state, BlockPos pos) {
@@ -197,7 +223,13 @@ public class HeatPipeBlock extends Block implements IBE<HeatPipeBlockEntity>, IG
         }
     }
 
-    /** 热管本身愿意与任意方向的气体节点相通（是否真连通由双方的连接状态决定）。 */
+    /**
+     * 邻居问"这一面能不能连"时返回自己的连接位。
+     *
+     * <p>注意这里的"连"对热管是<b>结构/热接触</b>，不是"气体能通过"：导管据此画自己的接口短管
+     * （否则两根管子之间会留 3px 空隙），而热管方块实体把 {@code gasConnected} 恒定为 false，
+     * 保证气体网络不会把热管当节点搬气。两件事分开声明，见 {@code HeatPipeBlockEntity#gasConnected}。
+     */
     @Override
     public boolean gasConnectable(BlockState state, Direction dir) {
         return state.getValue(DIR_TO_CONNECTION.get(dir));
@@ -235,11 +267,33 @@ public class HeatPipeBlock extends Block implements IBE<HeatPipeBlockEntity>, IG
             return InteractionResult.SUCCESS;
         }
         final Direction dir = context.getClickedFace();
-        final boolean next = !state.getValue(DIR_TO_CONNECTION.get(dir));
-        level.setBlockAndUpdate(pos, state.setValue(DIR_TO_CONNECTION.get(dir), next));
+        final boolean current = state.getValue(DIR_TO_CONNECTION.get(dir));
+        // 关掉永远允许；打开则必须"打得开也导得了热"，否则会造出一条不传热的死臂。
+        // 相邻热管例外：它的连接位会在 neighborChanged 里跟着本方块一起置位。
+        if (!current && !canWrenchOn(level, pos, dir)) {
+            return InteractionResult.FAIL;
+        }
+        level.setBlockAndUpdate(pos, state.setValue(DIR_TO_CONNECTION.get(dir), !current));
         level.playSound(null, pos, AllSoundEvents.WRENCH_ROTATE.getMainEvent(),
                 net.minecraft.sounds.SoundSource.BLOCKS, 1.0F, 1.0F);
         return InteractionResult.SUCCESS;
+    }
+
+    /** 扳手"打开"这一面时，邻居是否真的能形成热接触（规则与 {@link #getConnection} 一致，热管除外）。 */
+    private boolean canWrenchOn(Level level, BlockPos pos, Direction dir) {
+        final BlockPos neighborPos = pos.relative(dir);
+        final BlockState neighborState = level.getBlockState(neighborPos);
+        if (neighborState.getBlock() instanceof HeatPipeBlock) {
+            // 对面热管会在 neighborChanged 里用本方块的新连接位重算，不需要它先为 true。
+            return true;
+        }
+        if (HeatNode.at(level, neighborPos) == null) {
+            return false;
+        }
+        if (neighborState.getBlock() instanceof IGasNodeBlock nodeBlock) {
+            return nodeBlock.gasConnectable(neighborState, dir.getOpposite());
+        }
+        return true;
     }
 
     @Override

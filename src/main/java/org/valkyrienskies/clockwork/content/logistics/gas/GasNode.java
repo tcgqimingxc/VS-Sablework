@@ -3,6 +3,7 @@ package org.valkyrienskies.clockwork.content.logistics.gas;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
+import org.valkyrienskies.clockwork.content.logistics.gas.heatpipe.HeatNode;
 
 import java.util.List;
 
@@ -14,8 +15,13 @@ import java.util.List;
  * 本移植把状态直接放在方块实体里的 {@link GasNodeState}，不再有独立的求解器对象。
  *
  * <p>所有可选行为都给了默认实现，实现类通常只需要提供 {@link #gasState()}。
+ *
+ * <p><b>气体节点同时是热节点</b>（{@code extends HeatNode}）：气体节点已经有温度与热容
+ * （{@link GasMix}），热管要的正是这两样，没必要再引入第二份温度字段。官方语言文件对热管的
+ * 描述是"在相邻节点之间导热、不搬气体"，所以这里让每个气体节点都能被热管取放热量，
+ * 而不是只给四台机器开小灶（见 {@link #heatNodeTemperature()} 等默认方法）。
  */
-public interface GasNode {
+public interface GasNode extends HeatNode {
 
     /** 节点状态（气体内容 + 容量），实现类各自持有一份。 */
     GasNodeState gasState();
@@ -31,6 +37,50 @@ public interface GasNode {
 
     default GasMix gasMix() {
         return gasState().mix();
+    }
+
+    // ===================== HeatNode：气体节点就是热节点 =====================
+
+    /**
+     * 节点温度 = 节点内气体温度 [K]。
+     *
+     * <p>用同一份 {@link GasMix} 而不是另存"管壁温度"：Kelvin 体系里节点本来就是一个
+     * 完全混合的集总体，气体与管壁共用一个温度；节点被抽空后 {@link GasMix} 仍保留最后一次温度，
+     * 正好当作管壁温度（热管贴着空管也能读到温度）。
+     */
+    @Override
+    default double heatNodeTemperature() {
+        return gasMix().temperature();
+    }
+
+    /**
+     * 节点热容 [J/K] = 气体热容 + 管壁热容。
+     *
+     * <p>与 {@code GasNetwork#conduct} 用同一口径，换热两侧各走 {@code ±Q/C} 后 {@code Σ C·T}
+     * 守恒；只用气体热容会让"空节点"（只剩管壁）无法参与换热。
+     */
+    @Override
+    default double heatNodeCapacity() {
+        return gasMix().nodeHeatCapacity();
+    }
+
+    /**
+     * 热接触点 = <b>本方块实体自己的坐标</b>，不是 {@link #gasPos()}。
+     *
+     * <p>两者在单方块节点上相同；多方块储罐的 {@code gasPos()} 恒为主方块坐标，而热管可能贴在
+     * 任意一段上，且 {@link HeatNode#at} 用"返回坐标 == 查询坐标"防伪。这里必须回真实方块坐标
+     * （{@link GasNodeState#hostPos()}），否则贴在第 2 段上的热管会被判成"不是热节点"。
+     */
+    @Override
+    default BlockPos heatNodePos() {
+        return gasState().hostPos();
+    }
+
+    /** 热管写入温度：直接改节点混合温度，并标脏（客户端由既有同步机制跟上）。 */
+    @Override
+    default void setHeatNodeTemperature(double kelvin) {
+        gasMix().setTemperature(kelvin);
+        gasChanged();
     }
 
     /** 该节点的额定气体容量 [kg]，决定压力（见 {@link GasMix#pressure}）。 */
